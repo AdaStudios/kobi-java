@@ -55,6 +55,8 @@ public class HSQLDBTest
                 Class.forName("org.hsqldb.jdbcDriver");
                 // Default user of the HSQLDB is 'sa'
                 // with an empty password
+
+                //asdasdads
                 connection = DriverManager.getConnection(
                         "jdbc:hsqldb:hsql://localhost/xdb", "sa", "");
 
