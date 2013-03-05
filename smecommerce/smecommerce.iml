@@ -7,9 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="postgresql-9.2-1002.jdbc3" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-5.1.22-bin" level="project" />
-    <orderEntry type="library" name="hsqldb-2.2.5" level="project" />
+    <orderEntry type="library" name="smecommerce" level="project" />
   </component>
 </module>
 

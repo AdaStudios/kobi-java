@@ -7,6 +7,7 @@ package com.ada.sme.deneme;
  * Time: 2:46 AM
  * To change this template use File | Settings | File Templates.
  */
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,15 +15,18 @@ import java.sql.SQLException;
 
 import org.hsqldb.Server;
 
-public class HSQLDBTest {
+public class HSQLDBTest
+{
 
     public static void main(String[] args) throws
-            ClassNotFoundException, SQLException {
+            ClassNotFoundException, SQLException
+    {
 
         // 'Server' is a class of HSQLDB representing
         // the database server
         Server hsqlServer = null;
-        try {
+        try
+        {
             hsqlServer = new Server();
 
             // HSQLDB prints out a lot of informations when
@@ -45,7 +49,8 @@ public class HSQLDBTest {
             // We have here two 'try' blocks and two 'finally'
             // blocks because we have two things to close
             // after all - HSQLDB server and connection
-            try {
+            try
+            {
                 // Getting a connection to the newly started database
                 Class.forName("org.hsqldb.jdbcDriver");
                 // Default user of the HSQLDB is 'sa'
@@ -60,16 +65,16 @@ public class HSQLDBTest {
                 // once again, insert some data and then read it
                 // with SELECT query.
                 connection.prepareStatement(
-                        "create table testtable ( id INTEGER, "+
+                        "create table testtable ( id INTEGER, " +
                                 "name VARCHAR(45));")
                         .execute();
                 connection.prepareStatement(
-                        "insert into testtable(id, name) "+
+                        "insert into testtable(id, name) " +
                                 "values (1, 'testvalue');")
                         .execute();
 
                 connection.prepareStatement(
-                        "insert into testtable(id, name) "+
+                        "insert into testtable(id, name) " +
                                 "values (2, 'testvalue2');")
                         .execute();
 
@@ -89,16 +94,20 @@ public class HSQLDBTest {
                         + rs.getString(2));
 
 
-            } finally {
+            } finally
+            {
                 // Closing the connection
-                if (connection != null) {
+                if (connection != null)
+                {
                     connection.close();
                 }
 
             }
-        } finally {
+        } finally
+        {
             // Closing the server
-            if (hsqlServer != null) {
+            if (hsqlServer != null)
+            {
                 hsqlServer.stop();
             }
         }
