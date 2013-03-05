@@ -1,2 +1,2 @@
-aga poku üstüne pok olurmu ulen!
-O yeah riza bunu değiştir
+February 2013 - te day project code (java) started.
+
