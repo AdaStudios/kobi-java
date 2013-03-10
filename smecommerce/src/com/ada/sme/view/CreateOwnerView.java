@@ -3,7 +3,7 @@ package com.ada.sme.view;
 import javax.swing.*;
 import java.awt.*;
 
-public class CreateOwnerView
+public class CreateOwnerView   extends JPanel
 {
     private JPanel createOwnerContainerPanel;
     private JTextField ownerIdTextField;
@@ -17,14 +17,14 @@ public class CreateOwnerView
     private JTextPane createOwnerHeaderTextPane;
     private JLabel createOwnerHeaderLogoLabel;
 
-//    public static void main(String[] args)
-//    {
-//        JFrame frame = new JFrame("CreateOwnerView");
-//        frame.setContentPane(new CreateOwnerView().createOwnerContainerPanel);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.pack();
-//        frame.setVisible(true);
-//    }
+    public static void main(String[] args)
+    {
+        JFrame frame = new JFrame("CreateOwnerView");
+        frame.setContentPane(new CreateOwnerView().createOwnerContainerPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
 
     public CreateOwnerView()
     {

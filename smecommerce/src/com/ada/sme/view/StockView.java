@@ -33,16 +33,6 @@ public class StockView extends JFrame {
 	JLabel hata;
 	JButton btnAra, btnEkle, btnGuncelle, btnSil, btnrnEkle;
 
-	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { StockView frame = new StockView();
-	 * frame.setVisible(true); initializeDB(); } catch (Exception e) {
-	 * e.printStackTrace(); } } }); }
-	 */
-
 	
 	public String getSearchInput() {
 		return textField.getText();

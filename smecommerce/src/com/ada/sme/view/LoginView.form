@@ -50,7 +50,7 @@
           <text value="Parola:"/>
         </properties>
       </component>
-      <component id="3260a" class="javax.swing.JButton" binding="çıkışButton" default-binding="true">
+      <component id="3260a" class="javax.swing.JButton" binding="exitButton">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -58,7 +58,7 @@
           <text value="Çıkış"/>
         </properties>
       </component>
-      <component id="f0687" class="javax.swing.JButton" binding="girişButton" default-binding="true">
+      <component id="f0687" class="javax.swing.JButton" binding="loginButton">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
