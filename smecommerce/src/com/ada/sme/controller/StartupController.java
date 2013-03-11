@@ -1,7 +1,6 @@
 package com.ada.sme.controller;
 
 import com.ada.sme.main.Main;
-import com.ada.sme.main.Product;
 import com.ada.sme.model.StartupModel;
 import com.ada.sme.model.StatusModel;
 import com.ada.sme.model.StockModel;
@@ -14,22 +13,18 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * User: Enes Kıdık
- * Date: 3/10/13 --  Time: 2:58 PM
- */
 public class StartupController
 {
 
     LoginView loginView;
     CreateOwnerView createOwner;
     StartupModel startupModel;
-    StartupController a;
+    StartupController startupControllerInstance;
 
 
     public StartupController(JPanel v)
     {
-        a=this;
+        startupControllerInstance=this;
         startupModel = new StartupModel();
               if(v instanceof LoginView){
                       loginView =(LoginView) v;
@@ -63,7 +58,6 @@ public class StartupController
                     loginView.setVisible(false);
                     frame.setVisible(true);
                     Main.closeLogin();
-                   ;
 
                 }
 

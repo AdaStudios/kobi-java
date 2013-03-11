@@ -1,15 +1,14 @@
 package com.ada.sme.controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-import com.ada.sme.main.Main;
 import com.ada.sme.main.Product;
 import com.ada.sme.model.FileModel;
 import com.ada.sme.model.StatusModel;
 import com.ada.sme.model.StockModel;
 import com.ada.sme.view.StockView;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class StockController {
 	private StockModel s_model;

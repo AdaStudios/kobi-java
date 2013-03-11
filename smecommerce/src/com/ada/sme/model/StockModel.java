@@ -1,18 +1,14 @@
 package com.ada.sme.model;
 
-import java.io.IOException;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import com.ada.sme.controller.StatusController;
+import com.ada.sme.main.Main;
+import com.ada.sme.main.Product;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import com.ada.sme.controller.StatusController;
-import com.ada.sme.main.Main;
-import com.ada.sme.main.Product;
 
 public class StockModel {
 

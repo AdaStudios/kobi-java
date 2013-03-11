@@ -1,13 +1,13 @@
 package com.ada.sme.controller;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-
 import com.ada.sme.main.Main;
 import com.ada.sme.model.FileModel;
 import com.ada.sme.model.StatusModel;
 import com.ada.sme.model.StockModel;
 import com.ada.sme.view.StatusPanelView;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 
 public class StatusController extends Thread{

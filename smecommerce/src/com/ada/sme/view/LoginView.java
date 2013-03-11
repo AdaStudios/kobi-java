@@ -1,14 +1,12 @@
 package com.ada.sme.view;
 
-import org.hsqldb.error.*;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class LoginView   extends  JPanel
 {
-    public JPanel loginViewContainerPanel;
+    private JPanel loginViewContainerPanel;
     private JLabel loginViewHeadLabel;
     private JTextPane loginViewTextPane;
     private JTextField userIdTextField;
@@ -21,7 +19,7 @@ public class LoginView   extends  JPanel
     public LoginView()
     {
 
-        //set head label
+        //set head label Maybe it can be updated with a logo style image later.
         loginViewHeadLabel.setFont(new Font("arial", Font.BOLD, 18));
         loginViewHeadLabel.setForeground(new Color(143, 51, 32));
         loginViewHeadLabel.setText("E-COMMERCE for SME v0.01");
@@ -35,11 +33,8 @@ public class LoginView   extends  JPanel
     public String[] getLoginParams(){
         String params[]={"",""};
         params[0]=userIdTextField.getText();
-        params[1]=userPasswordPasswordField.getText();
-
-        System.out.print(params[1]+"--"+params[0]);
+        params[1]= String.valueOf( userPasswordPasswordField.getPassword() );
         return params;
-
     }
 
     public void addLoginListener(ActionListener loginListener){
@@ -51,6 +46,10 @@ public class LoginView   extends  JPanel
         loginViewTextPane.setText("Kullanıcı Adı ya da Parola Hatalı!");
     }
 
+    public JPanel getLoginViewContainerPanel()
+    {
+        return loginViewContainerPanel;
+    }
    /* public static void main(String[] args)
     {
         JFrame frame = new JFrame("LoginView");

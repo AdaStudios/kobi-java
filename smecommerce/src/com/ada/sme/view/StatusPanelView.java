@@ -1,10 +1,7 @@
 package com.ada.sme.view;
 
-import java.awt.Color;
-import java.awt.event.ActionListener;
-
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
 
 public class StatusPanelView extends JPanel {
 

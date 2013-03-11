@@ -8,12 +8,12 @@ package com.ada.sme.deneme;
  * To change this template use File | Settings | File Templates.
  */
 
+import org.hsqldb.Server;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import org.hsqldb.Server;
 
 public class HSQLDBTest
 {

@@ -1,20 +1,13 @@
 package com.ada.sme.model;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import com.ada.sme.controller.StatusController;
+import com.ada.sme.main.Product;
+
+import java.io.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import com.ada.sme.controller.StatusController;
-import com.ada.sme.main.Main;
-import com.ada.sme.main.Product;
 
 public class FileModel {
 

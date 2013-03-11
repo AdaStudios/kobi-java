@@ -1,11 +1,5 @@
 package com.ada.sme.model;
 
-import javax.swing.*;
-
-/**
- * User: Enes Kıdık
- * Date: 3/10/13 --  Time: 3:06 PM
- */
 public class StartupModel
 {
     Boolean loginStatus = false;

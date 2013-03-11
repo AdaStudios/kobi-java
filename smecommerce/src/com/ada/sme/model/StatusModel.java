@@ -5,8 +5,6 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import com.ada.sme.controller.StatusController;
-
 public class StatusModel extends Thread {
 
 	Inet4Address a;
