@@ -1,6 +1,6 @@
 package com.ada.sme.view;
 
-import net.miginfocom.swing.MigLayout;
+//import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -32,10 +32,14 @@ public class MainFrame
 
     public static void main(String[] args)
     {
-        JFrame frame = new JFrame("MainFrame");
+        JFrame frame = new JFrame("E-Commerce for SME");
         frame.setContentPane(new MainFrame().mainFrameContainerPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+    }
+    public JPanel getMainFrameContainerPanel()
+    {
+       return mainFrameContainerPanel;
     }
 }
