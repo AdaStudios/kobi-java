@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainFrame
+public class MainFrame extends JFrame
 {
     private JPanel mainFrameContainerPanel;
     private JPanel topPanel;
@@ -22,14 +22,12 @@ public class MainFrame
 
     public MainFrame()
     {
+
+
     }
 
-    public static void main(String[] args)
-    {
-        JFrame frame = new JFrame("MainFrame");
-        frame.setContentPane(new MainFrame().mainFrameContainerPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+    public JPanel getMainFrameContainerPanel(){
+        return mainFrameContainerPanel;
     }
+
 }

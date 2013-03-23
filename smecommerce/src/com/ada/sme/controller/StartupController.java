@@ -4,10 +4,7 @@ import com.ada.sme.main.Main;
 import com.ada.sme.model.StartupModel;
 import com.ada.sme.model.StatusModel;
 import com.ada.sme.model.StockModel;
-import com.ada.sme.view.CreateOwnerView;
-import com.ada.sme.view.LoginView;
-import com.ada.sme.view.StatusPanelView;
-import com.ada.sme.view.StockView;
+import com.ada.sme.view.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -46,18 +43,28 @@ public class StartupController
                     loginView.setResult(result);
                 }else{
 
-                    StatusPanelView statuspanel = new StatusPanelView();
-                    StatusModel statusmodel = new StatusModel("139.179.139.112");
-                    StatusController c = new StatusController(statusmodel, statuspanel);
-                    c.initializeDB();
+//                    StatusPanelView statuspanel;
+//                    statuspanel = new StatusPanelView();
+//                    StatusModel statusmodel = new StatusModel("139.179.139.112");
+//                    StatusController c = new StatusController(statusmodel, statuspanel);
+//                    c.initializeDB();
+//
+//                    StockModel model = new StockModel();
+//                    MainFrame frame = new MainFrame();
+//                    StockView frame1 = new StockView(model,statuspanel);
+//                    StockController s_controller = new StockController(model,frame);
 
-                    StockModel model = new StockModel();
-                    StockView frame = new StockView(model,statuspanel);
-                    StockController s_controller = new StockController(model,frame);
-
-                    loginView.setVisible(false);
-                    frame.setVisible(true);
+//                    loginView.setVisible(false);
+//                    frame.setVisible(true);
+//
                     Main.closeLogin();
+                    JFrame frame = new JFrame("MainFrame");
+                    frame.setContentPane(new MainFrame().getMainFrameContainerPanel());
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.pack();
+
+                    frame.setVisible(true);
+
 
                 }
 
