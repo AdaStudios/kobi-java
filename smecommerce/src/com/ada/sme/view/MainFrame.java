@@ -1,5 +1,8 @@
 package com.ada.sme.view;
 
+import com.ada.sme.controller.StartupController;
+import com.ada.sme.controller.StoreController;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,11 +26,24 @@ public class MainFrame extends JFrame
     public MainFrame()
     {
 
+        LeftMenuView leftMenuScreen = new LeftMenuView();
 
+        StoreController startupController = new StoreController(leftMenuScreen);
+
+
+    }
+
+    public void addStoreListener(ActionListener storeListener){
+        localStoreButton.addActionListener(storeListener);
     }
 
     public JPanel getMainFrameContainerPanel(){
         return mainFrameContainerPanel;
+    }
+
+    public void setLeftPanel(LeftMenuView leftMenu){
+        leftPanel.setVisible(false);
+
     }
 
 }
