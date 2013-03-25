@@ -7,23 +7,28 @@ import com.ada.sme.model.StockModel;
 import com.ada.sme.view.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StoreController extends LeftMenuView {
 
-    MainFrame mainFrame;
+
     CreateOwnerView createOwner;
-    StoreController startupControllerInstance;
+    StoreController storeControllerInstance;
     LeftMenuView leftMenu;
+    StartupController startupController;
 
-
-    public StoreController(LeftMenuView v)
+    public StoreController()
     {
-        leftMenu=v;
-        startupControllerInstance=this;
-        mainFrame.addStoreListener(new StoreListener());
-        StoreController storeController = new StoreController(new LeftMenuView());
+        LeftMenuView l1 = new LeftMenuView();
+        StoreModel sm = new StoreModel();
+        l1.setVisible(true);
+        JPanel p2 = new JPanel();
+        p2.add(new Button("osman"));
+        MainFrame.mfinstance.setLeftPanel(l1);
+
+        storeControllerInstance=this;
     }
 
     class StoreListener implements ActionListener
@@ -32,7 +37,7 @@ public class StoreController extends LeftMenuView {
             System.out.print("click");
 
 
-            mainFrame.setLeftPanel(leftMenu);
+
 //
 
 

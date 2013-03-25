@@ -17,7 +17,7 @@ public class StartupController
     CreateOwnerView createOwner;
     StartupModel startupModel;
     StartupController startupControllerInstance;
-
+    MainFrame frame;
 
     public StartupController(JPanel v)
     {
@@ -30,6 +30,10 @@ public class StartupController
               }
 
         loginView.addLoginListener(new LoginListener());
+    }
+
+    public MainFrame getMainFrame(){
+         return frame;
     }
 
     class LoginListener implements ActionListener
@@ -58,12 +62,13 @@ public class StartupController
 //                    frame.setVisible(true);
 //
                     Main.closeLogin();
-                    JFrame frame = new JFrame("MainFrame");
+                    frame = new MainFrame();
                     frame.setContentPane(new MainFrame().getMainFrameContainerPanel());
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.pack();
 
                     frame.setVisible(true);
+                   // StoreController storeController=new StoreController(new com.ada.sme.view.LeftMenuView(),frame);
 
 
                 }

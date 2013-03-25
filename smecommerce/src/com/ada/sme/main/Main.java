@@ -29,6 +29,7 @@ public class Main
 
             StartupController startupController = new StartupController(loginScreen);
 
+
             loginScreen.setVisible(true);
 
             frame = new JFrame("Giriş Ekranı");

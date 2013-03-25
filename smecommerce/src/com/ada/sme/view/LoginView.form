@@ -30,7 +30,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value="enes"/>
+        </properties>
       </component>
       <component id="a11fb" class="javax.swing.JLabel" binding="userIdLabel">
         <constraints>
@@ -72,7 +74,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value="enes"/>
+        </properties>
       </component>
       <hspacer id="e2372">
         <constraints>

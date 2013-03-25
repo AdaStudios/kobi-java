@@ -4,6 +4,7 @@ import com.ada.sme.controller.StartupController;
 import com.ada.sme.controller.StoreController;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,18 +21,30 @@ public class MainFrame extends JFrame
     private JButton notificationsButton;
     private JButton stockButton;
     private JButton supportButton;
-    private JLabel current;
+    public static MainFrame mfinstance;
 
 
     public MainFrame()
     {
 
-        LeftMenuView leftMenuScreen = new LeftMenuView();
+        mfinstance = this;
 
-        StoreController startupController = new StoreController(leftMenuScreen);
+
+        localStoreButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+               StoreController sc = new StoreController();
+            }
+        });
+
+
 
 
     }
+
+
 
     public void addStoreListener(ActionListener storeListener){
         localStoreButton.addActionListener(storeListener);
@@ -41,8 +54,20 @@ public class MainFrame extends JFrame
         return mainFrameContainerPanel;
     }
 
-    public void setLeftPanel(LeftMenuView leftMenu){
-        leftPanel.setVisible(false);
+    public void setLeftPanel(JPanel leftMenu){
+
+         //leftPanel=(LeftMenuView) leftMenu ;
+       /* LeftMenuView l1 = new LeftMenuView();
+        l1.setVisible(true);   */
+        /*leftPanel = l1;
+
+        leftPanel.validate(); */
+         System.out.print("hebele");
+
+        leftPanel.removeAll();
+        leftPanel.add(new Button("hebele"));
+
+
 
     }
 
