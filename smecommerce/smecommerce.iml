@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="smecommerce" level="project" />
+    <orderEntry type="library" exported="" name="smecommerce" level="project" />
   </component>
 </module>
 

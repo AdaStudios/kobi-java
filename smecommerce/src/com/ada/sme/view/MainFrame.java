@@ -1,7 +1,7 @@
 package com.ada.sme.view;
 
-import com.ada.sme.controller.StartupController;
 import com.ada.sme.controller.StoreController;
+import com.intellij.uiDesigner.core.GridConstraints;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,12 +23,14 @@ public class MainFrame extends JFrame
     private JButton supportButton;
     public static MainFrame mfinstance;
 
+    private JButton             buttonOK;
+
 
     public MainFrame()
     {
-
         mfinstance = this;
 
+        //leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.PAGE_AXIS));
 
         localStoreButton.addActionListener(new ActionListener()
         {
@@ -38,13 +40,7 @@ public class MainFrame extends JFrame
                StoreController sc = new StoreController();
             }
         });
-
-
-
-
     }
-
-
 
     public void addStoreListener(ActionListener storeListener){
         localStoreButton.addActionListener(storeListener);
@@ -54,18 +50,23 @@ public class MainFrame extends JFrame
         return mainFrameContainerPanel;
     }
 
-    public void setLeftPanel(JPanel leftMenu){
-
-         //leftPanel=(LeftMenuView) leftMenu ;
-       /* LeftMenuView l1 = new LeftMenuView();
-        l1.setVisible(true);   */
-        /*leftPanel = l1;
-
-        leftPanel.validate(); */
-         System.out.print("hebele");
+    public void setLeftPanel(LeftMenuView leftMenu){
 
         leftPanel.removeAll();
-        leftPanel.add(new Button("hebele"));
+
+        try {
+            leftPanel.add(leftMenu.getLeftMenuContainerPanel() , new GridBagConstraints( 0, GridBagConstraints.RELATIVE, 1, 1, 0, 0, GridBagConstraints.NORTHWEST,
+                    GridBagConstraints.NONE, new Insets(0,0,0,0), 0,0) );
+
+            leftPanel.add(new LeftStaffAltMenuView().getLeftStaffAltMenuContainerPanel() , new GridBagConstraints(0, GridBagConstraints.RELATIVE, 1, 1, 0, 0, GridBagConstraints.NORTHWEST,
+                    GridBagConstraints.NONE, new Insets(0,0,0,0), 0, 0) );
+
+            leftPanel.revalidate();
+
+        } catch (  Exception nfe) {
+            JOptionPane.showMessageDialog(null, nfe.getMessage());
+        }
+
 
 
 

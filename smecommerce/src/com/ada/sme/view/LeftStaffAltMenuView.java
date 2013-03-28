@@ -12,4 +12,9 @@ public class LeftStaffAltMenuView
     private JButton addStaffButton;
     private JButton updateStaffButton;
     private JButton deleteStaffButton;
+
+    public JPanel getLeftStaffAltMenuContainerPanel()
+    {
+        return leftStaffAltMenuContainerPanel;
+    }
 }
