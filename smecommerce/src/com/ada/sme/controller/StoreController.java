@@ -6,12 +6,19 @@ import com.ada.sme.view.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StoreController extends LeftMenuView {
+public class StoreController  {                                    //extends LeftMenuView
 
 
     CreateOwnerView createOwner;
     StoreController storeControllerInstance;
-    LeftMenuView leftMenu;
+
+
+
+    ////////LeftMenuView leftMenu;
+
+
+
+
     StartupController startupController;
 
     public StoreController()
@@ -19,13 +26,21 @@ public class StoreController extends LeftMenuView {
         storeControllerInstance=this;
 
 
-        LeftMenuView l1 = new LeftMenuView();
+
+
+
+
+        //////LeftMenuView l1 = new LeftMenuView();
+
+
+   /*
+
         //l1.setLayout(new GridBagLayout() );
         System.out.println( " --->LeftMenu view geldi :::" + l1.getLeftMenuContainerPanel().toString() );
 
         StoreModel sm = new StoreModel();
         l1.getLeftMenuContainerPanel().setVisible(true);
-        MainFrame.mfinstance.setLeftPanel(l1);
+        MainFrame.mainFrameInstance.setLeftPanel(l1);*/
 
     }
 

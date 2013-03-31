@@ -4,7 +4,7 @@ import com.ada.sme.controller.StartupController;
 import com.ada.sme.controller.StoreController;
 import com.ada.sme.view.CreateOwnerView;
 import com.ada.sme.view.LoginView;
-import com.ada.sme.view.LeftMenuView;
+//import com.ada.sme.view.LeftMenuView;
 
 import javax.swing.*;
 import java.util.ArrayList;

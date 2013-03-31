@@ -21,16 +21,14 @@ public class MainFrame extends JFrame
     private JButton notificationsButton;
     private JButton stockButton;
     private JButton supportButton;
-    public static MainFrame mfinstance;
+    public static MainFrame mainFrameInstance;
 
     private JButton             buttonOK;
 
 
     public MainFrame()
     {
-        mfinstance = this;
-
-        //leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.PAGE_AXIS));
+        mainFrameInstance = this;
 
         localStoreButton.addActionListener(new ActionListener()
         {
@@ -50,26 +48,13 @@ public class MainFrame extends JFrame
         return mainFrameContainerPanel;
     }
 
+
+
+/*
     public void setLeftPanel(LeftMenuView leftMenu){
 
-        leftPanel.removeAll();
-
-        try {
-            leftPanel.add(leftMenu.getLeftMenuContainerPanel() , new GridBagConstraints( 0, GridBagConstraints.RELATIVE, 1, 1, 0, 0, GridBagConstraints.NORTHWEST,
-                    GridBagConstraints.NONE, new Insets(0,0,0,0), 0,0) );
-
-            leftPanel.add(new LeftStaffAltMenuView().getLeftStaffAltMenuContainerPanel() , new GridBagConstraints(0, GridBagConstraints.RELATIVE, 1, 1, 0, 0, GridBagConstraints.NORTHWEST,
-                    GridBagConstraints.NONE, new Insets(0,0,0,0), 0, 0) );
-
-            leftPanel.revalidate();
-
-        } catch (  Exception nfe) {
-            JOptionPane.showMessageDialog(null, nfe.getMessage());
-        }
+    }*/
 
 
-
-
-    }
 
 }

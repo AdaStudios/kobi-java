@@ -2,24 +2,20 @@ package com.ada.sme.view;
 
 import javax.swing.*;
 
-/**
- * User: Enes Kıdık
- * Date: 3/24/13 --  Time: 12:29 AM
- */
-public class LeftMenuView extends  JPanel
-{
-    private JPanel leftMenuContainerPanel;
-    private JButton salesButton;
-    private JButton staffButton;
+public class LeftMenuView extends JFrame {
 
-    public LeftMenuView()
-    {
+    private JPanel leftMenuViewContainerPanel;
+    private JButton sales;
+    private JButton staff;
 
-    }
+    private JPanel leftMenuStaffContainerPanel;
+    private JButton addStaff;
+    private JButton deleteStaff;
+    private JButton updateStaff;
 
-    public JPanel getLeftMenuContainerPanel(){
-        return leftMenuContainerPanel;
-    }
+    private JPanel leftMenuSalesContainerPanel;    //sales butonuna basıldığında alt ksımda şimdilik birşey görünmüyor.
+
+
 
 
 }
