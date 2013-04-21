@@ -4,6 +4,12 @@
  */
 package com.ada.sme.view;
 
+import com.ada.sme.model.StatusModel;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -12,6 +18,11 @@ import javax.swing.JPanel;
  */
 public class MainFrame extends javax.swing.JFrame {
 
+    StatusModel sm;
+    static int pingFlag = 0;
+    final int SLEEPTIME = 5000;
+    final String IPADDRESS = "139.179.139.112";
+
     /**
      * Creates new form MainFrame
      */
@@ -19,14 +30,16 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         main_solpanel.removeAll();
         main_solpanel.add(new StoreLeftPanelView(this));
+        sm = new StatusModel(IPADDRESS);
+
+        new Thread(new runCheck()).start();
+
+
+
     }
-    
-    public void setLeftPanel(JPanel p){
-        
-   
+
+    public void setLeftPanel(JPanel p) {
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,7 +134,6 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void main_durumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_durumActionPerformed
-        
     }//GEN-LAST:event_main_durumActionPerformed
 
     private void main_magazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_magazaActionPerformed
@@ -133,13 +145,13 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    /*public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+  /*      try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -158,12 +170,16 @@ public class MainFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+     /*   java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
-            }
+               /* MainFrame mf = new MainFrame();
+
+                mf.setVisible(true);*/
+
+
+     /*       }
         });
-    }
+    }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JPanel main_anapanel;
     private javax.swing.JButton main_bildirim;
@@ -174,4 +190,46 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel main_solpanel;
     private javax.swing.JButton main_stok;
     // End of variables declaration//GEN-END:variables
+
+    class runCheck implements Runnable {
+
+        @Override
+        public void run() {
+            String urlString = "http://ozguryazilim.bilkent.edu.tr/open/ping.php?id=22";
+            URL url = null;
+            URLConnection conn = null;
+            InputStream is;
+            try {
+                url = new URL(urlString);
+                
+            } catch (Exception ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            while (true) {
+                try {
+                    sm.check();
+                    boolean ans = sm.getStatus();
+
+                    if (ans) {
+                        System.out.println("ulasiliyor");
+
+                    } else if (!ans) {
+                        System.out.println("ulasilmiyor");
+                    }
+
+
+                    if((pingFlag%4)==0){
+                    conn = url.openConnection();
+                    is = conn.getInputStream();
+                    }
+
+                    Thread.sleep(SLEEPTIME);
+                    pingFlag++;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
