@@ -28,7 +28,8 @@ public class Main
         products = new ArrayList<Product>();
         //System.out.println("Arraylist size:"+products.size());
         int owner = 1;
-
+        
+        
         if (owner == 0)
         {
             CreateOwnerView createOwner = new CreateOwnerView();

@@ -66,7 +66,7 @@ public class DBController {
                 stmt.execute(sql);
                 System.out.println(sql);
             } catch (Exception e) {
-                 
+                 System.out.println(sql);
             }            
             conn.close();
             conn = null;
@@ -132,7 +132,7 @@ public class DBController {
             
             ResultSetMetaData meta = result.getMetaData();
             int numberOfColumns = meta.getColumnCount();
-            for (int j = 1; j<meta.getColumnCount();j++)
+            for (int j = 1; j<=meta.getColumnCount();j++)
                 dtm.addColumn(meta.getColumnName(j));
             while (result.next())
             {

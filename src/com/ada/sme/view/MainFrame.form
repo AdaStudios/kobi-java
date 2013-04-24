@@ -27,17 +27,18 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="main_durum" min="-2" max="-2" attributes="0"/>
+                      <Component id="main_durum" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="main_magaza" min="-2" max="-2" attributes="0"/>
+                      <Component id="main_magaza" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="main_online_market" min="-2" max="-2" attributes="0"/>
+                      <Component id="main_online_market" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="main_bildirim" min="-2" max="-2" attributes="0"/>
+                      <Component id="main_bildirim" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="main_stok" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="main_stok" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="main_destek" pref="76" max="32767" attributes="0"/>
+                      <Component id="main_destek" min="-2" pref="150" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="292" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="main_solpanel" min="-2" max="-2" attributes="0"/>
@@ -63,7 +64,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="main_anapanel" pref="237" max="32767" attributes="0"/>
+                  <Component id="main_anapanel" pref="1033" max="32767" attributes="0"/>
                   <Component id="main_solpanel" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -102,6 +103,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Stok"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="main_stokActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="main_destek">
       <Properties>

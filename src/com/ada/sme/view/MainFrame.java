@@ -80,6 +80,11 @@ public class MainFrame extends javax.swing.JFrame {
         main_bildirim.setText("Bildirimler");
 
         main_stok.setText("Stok");
+        main_stok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                main_stokActionPerformed(evt);
+            }
+        });
 
         main_destek.setText("Destek");
 
@@ -95,17 +100,18 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(main_durum)
+                        .addComponent(main_durum, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_magaza)
+                        .addComponent(main_magaza, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_online_market)
+                        .addComponent(main_online_market, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_bildirim)
+                        .addComponent(main_bildirim, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_stok, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(main_stok, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_destek, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+                        .addComponent(main_destek, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 292, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(main_solpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -125,7 +131,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(main_destek))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(main_anapanel, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                    .addComponent(main_anapanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1033, Short.MAX_VALUE)
                     .addComponent(main_solpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -141,6 +147,12 @@ public class MainFrame extends javax.swing.JFrame {
         main_solpanel.add(new StoreLeftPanelView(this));
         main_solpanel.validate();
     }//GEN-LAST:event_main_magazaActionPerformed
+
+    private void main_stokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_stokActionPerformed
+        main_solpanel.removeAll();
+        main_solpanel.add(new StockLeftPanelView(this));
+        main_solpanel.validate();
+    }//GEN-LAST:event_main_stokActionPerformed
 
     /**
      * @param args the command line arguments

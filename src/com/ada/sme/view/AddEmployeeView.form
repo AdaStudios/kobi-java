@@ -39,8 +39,8 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="AEV_ekle" min="-2" pref="188" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="AEV_liste" pref="186" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="AEV_liste" pref="158" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
