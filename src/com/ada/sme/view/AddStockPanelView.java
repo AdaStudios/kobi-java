@@ -5,6 +5,7 @@
 package com.ada.sme.view;
 
 import com.ada.sme.controller.DBController;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,6 +18,11 @@ public class AddStockPanelView extends javax.swing.JPanel {
      */
     public AddStockPanelView() {
         initComponents();
+        DBController dbController=new DBController();
+        ArrayList res;
+        res = dbController.selectSingleRowDB("SELECT * FROM product");
+        int id=Integer.parseInt(res.get(0).toString());
+        ASPV_kod.setText(String.valueOf(id+1));
     }
 
     /**
@@ -261,6 +267,8 @@ public class AddStockPanelView extends javax.swing.JPanel {
         
         java.util.Date today = new java.util.Date();
         java.sql.Date sqlToday = new java.sql.Date(today.getTime());
+        
+        
         
         DBController dbcontroller=new DBController();
         dbcontroller.insDelUpDB("INSERT INTO product VALUES("+Integer.parseInt(ASPV_kod.getText())+", '"+ASPV_isim.getText()+"', "
