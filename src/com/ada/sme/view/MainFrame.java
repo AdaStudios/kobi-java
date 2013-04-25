@@ -32,7 +32,7 @@ public class MainFrame extends javax.swing.JFrame {
         main_solpanel.add(new StoreLeftPanelView(this));
         sm = new StatusModel(IPADDRESS);
 
-        new Thread(new runCheck()).start();
+       // new Thread(new runCheck()).start();
 
 
 

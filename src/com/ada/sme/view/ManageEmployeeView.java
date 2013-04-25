@@ -36,9 +36,6 @@ public class ManageEmployeeView extends javax.swing.JPanel {
     public ManageEmployeeView() {
         initComponents();
         
-       
-        
-        
         DBController dbController = new DBController();
         DefaultTableModel dtm;
         

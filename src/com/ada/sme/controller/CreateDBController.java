@@ -41,7 +41,7 @@ public class CreateDBController
          
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
-        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+        } catch (Exception e) {
         }
         try {
             conn = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDB;create=true");

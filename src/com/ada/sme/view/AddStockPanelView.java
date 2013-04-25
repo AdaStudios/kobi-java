@@ -19,10 +19,9 @@ public class AddStockPanelView extends javax.swing.JPanel {
     public AddStockPanelView() {
         initComponents();
         DBController dbController=new DBController();
-        ArrayList res;
-        res = dbController.selectSingleRowDB("SELECT * FROM product");
-        int id=Integer.parseInt(res.get(0).toString());
-        ASPV_kod.setText(String.valueOf(id+1));
+        int res;
+        res = DBController.getLastID();
+        ASPV_kod.setText(String.valueOf(res+1));
     }
 
     /**

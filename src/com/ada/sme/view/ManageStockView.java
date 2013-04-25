@@ -36,9 +36,6 @@ public class ManageStockView extends javax.swing.JPanel {
     public ManageStockView() {
         initComponents();
         
-       
-        
-        
         DBController dbController = new DBController();
         DefaultTableModel dtm;
         
@@ -56,12 +53,12 @@ public class ManageStockView extends javax.swing.JPanel {
         MEV_identifier.addItem(meta.get(2).toString());
         MEV_identifier.addItem(meta.get(3).toString());*/
         
-        dtm=dbController.selectDB("SELECT * FROM product_description");
+        dtm=dbController.selectDB("SELECT * FROM product");
         System.out.println(dtm);
         
         MSV_list2.setModel(dtm);
         
-        
+        /*
         
         dtm=dbController.selectDB("SELECT * FROM product_option");
         System.out.println(dtm);
@@ -76,7 +73,7 @@ public class ManageStockView extends javax.swing.JPanel {
         System.out.println(dtm);
         
         MSV_list4.setModel(dtm);
-        
+        */
  
         
     }
