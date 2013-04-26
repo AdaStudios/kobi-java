@@ -145,6 +145,7 @@ public class DBController {
 
             ResultSetMetaData meta = result.getMetaData();
             int numberOfColumns = meta.getColumnCount();
+         
             result.next();
             if (result.getObject(1).toString().equals(pass)) {
                     return true;

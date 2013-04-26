@@ -24,6 +24,7 @@ public class LoginView extends javax.swing.JFrame {
     public LoginView() {
         initComponents();
         dbController=new DBController();
+       // dbController.insDelUpDB("INSERT INTO employee VALUES(1, 'riza', 'akbiyik', 'riza', 'riza')");
         
     }    
     

@@ -1,9 +1,7 @@
-2013-04-26 20:49:53.891 GMT : Apache Derby Network Server - 10.5.3.0 - (802917) started and ready to accept connections on port 1527
+2013-04-26 21:17:45.587 GMT : Apache Derby Network Server - 10.5.3.0 - (802917) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-2013-04-26 20:49:54.556 GMT:
- Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-013e-481b-fb82-000000b31368
-on database directory C:\Users\PaDaWaN\Documents\NetBeansProjects\kobi-java\MyDB  
+2013-04-26 21:17:47.533 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-013e-4835-7e47-000003150e78
+on database directory /home/osman/NetBeansProjects/kobi-java/MyDB  
 
 Database Class Loader started - derby.database.classpath=''
-2013-04-26 20:49:58.053 GMT : Apache Derby Network Server - 10.5.3.0 - (802917) shutdown
-2013-04-26 20:49:59.095 GMT : Apache Derby Network Server - 10.5.3.0 - (802917) started and ready to accept connections on port 1527
