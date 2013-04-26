@@ -30,11 +30,16 @@ public class DBController {
     static ResultSet result = null;    
 
     public DBController() {
-        OnlineDBController ne = new OnlineDBController();
+        
         try {
+           
             server = new NetworkServerControl(InetAddress.getByName("localhost"), 1527);
             server.start(null);
+             OnlineDBController ne = new OnlineDBController();
+             
+             
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         try {
