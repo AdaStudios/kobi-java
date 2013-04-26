@@ -23,9 +23,28 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         initComponents();
         DBController dbController=new DBController();
         ArrayList res;
-        res = dbController.selectSingleRowDB("SELECT * FROM product WHERE id="+id);
+        res = dbController.selectSingleRowDB("SELECT model,image,weight,minimum,status FROM product WHERE product_id="+id);
+        System.out.println("aaaaaaaaaaaaaaaaaa111111111111111111111111");
+        USPV_kod.setText(res.get(0).toString());
+        USPV_resim.setText(res.get(1).toString());
         
+        USPV_agirlik.setText(res.get(2).toString());
+        USPV_minimum.setText(res.get(3).toString());
+        USPV_listele.setSelectedIndex(Integer.parseInt(res.get(4).toString()));
         
+        res = dbController.selectSingleRowDB("SELECT name,description,tag FROM product_description WHERE product_id="+id);
+        System.out.println("aaaaaaaaaaaaaaaaaa22222222222222222222222222222222222222");
+        USPV_isim.setText(res.get(0).toString());
+        USPV_aciklama.setText(res.get(1).toString());
+        USPV_etiketler.setText(res.get(2).toString());
+        
+        res = dbController.selectSingleRowDB("SELECT quantity FROM product_option_value WHERE option_value_id=46 product_id="+id);
+        System.out.println("aaaaaaaaaaaaaaaa3333333333333333333333333333333333");
+        USPV_adet_s.setText(res.get(0).toString());
+        res = dbController.selectSingleRowDB("SELECT quantity FROM product_option_value WHERE option_value_id=47 product_id="+id);
+        USPV_adet_m.setText(res.get(0).toString());
+        res = dbController.selectSingleRowDB("SELECT quantity FROM product_option_value WHERE option_value_id=48 product_id="+id);
+        USPV_adet_l.setText(res.get(0).toString());
     }
 
     /**
@@ -268,7 +287,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
 
     private void USPV_guncelleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USPV_guncelleActionPerformed
         
-        java.util.Date today = new java.util.Date();
+        /*java.util.Date today = new java.util.Date();
         java.sql.Date sqlToday = new java.sql.Date(today.getTime());
         
         
@@ -283,7 +302,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         dbcontroller.insDelUpDB("INSERT INTO product_option_value VALUES("+(res+1000)+", 227, "+res+", 11, 46, "+Integer.parseInt(USPV_adet_s.getText())+", 1)");
         dbcontroller.insDelUpDB("INSERT INTO product_option_value VALUES("+(res+1001)+", 227, "+res+", 11, 47, "+Integer.parseInt(USPV_adet_m.getText())+", 1)");
         dbcontroller.insDelUpDB("INSERT INTO product_option_value VALUES("+(res+1002)+", 227, "+res+", 11, 48, "+Integer.parseInt(USPV_adet_l.getText())+", 1)");
-        dbcontroller.insDelUpDB("INSERT INTO product_to_category VALUES("+res+",  61)");
+        dbcontroller.insDelUpDB("INSERT INTO product_to_category VALUES("+res+",  61)");*/
         
      
     }//GEN-LAST:event_USPV_guncelleActionPerformed

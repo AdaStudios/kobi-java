@@ -210,11 +210,9 @@ public class DBController {
             ResultSetMetaData meta = result.getMetaData();
             int numberOfColumns = meta.getColumnCount();
             while (result.next()) {
-                list.add(result.getObject(1));
-                list.add(result.getObject(2));
-                list.add(result.getObject(3));
-                list.add(result.getObject(4));
-                list.add(result.getObject(5));
+                for(int i=1;i<=numberOfColumns;i++)
+                    list.add(result.getObject(i));
+               
             }
 
             return list;
@@ -223,22 +221,7 @@ public class DBController {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (result != null) {
-                try {
-                    result.close();
-                } catch (SQLException e) {;
-                }
-                result = null;
-            }
-            if (prestat != null) {
-                try {
-                    prestat.close();
-                } catch (SQLException e) {;
-                }
-                prestat = null;
-            }
-        }
+        } 
         return list;
     }
 }
