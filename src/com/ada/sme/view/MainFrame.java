@@ -49,6 +49,7 @@ public class MainFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         main_durum = new javax.swing.JButton();
         main_magaza = new javax.swing.JButton();
@@ -57,84 +58,190 @@ public class MainFrame extends javax.swing.JFrame {
         main_stok = new javax.swing.JButton();
         main_destek = new javax.swing.JButton();
         main_solpanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         main_anapanel = new javax.swing.JPanel();
+        main_status_panel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        main_durum.setBackground(new java.awt.Color(67, 149, 195));
+        main_durum.setForeground(new java.awt.Color(254, 254, 254));
         main_durum.setText("Durum");
+        main_durum.setMaximumSize(new java.awt.Dimension(60, 70));
+        main_durum.setMinimumSize(new java.awt.Dimension(60, 70));
+        main_durum.setPreferredSize(new java.awt.Dimension(60, 70));
         main_durum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 main_durumActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        getContentPane().add(main_durum, gridBagConstraints);
 
+        main_magaza.setBackground(new java.awt.Color(67, 149, 195));
+        main_magaza.setForeground(new java.awt.Color(254, 254, 254));
         main_magaza.setText("Mağaza");
+        main_magaza.setMaximumSize(new java.awt.Dimension(65, 70));
+        main_magaza.setMinimumSize(new java.awt.Dimension(65, 70));
+        main_magaza.setPreferredSize(new java.awt.Dimension(65, 70));
         main_magaza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 main_magazaActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        getContentPane().add(main_magaza, gridBagConstraints);
 
+        main_online_market.setBackground(new java.awt.Color(67, 149, 195));
+        main_online_market.setForeground(new java.awt.Color(254, 254, 254));
         main_online_market.setText("Online Market");
+        main_online_market.setMaximumSize(new java.awt.Dimension(111, 70));
+        main_online_market.setMinimumSize(new java.awt.Dimension(111, 70));
+        main_online_market.setPreferredSize(new java.awt.Dimension(111, 70));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        getContentPane().add(main_online_market, gridBagConstraints);
 
+        main_bildirim.setBackground(new java.awt.Color(67, 149, 195));
+        main_bildirim.setForeground(new java.awt.Color(254, 254, 254));
         main_bildirim.setText("Bildirimler");
+        main_bildirim.setMaximumSize(new java.awt.Dimension(82, 70));
+        main_bildirim.setMinimumSize(new java.awt.Dimension(82, 70));
+        main_bildirim.setPreferredSize(new java.awt.Dimension(82, 70));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        getContentPane().add(main_bildirim, gridBagConstraints);
 
+        main_stok.setBackground(new java.awt.Color(67, 149, 195));
+        main_stok.setForeground(new java.awt.Color(254, 254, 254));
         main_stok.setText("Stok");
+        main_stok.setMaximumSize(new java.awt.Dimension(43, 70));
+        main_stok.setMinimumSize(new java.awt.Dimension(43, 70));
+        main_stok.setPreferredSize(new java.awt.Dimension(43, 70));
         main_stok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 main_stokActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        getContentPane().add(main_stok, gridBagConstraints);
 
+        main_destek.setBackground(new java.awt.Color(67, 149, 195));
+        main_destek.setForeground(new java.awt.Color(254, 254, 254));
         main_destek.setText("Destek");
+        main_destek.setMaximumSize(new java.awt.Dimension(62, 70));
+        main_destek.setMinimumSize(new java.awt.Dimension(62, 70));
+        main_destek.setPreferredSize(new java.awt.Dimension(62, 70));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        getContentPane().add(main_destek, gridBagConstraints);
 
-        main_solpanel.setLayout(new java.awt.CardLayout());
+        main_solpanel.setBackground(new java.awt.Color(227, 227, 227));
+        main_solpanel.setMaximumSize(new java.awt.Dimension(150, 2147));
+        main_solpanel.setMinimumSize(new java.awt.Dimension(150, 200));
+        main_solpanel.setPreferredSize(new java.awt.Dimension(150, 200));
+        main_solpanel.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(main_solpanel, gridBagConstraints);
 
-        main_anapanel.setLayout(new java.awt.CardLayout());
+        jLabel1.setText("jLabel1asdasdads");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        getContentPane().add(jLabel1, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(main_durum, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_magaza, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_online_market, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_bildirim, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_stok, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(main_destek, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 292, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(main_solpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(main_anapanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+        main_anapanel.setBackground(new java.awt.Color(227, 227, 227));
+        main_anapanel.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(main_anapanel, gridBagConstraints);
+
+        main_status_panel.setBackground(new java.awt.Color(227, 227, 227));
+        main_status_panel.setMaximumSize(new java.awt.Dimension(32767, 20));
+        main_status_panel.setMinimumSize(new java.awt.Dimension(100, 20));
+        main_status_panel.setPreferredSize(new java.awt.Dimension(200, 20));
+
+        javax.swing.GroupLayout main_status_panelLayout = new javax.swing.GroupLayout(main_status_panel);
+        main_status_panel.setLayout(main_status_panelLayout);
+        main_status_panelLayout.setHorizontalGroup(
+            main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1057, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(main_durum)
-                    .addComponent(main_magaza)
-                    .addComponent(main_online_market)
-                    .addComponent(main_bildirim)
-                    .addComponent(main_stok)
-                    .addComponent(main_destek))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(main_anapanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1033, Short.MAX_VALUE)
-                    .addComponent(main_solpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+        main_status_panelLayout.setVerticalGroup(
+            main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        getContentPane().add(main_status_panel, gridBagConstraints);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/logo.jpg"))); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(150, 150));
+        jLabel2.setMinimumSize(new java.awt.Dimension(150, 150));
+        jLabel2.setPreferredSize(new java.awt.Dimension(150, 150));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(jLabel2, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -201,6 +308,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     public static javax.swing.JPanel main_anapanel;
     private javax.swing.JButton main_bildirim;
     private javax.swing.JButton main_destek;
@@ -208,6 +317,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton main_magaza;
     private javax.swing.JButton main_online_market;
     private javax.swing.JPanel main_solpanel;
+    private javax.swing.JPanel main_status_panel;
     private javax.swing.JButton main_stok;
     // End of variables declaration//GEN-END:variables
 
