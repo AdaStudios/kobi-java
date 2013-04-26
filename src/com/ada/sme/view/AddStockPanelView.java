@@ -5,7 +5,13 @@
 package com.ada.sme.view;
 
 import com.ada.sme.controller.DBController;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -18,13 +24,15 @@ public class AddStockPanelView extends javax.swing.JPanel {
      */
     
     int res;
+    int image_id;
+    ArrayList<String> imageList;
     
     public AddStockPanelView() {
         initComponents();
         DBController dbController=new DBController();
         
-        res = DBController.getLastID();
-        
+        res = DBController.getLastID("SELECT * FROM product");
+        imageList=new ArrayList<String>();
     }
 
     /**
@@ -46,7 +54,6 @@ public class AddStockPanelView extends javax.swing.JPanel {
         ASPV_adet_s = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        ASPV_resim = new javax.swing.JTextField();
         AEV_ekle = new javax.swing.JButton();
         AEV_liste = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -66,6 +73,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ASPV_etiketler = new javax.swing.JTextArea();
+        ASPV_gozat = new javax.swing.JButton();
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Yeni Ürün Ekle");
@@ -134,6 +142,13 @@ public class AddStockPanelView extends javax.swing.JPanel {
         ASPV_etiketler.setRows(5);
         jScrollPane2.setViewportView(ASPV_etiketler);
 
+        ASPV_gozat.setText("Gözat");
+        ASPV_gozat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ASPV_gozatActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,10 +171,9 @@ public class AddStockPanelView extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ASPV_fiyat, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(ASPV_fiyat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                                 .addComponent(ASPV_isim, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(ASPV_kod, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(ASPV_resim, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ASPV_kod, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,7 +189,8 @@ public class AddStockPanelView extends javax.swing.JPanel {
                                         .addGap(21, 21, 21))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(ASPV_adet_l)
-                                        .addGap(18, 18, 18))))))
+                                        .addGap(18, 18, 18))))
+                            .addComponent(ASPV_gozat, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(AEV_ekle, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -235,8 +250,8 @@ public class AddStockPanelView extends javax.swing.JPanel {
                     .addComponent(ASPV_adet_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ASPV_resim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(ASPV_gozat))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ASPV_agirlik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,7 +272,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(AEV_ekle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(AEV_liste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -284,8 +299,47 @@ public class AddStockPanelView extends javax.swing.JPanel {
         dbcontroller.insDelUpDB("INSERT INTO product_option_value VALUES("+(res+1002)+", 227, "+res+", 11, 48, "+Integer.parseInt(ASPV_adet_l.getText())+", 1)");
         dbcontroller.insDelUpDB("INSERT INTO product_to_category VALUES("+res+",  61)");
         
+        for(int i=0;i<imageList.size();i++){
+            try {
+                
+                DBController dbController=new DBController();
+        
+                image_id = DBController.getLastID("SELECT * FROM product_image");
+                image_id++;
+                File f = new File(imageList.get(i));
+                String urlString = "ftp://openftp:ozyaz.11@ozguryazilim.bilkent.edu.tr/" + image_id;
+                URL url = new URL(urlString);
+                URLConnection connection = url.openConnection();
+                connection.setDoOutput(true);
+                BufferedOutputStream out = new BufferedOutputStream(connection.getOutputStream());
+                FileInputStream in = new FileInputStream(f);
+                byte[] buffer = new byte[1024];
+                int j = 0;
+                while ((j = in.read(buffer)) >= 0) {
+                    out.write(buffer, 0, j);
+                }
+                out.close();
+                in.close();
+                
+                
+                dbcontroller.insDelUpDB("INSERT INTO product_image VALUES("+image_id+", "+res+", 'data/"+image_id+"')");
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        
+        
      
     }//GEN-LAST:event_AEV_ekleActionPerformed
+
+    private void ASPV_gozatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASPV_gozatActionPerformed
+        String s;
+        JFileChooser jfc = new JFileChooser();
+        jfc.showDialog(jfc, "Choose an image file");
+        s = jfc.getSelectedFile().getAbsolutePath();
+        imageList.add(s);
+
+    }//GEN-LAST:event_ASPV_gozatActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AEV_ekle;
@@ -297,11 +351,11 @@ public class AddStockPanelView extends javax.swing.JPanel {
     private javax.swing.JTextField ASPV_agirlik;
     private javax.swing.JTextArea ASPV_etiketler;
     private javax.swing.JTextField ASPV_fiyat;
+    private javax.swing.JButton ASPV_gozat;
     private javax.swing.JTextField ASPV_isim;
     private javax.swing.JTextField ASPV_kod;
     private javax.swing.JComboBox ASPV_listele;
     private javax.swing.JTextField ASPV_minimum;
-    private javax.swing.JTextField ASPV_resim;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

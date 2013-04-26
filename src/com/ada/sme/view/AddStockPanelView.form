@@ -38,10 +38,9 @@
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="ASPV_fiyat" alignment="1" max="32767" attributes="0"/>
+                              <Component id="ASPV_fiyat" alignment="1" pref="279" max="32767" attributes="0"/>
                               <Component id="ASPV_isim" alignment="1" max="32767" attributes="0"/>
                               <Component id="ASPV_kod" alignment="1" max="32767" attributes="0"/>
-                              <Component id="ASPV_resim" alignment="0" min="-2" pref="279" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -65,6 +64,7 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <Component id="ASPV_gozat" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -143,8 +143,8 @@
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ASPV_resim" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ASPV_gozat" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -171,7 +171,7 @@
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace pref="13" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="AEV_ekle" max="32767" attributes="0"/>
                   <Component id="AEV_liste" max="32767" attributes="0"/>
@@ -228,8 +228,6 @@
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="&#xdc;r&#xfc;n Resmi:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="ASPV_resim">
     </Component>
     <Component class="javax.swing.JButton" name="AEV_ekle">
       <Properties>
@@ -346,5 +344,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="ASPV_gozat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="G&#xf6;zat"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ASPV_gozatActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

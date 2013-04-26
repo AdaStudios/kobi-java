@@ -194,9 +194,9 @@ public class DBController {
       return null;
     }
 
-    public static int getLastID() {
+    public static int getLastID(String sql) {
         try {
-            PreparedStatement prestat = conn.prepareStatement("SELECT * FROM product");
+            PreparedStatement prestat = conn.prepareStatement(sql);
           //  prestat.setMaxRows(1);
             ResultSet rs = prestat.executeQuery();
             rs.next();
