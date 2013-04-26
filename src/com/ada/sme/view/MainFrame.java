@@ -60,77 +60,103 @@ public class MainFrame extends javax.swing.JFrame {
         main_solpanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         main_anapanel = new javax.swing.JPanel();
+        main_status_panel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         main_durum.setText("Durum");
+        main_durum.setMaximumSize(new java.awt.Dimension(60, 70));
+        main_durum.setMinimumSize(new java.awt.Dimension(60, 70));
+        main_durum.setPreferredSize(new java.awt.Dimension(60, 70));
         main_durum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 main_durumActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 90;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 0, 0, 0);
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_durum, gridBagConstraints);
 
         main_magaza.setText("Mağaza");
+        main_magaza.setMaximumSize(new java.awt.Dimension(65, 70));
+        main_magaza.setMinimumSize(new java.awt.Dimension(65, 70));
+        main_magaza.setPreferredSize(new java.awt.Dimension(65, 70));
         main_magaza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 main_magazaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 85;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_magaza, gridBagConstraints);
 
         main_online_market.setText("Online Market");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
-        getContentPane().add(main_online_market, gridBagConstraints);
-
-        main_bildirim.setText("Bildirimler");
+        main_online_market.setMaximumSize(new java.awt.Dimension(111, 70));
+        main_online_market.setMinimumSize(new java.awt.Dimension(111, 70));
+        main_online_market.setPreferredSize(new java.awt.Dimension(111, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 68;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        getContentPane().add(main_online_market, gridBagConstraints);
+
+        main_bildirim.setText("Bildirimler");
+        main_bildirim.setMaximumSize(new java.awt.Dimension(82, 70));
+        main_bildirim.setMinimumSize(new java.awt.Dimension(82, 70));
+        main_bildirim.setPreferredSize(new java.awt.Dimension(82, 70));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_bildirim, gridBagConstraints);
 
         main_stok.setText("Stok");
+        main_stok.setMaximumSize(new java.awt.Dimension(43, 70));
+        main_stok.setMinimumSize(new java.awt.Dimension(43, 70));
+        main_stok.setPreferredSize(new java.awt.Dimension(43, 70));
         main_stok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 main_stokActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 107;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_stok, gridBagConstraints);
 
         main_destek.setText("Destek");
+        main_destek.setMaximumSize(new java.awt.Dimension(62, 70));
+        main_destek.setMinimumSize(new java.awt.Dimension(62, 70));
+        main_destek.setPreferredSize(new java.awt.Dimension(62, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 88;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 12);
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_destek, gridBagConstraints);
 
         main_solpanel.setBackground(new java.awt.Color(202, 133, 64));
@@ -140,29 +166,69 @@ public class MainFrame extends javax.swing.JFrame {
         main_solpanel.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.ipady = 510;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 0, 12, 0);
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         getContentPane().add(main_solpanel, gridBagConstraints);
 
         jLabel1.setText("jLabel1asdasdads");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         getContentPane().add(jLabel1, gridBagConstraints);
 
         main_anapanel.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.gridheight = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 12);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         getContentPane().add(main_anapanel, gridBagConstraints);
+
+        main_status_panel.setBackground(new java.awt.Color(227, 227, 227));
+        main_status_panel.setMaximumSize(new java.awt.Dimension(32767, 20));
+        main_status_panel.setMinimumSize(new java.awt.Dimension(100, 20));
+        main_status_panel.setPreferredSize(new java.awt.Dimension(200, 20));
+
+        javax.swing.GroupLayout main_status_panelLayout = new javax.swing.GroupLayout(main_status_panel);
+        main_status_panel.setLayout(main_status_panelLayout);
+        main_status_panelLayout.setHorizontalGroup(
+            main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1057, Short.MAX_VALUE)
+        );
+        main_status_panelLayout.setVerticalGroup(
+            main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        getContentPane().add(main_status_panel, gridBagConstraints);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/logo.jpg"))); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(150, 150));
+        jLabel2.setMinimumSize(new java.awt.Dimension(150, 150));
+        jLabel2.setPreferredSize(new java.awt.Dimension(150, 150));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(jLabel2, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -230,6 +296,7 @@ public class MainFrame extends javax.swing.JFrame {
     }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     public static javax.swing.JPanel main_anapanel;
     private javax.swing.JButton main_bildirim;
     private javax.swing.JButton main_destek;
@@ -237,6 +304,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton main_magaza;
     private javax.swing.JButton main_online_market;
     private javax.swing.JPanel main_solpanel;
+    private javax.swing.JPanel main_status_panel;
     private javax.swing.JButton main_stok;
     // End of variables declaration//GEN-END:variables
 
