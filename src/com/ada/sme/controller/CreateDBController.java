@@ -8,7 +8,6 @@ package com.ada.sme.controller;
  *
  * @author PaDaWaN
  */
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.Connection;
@@ -18,34 +17,32 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import org.apache.derby.drda.NetworkServerControl;
 
-public class CreateDBController
-{
+public class CreateDBController {
 
     public CreateDBController() {
-        
     }
-    
-    public void createDB(){
+
+    public void createDB() {
         NetworkServerControl server = null;
         Connection conn = null;
         PreparedStatement prestat = null;
         Statement stmt = null;
-       
- 
+
+
         try {
             server = new NetworkServerControl(InetAddress.getByName("localhost"), 1527);
             server.start(null);
         } catch (UnknownHostException e1) {
         } catch (Exception e1) {
         }
-         
+
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
         } catch (Exception e) {
         }
         try {
             conn = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDB;create=true");
-             
+
             stmt = conn.createStatement();
             try {
                 stmt.execute("CREATE TABLE employee(id int primary key, name varchar(20), surname varchar(20), username varchar(20), password varchar(20))");
@@ -54,35 +51,35 @@ public class CreateDBController
                 stmt.execute("CREATE TABLE product_option(product_option_id int , product_id int , option_id int , required int)");
                 stmt.execute("CREATE TABLE product_option_value(product_option_value_id int , product_option_id int , product_id int , option_id int, option_value_id int , quantity int , subtract int)");
                 stmt.execute("CREATE TABLE product_to_category(product_id int , category_id int)");
+                stmt.execute("CREATE TABLE product_image(product_image_id int , product_id int , image varchar(255) , sort_order)");
                 stmt.execute("INSERT INTO employee VALUES(1, 'riza', 'akbiyik', 'riza', 'riza')");
-                
-                
+                stmt.execute("INSERT INTO product_image VALUES(1000, 1000, 'data/logo.png', 0)");
+//cagdas
             } catch (Exception e) {
                 //e.printStackTrace();
             }
-            
-                         
-            
-             
-            
+
+
+
+
+
             conn.close();
             conn = null;
-             
+
             server.shutdown();
-             
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally{
-            if (conn != null){
-                try {conn.close();} catch(SQLException e) {;}
-            conn = null;
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {;
+                }
+                conn = null;
             }
         }
     }
-    
 }
-    
-  
