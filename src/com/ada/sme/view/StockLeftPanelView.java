@@ -40,9 +40,9 @@ public class StockLeftPanelView extends javax.swing.JPanel {
 
         SLPV_ekle.setBackground(new java.awt.Color(67, 149, 195));
         SLPV_ekle.setText("Ürün Ekle");
-        SLPV_ekle.setMaximumSize(new java.awt.Dimension(140, 80));
-        SLPV_ekle.setMinimumSize(new java.awt.Dimension(140, 80));
-        SLPV_ekle.setPreferredSize(new java.awt.Dimension(140, 80));
+        SLPV_ekle.setMaximumSize(new java.awt.Dimension(146, 80));
+        SLPV_ekle.setMinimumSize(new java.awt.Dimension(146, 80));
+        SLPV_ekle.setPreferredSize(new java.awt.Dimension(146, 80));
         SLPV_ekle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SLPV_ekleActionPerformed(evt);
@@ -53,14 +53,14 @@ public class StockLeftPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 20, 0);
         add(SLPV_ekle, gridBagConstraints);
 
         SLPV_yonet.setBackground(new java.awt.Color(67, 149, 195));
         SLPV_yonet.setText("Ürünleri Yönet");
-        SLPV_yonet.setMaximumSize(new java.awt.Dimension(140, 80));
-        SLPV_yonet.setMinimumSize(new java.awt.Dimension(140, 80));
-        SLPV_yonet.setPreferredSize(new java.awt.Dimension(140, 80));
+        SLPV_yonet.setMaximumSize(new java.awt.Dimension(146, 80));
+        SLPV_yonet.setMinimumSize(new java.awt.Dimension(146, 80));
+        SLPV_yonet.setPreferredSize(new java.awt.Dimension(146, 80));
         SLPV_yonet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SLPV_yonetActionPerformed(evt);
