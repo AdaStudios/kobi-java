@@ -58,6 +58,7 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         UEV_update = new javax.swing.JButton();
         UEV_delete = new javax.swing.JButton();
+        UEV_geri = new javax.swing.JButton();
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Çalışanın Bilgilerini Güncelle");
@@ -91,6 +92,13 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
             }
         });
 
+        UEV_geri.setText("Geri");
+        UEV_geri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UEV_geriActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,9 +122,11 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
                             .addComponent(UEV_kod, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(UEV_sifre)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(UEV_update, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(UEV_update, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(UEV_delete, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
+                        .addComponent(UEV_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(UEV_geri, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -145,9 +155,10 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addComponent(UEV_sifre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UEV_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(UEV_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(UEV_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(UEV_geri, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -165,8 +176,15 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         MainFrame.main_anapanel.validate();
     }//GEN-LAST:event_UEV_deleteActionPerformed
 
+    private void UEV_geriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UEV_geriActionPerformed
+        MainFrame.main_anapanel.removeAll();
+        MainFrame.main_anapanel.add(new ManageEmployeeView());
+        MainFrame.main_anapanel.validate();
+    }//GEN-LAST:event_UEV_geriActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton UEV_delete;
+    private javax.swing.JButton UEV_geri;
     private javax.swing.JTextField UEV_isim;
     private javax.swing.JTextField UEV_kod;
     private javax.swing.JTextField UEV_kullaniciadi;

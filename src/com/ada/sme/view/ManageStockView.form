@@ -25,7 +25,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="MEV_identifier" min="-2" pref="97" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="MEV_seach" min="-2" pref="133" max="-2" attributes="0"/>
+                      <Component id="MSV_ara" min="-2" pref="133" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -39,7 +39,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="MEV_value" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="MEV_identifier" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="MEV_seach" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="MSV_ara" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="306" max="-2" attributes="0"/>
@@ -58,12 +58,12 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="MEV_seach">
+    <Component class="javax.swing.JButton" name="MSV_ara">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc7;al&#x131;&#x15f;an Ara"/>
+        <Property name="text" type="java.lang.String" value="&#xdc;r&#xfc;n Ara"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MEV_seachActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MSV_araActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">

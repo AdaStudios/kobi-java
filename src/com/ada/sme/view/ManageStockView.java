@@ -39,7 +39,7 @@ public class ManageStockView extends javax.swing.JPanel {
         DBController dbController = new DBController();
         DefaultTableModel dtm;
         
-        dtm=dbController.selectDB("SELECT * FROM product");
+        dtm=dbController.selectDB("SELECT product.product_id,model,quantity,image,price,status FROM product");
         System.out.println(dtm);
         
         MSV_list1.setModel(dtm);
@@ -72,20 +72,14 @@ public class ManageStockView extends javax.swing.JPanel {
 
         MEV_value = new javax.swing.JTextField();
         MEV_identifier = new javax.swing.JComboBox();
-        MEV_seach = new javax.swing.JButton();
+        MSV_ara = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         MSV_list1 = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        MSV_list2 = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        MSV_list3 = new javax.swing.JTable();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        MSV_list4 = new javax.swing.JTable();
 
-        MEV_seach.setText("Çalışan Ara");
-        MEV_seach.addActionListener(new java.awt.event.ActionListener() {
+        MSV_ara.setText("Ürün Ara");
+        MSV_ara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MEV_seachActionPerformed(evt);
+                MSV_araActionPerformed(evt);
             }
         });
 
@@ -97,50 +91,21 @@ public class ManageStockView extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(MSV_list1);
 
-        MSV_list2.setModel(MSV_list1.getModel());
-        MSV_list2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MSV_list2MouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(MSV_list2);
-
-        MSV_list3.setModel(MSV_list1.getModel());
-        MSV_list3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MSV_list3MouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(MSV_list3);
-
-        MSV_list4.setModel(MSV_list1.getModel());
-        MSV_list4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MSV_list4MouseClicked(evt);
-            }
-        });
-        jScrollPane5.setViewportView(MSV_list4);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(MEV_value, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(MEV_identifier, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MEV_seach, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(122, Short.MAX_VALUE))
+                        .addComponent(MSV_ara, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,15 +114,10 @@ public class ManageStockView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MEV_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MEV_identifier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MEV_seach))
+                    .addComponent(MSV_ara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -170,18 +130,18 @@ public class ManageStockView extends javax.swing.JPanel {
         
     }//GEN-LAST:event_MSV_list1MouseClicked
 
-    private void MEV_seachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEV_seachActionPerformed
+    private void MSV_araActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSV_araActionPerformed
         DBController dbController = new DBController();
         DefaultTableModel dtm;
-        if(MEV_identifier.getSelectedItem().toString().equals("ID"))
-            dtm=dbController.selectDB("SELECT * FROM employee WHERE "+MEV_identifier.getSelectedItem().toString()+"="+MEV_value.getText());
+        if(MEV_identifier.getSelectedItem().toString().equals("product_id"))
+            dtm=dbController.selectDB("SELECT * FROM product WHERE "+MEV_identifier.getSelectedItem().toString()+"="+MEV_value.getText());
         else
-            dtm=dbController.selectDB("SELECT * FROM employee WHERE "+MEV_identifier.getSelectedItem().toString()+" LIKE '%"+MEV_value.getText()+"%'");
+            dtm=dbController.selectDB("SELECT * FROM product WHERE "+MEV_identifier.getSelectedItem().toString()+" LIKE '%"+MEV_value.getText()+"%'");
         
         System.out.println(dtm);
         
         MSV_list1.setModel(dtm);
-    }//GEN-LAST:event_MEV_seachActionPerformed
+    }//GEN-LAST:event_MSV_araActionPerformed
 
     private void MSV_list2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MSV_list2MouseClicked
         // TODO add your handling code here:
@@ -197,15 +157,9 @@ public class ManageStockView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox MEV_identifier;
-    private javax.swing.JButton MEV_seach;
     private javax.swing.JTextField MEV_value;
+    private javax.swing.JButton MSV_ara;
     private javax.swing.JTable MSV_list1;
-    private javax.swing.JTable MSV_list2;
-    private javax.swing.JTable MSV_list3;
-    private javax.swing.JTable MSV_list4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
 }
