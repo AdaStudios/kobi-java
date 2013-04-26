@@ -17,6 +17,7 @@ public class AddEmployeeView extends javax.swing.JPanel {
      */
     public AddEmployeeView() {
         initComponents();
+        
     }
 
     /**
@@ -132,7 +133,9 @@ public class AddEmployeeView extends javax.swing.JPanel {
 
     private void AEV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AEV_ekleActionPerformed
         DBController dbcontroller=new DBController();
-        dbcontroller.insDelUpDB("INSERT INTO employee VALUES("+Integer.parseInt(AEV_kod.getText())+", '"+AEV_isim.getText()+"', '"+AEV_soyad.getText()+"', '"+AEV_kullaniciadi.getText()+"', '"+AEV_sifre.getText()+"')");
+        int emp_id = DBController.getLastID("SELECT * from employee order by id DESC");
+       
+        dbcontroller.insDelUpDB("INSERT INTO employee VALUES("+emp_id+", '"+AEV_isim.getText()+"', '"+AEV_soyad.getText()+"', '"+AEV_kullaniciadi.getText()+"', '"+AEV_sifre.getText()+"')");
     }//GEN-LAST:event_AEV_ekleActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

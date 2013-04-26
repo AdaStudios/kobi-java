@@ -27,22 +27,22 @@ public class Main
     {
         products = new ArrayList<Product>();
         //System.out.println("Arraylist size:"+products.size());
-        int owner = 1;
-        
-        
-        if (owner == 0)
+       DBController db = new DBController();
+       ArrayList a = db.selectSingleRowDB("select * from employee");
+       
+        if (a.isEmpty())
         {
             CreateOwnerView createOwner = new CreateOwnerView();
             createOwner.setVisible(true);
             
-            CreateDBController createDB =new CreateDBController();
-            createDB.createDB();
+           /* CreateDBController createDB =new CreateDBController();
+            createDB.createDB();*/
         } else
         {     
             
-            CreateDBController createDB =new CreateDBController();
-            createDB.createDB();
-            
+           /* CreateDBController createDB =new CreateDBController();
+            createDB.createDB(); */
+         
             LoginView loginScreen = new LoginView();           
 
             loginScreen.setVisible(true);

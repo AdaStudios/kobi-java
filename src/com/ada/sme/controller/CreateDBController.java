@@ -42,7 +42,7 @@ public class CreateDBController {
         }
         try {
             conn = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDB;create=true");
-
+            
             stmt = conn.createStatement();
             try {
                 stmt.execute("CREATE TABLE employee(id int primary key, name varchar(20), surname varchar(20), username varchar(20), password varchar(20))");
@@ -52,7 +52,7 @@ public class CreateDBController {
                 stmt.execute("CREATE TABLE product_option_value(product_option_value_id int , product_option_id int , product_id int , option_id int, option_value_id int , quantity int , subtract int)");
                 stmt.execute("CREATE TABLE product_to_category(product_id int , category_id int)");
                 stmt.execute("CREATE TABLE product_image(product_image_id int , product_id int , image varchar(255) , sort_order)");
-                stmt.execute("INSERT INTO employee VALUES(1, 'riza', 'akbiyik', 'riza', 'riza')");
+               // stmt.execute("INSERT INTO employee VALUES(1, 'riza', 'akbiyik', 'riza', 'riza')");
                 
                 //cagdas
             } catch (Exception e) {

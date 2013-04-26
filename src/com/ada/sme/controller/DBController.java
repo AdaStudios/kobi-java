@@ -155,9 +155,8 @@ public class DBController {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+                        
+        } 
         
         return false;
 
@@ -198,12 +197,13 @@ public class DBController {
     public static int getLastID(String sql) {
         try {
             PreparedStatement prestat = conn.prepareStatement(sql);
-          //  prestat.setMaxRows(1);
+            prestat.setMaxRows(1);
             ResultSet rs = prestat.executeQuery();
             rs.next();
             return rs.getInt(1);
         } catch (Exception ex) {
            ex.printStackTrace();
+           
         }
         return 0;
     }
@@ -214,7 +214,7 @@ public class DBController {
         try {
             prestat = conn.prepareStatement(sql);
             result = prestat.executeQuery();
-
+            
             ResultSetMetaData meta = result.getMetaData();
             int numberOfColumns = meta.getColumnCount();
             while (result.next()) {
@@ -222,7 +222,7 @@ public class DBController {
                     list.add(result.getObject(i));
                
             }
-
+            System.out.print(list.toString());
             return list;
 
         } catch (SQLException e) {
