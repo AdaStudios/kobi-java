@@ -54,7 +54,7 @@ public class CreateDBController {
                 stmt.execute("CREATE TABLE product_image(product_image_id int , product_id int , image varchar(255) , sort_order)");
                 stmt.execute("INSERT INTO employee VALUES(1, 'riza', 'akbiyik', 'riza', 'riza')");
                 stmt.execute("INSERT INTO product_image VALUES(1000, 1000, 'data/logo.png', 0)");
-                //osman55
+                //cagdas
             } catch (Exception e) {
                 //e.printStackTrace();
             }
