@@ -40,6 +40,9 @@ public class Main
         } else
         {     
             
+            CreateDBController createDB =new CreateDBController();
+            createDB.createDB();
+            
             LoginView loginScreen = new LoginView();           
 
             loginScreen.setVisible(true);
