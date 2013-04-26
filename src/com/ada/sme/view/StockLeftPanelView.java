@@ -33,12 +33,14 @@ public class StockLeftPanelView extends javax.swing.JPanel {
         SLPV_yonet = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(227, 227, 227));
+        setForeground(new java.awt.Color(254, 254, 254));
         setMaximumSize(new java.awt.Dimension(146, 2000));
         setMinimumSize(new java.awt.Dimension(146, 250));
         setPreferredSize(new java.awt.Dimension(146, 250));
         setLayout(new java.awt.GridBagLayout());
 
         SLPV_ekle.setBackground(new java.awt.Color(67, 149, 195));
+        SLPV_ekle.setForeground(new java.awt.Color(254, 254, 254));
         SLPV_ekle.setText("Ürün Ekle");
         SLPV_ekle.setMaximumSize(new java.awt.Dimension(146, 80));
         SLPV_ekle.setMinimumSize(new java.awt.Dimension(146, 80));
@@ -57,6 +59,7 @@ public class StockLeftPanelView extends javax.swing.JPanel {
         add(SLPV_ekle, gridBagConstraints);
 
         SLPV_yonet.setBackground(new java.awt.Color(67, 149, 195));
+        SLPV_yonet.setForeground(new java.awt.Color(254, 254, 254));
         SLPV_yonet.setText("Ürünleri Yönet");
         SLPV_yonet.setMaximumSize(new java.awt.Dimension(146, 80));
         SLPV_yonet.setMinimumSize(new java.awt.Dimension(146, 80));
