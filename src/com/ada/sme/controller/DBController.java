@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,22 +48,16 @@ public class DBController {
     }
 
     public void insDelUpDB(String sql) {
-        try {
+        
             try {
                 PreparedStatement prestat = conn.prepareStatement(sql);
-                prestat.executeQuery();
+                prestat.execute();
                 System.out.println(sql);
             } catch (Exception e) {
-                System.out.println(sql);
+                System.err.println(e);
+                e.printStackTrace();
             }
-            conn.close();
-            conn = null;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+           
     }
 
     public DefaultTableModel selectDB(String sql) {
@@ -130,6 +125,66 @@ public class DBController {
         }
         return null;
 
+    }
+    
+    
+    public boolean login(String username, String pass) {
+
+        PreparedStatement prestat = null;
+        try {
+
+            prestat = conn.prepareStatement("SELECT password FROM employee WHERE username='" + username + "'");
+            result = prestat.executeQuery();
+
+            ResultSetMetaData meta = result.getMetaData();
+            int numberOfColumns = meta.getColumnCount();
+            result.next();
+            if (result.getObject(1).toString().equals(pass)) {
+                    return true;
+            }
+            
+      
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return false;
+
+    }
+    
+    
+     public ArrayList fillCombo(String sql){
+        
+        ArrayList list = new ArrayList();
+        PreparedStatement prestat = null;
+        try {
+  
+             
+            prestat = conn.prepareStatement(sql);
+            result = prestat.executeQuery();
+            
+            System.out.println(result.toString());
+            
+            DefaultTableModel dtm = new DefaultTableModel();
+
+            ResultSetMetaData meta = result.getMetaData();
+            
+            int numberOfColumns = meta.getColumnCount();
+            for (int j = 1; j<meta.getColumnCount();j++)
+                list.add(meta.getColumnName(j));
+            
+            return list;
+            
+        }
+        catch(Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+
+      return null;
     }
 
     public static int getLastID() {

@@ -38,7 +38,7 @@
                       <Component id="main_stok" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="main_destek" min="-2" pref="150" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="292" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="main_solpanel" min="-2" max="-2" attributes="0"/>
@@ -64,8 +64,11 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="main_anapanel" pref="1033" max="32767" attributes="0"/>
                   <Component id="main_solpanel" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="main_anapanel" min="-2" pref="442" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

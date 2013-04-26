@@ -44,36 +44,12 @@ public class ManageStockView extends javax.swing.JPanel {
         
         MSV_list1.setModel(dtm);
         
-        ManageEmployeeController manageEmployeecontroller=new ManageEmployeeController();
-        
-        /*ArrayList meta = manageEmployeecontroller.fillCombo();
+        ArrayList meta = dbController.fillCombo("SELECT * FROM product");
         
         MEV_identifier.addItem(meta.get(0).toString());
         MEV_identifier.addItem(meta.get(1).toString());
         MEV_identifier.addItem(meta.get(2).toString());
-        MEV_identifier.addItem(meta.get(3).toString());*/
-        
-        dtm=dbController.selectDB("SELECT * FROM product");
-        System.out.println(dtm);
-        
-        MSV_list2.setModel(dtm);
-        
-        /*
-        
-        dtm=dbController.selectDB("SELECT * FROM product_option");
-        System.out.println(dtm);
-        
-        MSV_list3.setModel(dtm);
-        
-        
-        
-        
-        
-        dtm=dbController.selectDB("SELECT * FROM product_option_value");
-        System.out.println(dtm);
-        
-        MSV_list4.setModel(dtm);
-        */
+        MEV_identifier.addItem(meta.get(3).toString());
  
         
     }
@@ -187,9 +163,9 @@ public class ManageStockView extends javax.swing.JPanel {
 
     private void MSV_list1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MSV_list1MouseClicked
         String id = MSV_list1.getValueAt(MSV_list1.getSelectedRow(), 0).toString();
-        UpdateEmployeeView updateemployeeView=new UpdateEmployeeView(id);
+        UpdateStockPanelView updateStockPanelView=new UpdateStockPanelView(id);
         MainFrame.main_anapanel.removeAll();
-        MainFrame.main_anapanel.add(updateemployeeView);
+        MainFrame.main_anapanel.add(updateStockPanelView);
         MainFrame.main_anapanel.validate();
         
     }//GEN-LAST:event_MSV_list1MouseClicked

@@ -146,12 +146,20 @@ public class MainFrame extends javax.swing.JFrame {
         main_solpanel.removeAll();
         main_solpanel.add(new StoreLeftPanelView(this));
         main_solpanel.validate();
+        
+        main_anapanel.removeAll();
+        main_anapanel.add(new ManageEmployeeView());
+        main_anapanel.validate();
     }//GEN-LAST:event_main_magazaActionPerformed
 
     private void main_stokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_stokActionPerformed
         main_solpanel.removeAll();
         main_solpanel.add(new StockLeftPanelView(this));
         main_solpanel.validate();
+        
+        main_anapanel.removeAll();
+        main_anapanel.add(new ManageStockView());
+        main_anapanel.validate();
     }//GEN-LAST:event_main_stokActionPerformed
 
     /**

@@ -19,11 +19,11 @@ public class LoginView extends javax.swing.JFrame {
      * Creates new form LoginView
      */
     
-    StartupController startupController;
+    DBController dbController;
     
     public LoginView() {
         initComponents();
-        startupController=new StartupController();
+        dbController=new DBController();
         
     }    
     
@@ -131,7 +131,7 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_login_kullaniciActionPerformed
 
     private void login_girisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_girisActionPerformed
-        if(startupController.login(login_kullanici.getText(), login_parola.getText())){
+        if(dbController.login(login_kullanici.getText(), login_parola.getText())){
             MainFrame frame=new MainFrame();
             frame.setVisible(true);
             this.setVisible(false);

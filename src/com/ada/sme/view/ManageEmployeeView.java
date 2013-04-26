@@ -44,9 +44,7 @@ public class ManageEmployeeView extends javax.swing.JPanel {
         
         MEV_list.setModel(dtm);
         
-        ManageEmployeeController manageEmployeecontroller=new ManageEmployeeController();
-        
-        ArrayList meta = manageEmployeecontroller.fillCombo();
+        ArrayList meta = dbController.fillCombo("SELECT * FROM employee");
         
         MEV_identifier.addItem(meta.get(0).toString());
         MEV_identifier.addItem(meta.get(1).toString());
