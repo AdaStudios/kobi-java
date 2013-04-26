@@ -66,6 +66,8 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        main_durum.setBackground(new java.awt.Color(67, 149, 195));
+        main_durum.setForeground(new java.awt.Color(254, 254, 254));
         main_durum.setText("Durum");
         main_durum.setMaximumSize(new java.awt.Dimension(60, 70));
         main_durum.setMinimumSize(new java.awt.Dimension(60, 70));
@@ -84,6 +86,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_durum, gridBagConstraints);
 
+        main_magaza.setBackground(new java.awt.Color(67, 149, 195));
+        main_magaza.setForeground(new java.awt.Color(254, 254, 254));
         main_magaza.setText("Mağaza");
         main_magaza.setMaximumSize(new java.awt.Dimension(65, 70));
         main_magaza.setMinimumSize(new java.awt.Dimension(65, 70));
@@ -102,6 +106,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_magaza, gridBagConstraints);
 
+        main_online_market.setBackground(new java.awt.Color(67, 149, 195));
+        main_online_market.setForeground(new java.awt.Color(254, 254, 254));
         main_online_market.setText("Online Market");
         main_online_market.setMaximumSize(new java.awt.Dimension(111, 70));
         main_online_market.setMinimumSize(new java.awt.Dimension(111, 70));
@@ -115,6 +121,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_online_market, gridBagConstraints);
 
+        main_bildirim.setBackground(new java.awt.Color(67, 149, 195));
+        main_bildirim.setForeground(new java.awt.Color(254, 254, 254));
         main_bildirim.setText("Bildirimler");
         main_bildirim.setMaximumSize(new java.awt.Dimension(82, 70));
         main_bildirim.setMinimumSize(new java.awt.Dimension(82, 70));
@@ -128,6 +136,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_bildirim, gridBagConstraints);
 
+        main_stok.setBackground(new java.awt.Color(67, 149, 195));
+        main_stok.setForeground(new java.awt.Color(254, 254, 254));
         main_stok.setText("Stok");
         main_stok.setMaximumSize(new java.awt.Dimension(43, 70));
         main_stok.setMinimumSize(new java.awt.Dimension(43, 70));
@@ -146,6 +156,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_stok, gridBagConstraints);
 
+        main_destek.setBackground(new java.awt.Color(67, 149, 195));
+        main_destek.setForeground(new java.awt.Color(254, 254, 254));
         main_destek.setText("Destek");
         main_destek.setMaximumSize(new java.awt.Dimension(62, 70));
         main_destek.setMinimumSize(new java.awt.Dimension(62, 70));
@@ -159,7 +171,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_destek, gridBagConstraints);
 
-        main_solpanel.setBackground(new java.awt.Color(202, 133, 64));
+        main_solpanel.setBackground(new java.awt.Color(227, 227, 227));
         main_solpanel.setMaximumSize(new java.awt.Dimension(150, 2147));
         main_solpanel.setMinimumSize(new java.awt.Dimension(150, 200));
         main_solpanel.setPreferredSize(new java.awt.Dimension(150, 200));
@@ -179,6 +191,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         getContentPane().add(jLabel1, gridBagConstraints);
 
+        main_anapanel.setBackground(new java.awt.Color(227, 227, 227));
         main_anapanel.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
