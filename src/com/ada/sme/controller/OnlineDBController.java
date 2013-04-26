@@ -35,10 +35,10 @@ public class OnlineDBController {
                 
                 Connection con = null;
         Class.forName("com.mysql.jdbc.Driver");
-        String username = "username";
-        String password = "password";
+        String username = "opendbu";
+        String password = "ozyaz.13";
         String server = "139.179.139.112"; //remote server address
-        String db = "data";
+        String db = "open";
         String url = "jdbc:mysql://"+server+"/"+db;
         con = DriverManager.getConnection(url, username, password);
             } catch (ClassNotFoundException ex) {

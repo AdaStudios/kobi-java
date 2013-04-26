@@ -45,6 +45,7 @@ public class DBController {
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
         } catch (Exception e) {
+            
         }
         try {
             conn = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDB");

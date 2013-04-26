@@ -34,16 +34,13 @@ public class Main
         {
             CreateOwnerView createOwner = new CreateOwnerView();
             createOwner.setVisible(true);
-        } else
-        {
             
-           CreateDBController createDB =new CreateDBController();
+            CreateDBController createDB =new CreateDBController();
             createDB.createDB();
+        } else
+        {     
             
-            
-            LoginView loginScreen = new LoginView();
-
-            
+            LoginView loginScreen = new LoginView();           
 
             loginScreen.setVisible(true);
 
