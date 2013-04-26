@@ -27,9 +27,10 @@ public class DBController {
 
     static NetworkServerControl server = null;
     static Connection conn = null;
-    static ResultSet result = null;
+    static ResultSet result = null;    
 
     public DBController() {
+        OnlineDBController ne = new OnlineDBController();
         try {
             server = new NetworkServerControl(InetAddress.getByName("localhost"), 1527);
             server.start(null);
