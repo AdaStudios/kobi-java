@@ -96,8 +96,9 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = null;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         add(jLabel1, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -105,19 +106,16 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_kod, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_isim, gridBagConstraints);
 
@@ -126,7 +124,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel3, gridBagConstraints);
 
@@ -135,13 +132,11 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel4, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_fiyat, gridBagConstraints);
 
@@ -149,7 +144,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_adet_s, gridBagConstraints);
 
@@ -158,7 +152,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel5, gridBagConstraints);
 
@@ -167,13 +160,11 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_resim, gridBagConstraints);
 
@@ -186,7 +177,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_guncelle, gridBagConstraints);
 
@@ -199,7 +189,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_sil, gridBagConstraints);
 
@@ -209,7 +198,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel7, gridBagConstraints);
 
@@ -217,7 +205,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel8, gridBagConstraints);
 
@@ -226,25 +213,20 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.ipadx = 43;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
         add(jLabel9, gridBagConstraints);
 
         USPV_adet_l.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 76;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 12, 0, 0);
         add(USPV_adet_l, gridBagConstraints);
 
         USPV_adet_m.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_adet_m, gridBagConstraints);
 
@@ -253,13 +235,11 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel10, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_agirlik, gridBagConstraints);
 
@@ -268,13 +248,11 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel11, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_minimum, gridBagConstraints);
 
@@ -283,7 +261,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel12, gridBagConstraints);
 
@@ -291,7 +268,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_listele, gridBagConstraints);
 
@@ -300,7 +276,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel13, gridBagConstraints);
 
@@ -311,7 +286,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = null;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jScrollPane1, gridBagConstraints);
 
@@ -320,7 +295,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel14, gridBagConstraints);
 
@@ -331,7 +305,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = null;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jScrollPane2, gridBagConstraints);
 
@@ -344,7 +318,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = null;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_sil1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
