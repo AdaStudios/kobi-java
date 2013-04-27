@@ -4,6 +4,10 @@
  */
 package com.ada.sme.view;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author PaDaWaN
@@ -31,12 +35,14 @@ public class StockLeftPanelView extends javax.swing.JPanel {
 
         SLPV_ekle = new javax.swing.JButton();
         SLPV_yonet = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 22), new java.awt.Dimension(0, 22), new java.awt.Dimension(32767, 22));
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(227, 227, 227));
         setForeground(new java.awt.Color(254, 254, 254));
         setMaximumSize(new java.awt.Dimension(146, 2000));
-        setMinimumSize(new java.awt.Dimension(146, 250));
-        setPreferredSize(new java.awt.Dimension(146, 250));
+        setMinimumSize(new java.awt.Dimension(146, 550));
+        setPreferredSize(new java.awt.Dimension(146, 500));
         setLayout(new java.awt.GridBagLayout());
 
         SLPV_ekle.setBackground(new java.awt.Color(67, 149, 195));
@@ -52,10 +58,10 @@ public class StockLeftPanelView extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 0, 20, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
         add(SLPV_ekle, gridBagConstraints);
 
         SLPV_yonet.setBackground(new java.awt.Color(67, 149, 195));
@@ -71,16 +77,37 @@ public class StockLeftPanelView extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 0, 20, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
         add(SLPV_yonet, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.weighty = 1.0;
+        add(filler1, gridBagConstraints);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Stok");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weightx = 1.0;
+        add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SLPV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SLPV_ekleActionPerformed
         frame.main_anapanel.removeAll();
-        frame.main_anapanel.add(new AddStockPanelView());
+        try {
+            frame.main_anapanel.add(new AddStockPanelView());
+        } catch (IOException ex) {
+            Logger.getLogger(StockLeftPanelView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         frame.main_anapanel.validate();
     }//GEN-LAST:event_SLPV_ekleActionPerformed
 
@@ -94,5 +121,7 @@ public class StockLeftPanelView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SLPV_ekle;
     private javax.swing.JButton SLPV_yonet;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

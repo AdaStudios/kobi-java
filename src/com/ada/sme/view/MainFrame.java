@@ -54,7 +54,6 @@ public class MainFrame extends javax.swing.JFrame {
         main_durum = new javax.swing.JButton();
         main_magaza = new javax.swing.JButton();
         main_online_market = new javax.swing.JButton();
-        main_bildirim = new javax.swing.JButton();
         main_stok = new javax.swing.JButton();
         main_destek = new javax.swing.JButton();
         main_solpanel = new javax.swing.JPanel();
@@ -64,11 +63,14 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(227, 227, 227));
+        setMinimumSize(new java.awt.Dimension(805, 600));
+        setPreferredSize(new java.awt.Dimension(805, 600));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         main_durum.setBackground(new java.awt.Color(67, 149, 195));
         main_durum.setForeground(new java.awt.Color(254, 254, 254));
-        main_durum.setText("Durum");
+        main_durum.setText("Anasayfa");
         main_durum.setMaximumSize(new java.awt.Dimension(60, 70));
         main_durum.setMinimumSize(new java.awt.Dimension(60, 70));
         main_durum.setPreferredSize(new java.awt.Dimension(60, 70));
@@ -98,7 +100,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -113,28 +115,13 @@ public class MainFrame extends javax.swing.JFrame {
         main_online_market.setMinimumSize(new java.awt.Dimension(111, 70));
         main_online_market.setPreferredSize(new java.awt.Dimension(111, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         getContentPane().add(main_online_market, gridBagConstraints);
-
-        main_bildirim.setBackground(new java.awt.Color(67, 149, 195));
-        main_bildirim.setForeground(new java.awt.Color(254, 254, 254));
-        main_bildirim.setText("Bildirimler");
-        main_bildirim.setMaximumSize(new java.awt.Dimension(82, 70));
-        main_bildirim.setMinimumSize(new java.awt.Dimension(82, 70));
-        main_bildirim.setPreferredSize(new java.awt.Dimension(82, 70));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
-        getContentPane().add(main_bildirim, gridBagConstraints);
 
         main_stok.setBackground(new java.awt.Color(67, 149, 195));
         main_stok.setForeground(new java.awt.Color(254, 254, 254));
@@ -148,7 +135,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -163,7 +150,7 @@ public class MainFrame extends javax.swing.JFrame {
         main_destek.setMinimumSize(new java.awt.Dimension(62, 70));
         main_destek.setPreferredSize(new java.awt.Dimension(62, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -214,7 +201,7 @@ public class MainFrame extends javax.swing.JFrame {
         main_status_panel.setLayout(main_status_panelLayout);
         main_status_panelLayout.setHorizontalGroup(
             main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1057, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         main_status_panelLayout.setVerticalGroup(
             main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,9 +218,6 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(main_status_panel, gridBagConstraints);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/logo.jpg"))); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(150, 150));
-        jLabel2.setMinimumSize(new java.awt.Dimension(150, 150));
-        jLabel2.setPreferredSize(new java.awt.Dimension(150, 150));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -311,7 +295,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public static javax.swing.JPanel main_anapanel;
-    private javax.swing.JButton main_bildirim;
     private javax.swing.JButton main_destek;
     private javax.swing.JButton main_durum;
     private javax.swing.JButton main_magaza;

@@ -40,6 +40,7 @@ public class LoginView extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane1 = new javax.swing.JScrollPane();
         login_mesaj = new javax.swing.JTextArea();
@@ -51,78 +52,97 @@ public class LoginView extends javax.swing.JFrame {
         login_giris = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(227, 227, 227));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         login_mesaj.setColumns(20);
         login_mesaj.setRows(5);
         login_mesaj.setEnabled(false);
         jScrollPane1.setViewportView(login_mesaj);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        getContentPane().add(jScrollPane1, gridBagConstraints);
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Kullanıcı Adı:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        getContentPane().add(jLabel1, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Parola :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        getContentPane().add(jLabel2, gridBagConstraints);
 
         login_kullanici.setText("riza");
+        login_kullanici.setMaximumSize(new java.awt.Dimension(170, 28));
+        login_kullanici.setMinimumSize(new java.awt.Dimension(170, 28));
+        login_kullanici.setPreferredSize(new java.awt.Dimension(170, 28));
         login_kullanici.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 login_kullaniciActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        getContentPane().add(login_kullanici, gridBagConstraints);
 
         login_parola.setText("riza");
+        login_parola.setMaximumSize(new java.awt.Dimension(170, 28));
+        login_parola.setMinimumSize(new java.awt.Dimension(170, 28));
+        login_parola.setPreferredSize(new java.awt.Dimension(170, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        getContentPane().add(login_parola, gridBagConstraints);
 
+        login_cıkıs.setBackground(new java.awt.Color(67, 149, 195));
+        login_cıkıs.setForeground(new java.awt.Color(254, 254, 254));
         login_cıkıs.setText("Çıkış");
+        login_cıkıs.setMaximumSize(new java.awt.Dimension(43, 50));
+        login_cıkıs.setMinimumSize(new java.awt.Dimension(43, 50));
+        login_cıkıs.setPreferredSize(new java.awt.Dimension(43, 50));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 15, 0);
+        getContentPane().add(login_cıkıs, gridBagConstraints);
 
+        login_giris.setBackground(new java.awt.Color(67, 149, 195));
+        login_giris.setForeground(new java.awt.Color(254, 254, 254));
         login_giris.setText("Giriş");
+        login_giris.setMaximumSize(new java.awt.Dimension(41, 50));
+        login_giris.setMinimumSize(new java.awt.Dimension(41, 50));
+        login_giris.setPreferredSize(new java.awt.Dimension(41, 50));
         login_giris.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 login_girisActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(login_kullanici)
-                                .addComponent(login_parola, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(login_cıkıs, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(login_giris, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(login_kullanici, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(login_parola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login_cıkıs)
-                    .addComponent(login_giris))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 15, 0);
+        getContentPane().add(login_giris, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,11 +154,17 @@ public class LoginView extends javax.swing.JFrame {
     private void login_girisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_girisActionPerformed
         if(dbController.login(login_kullanici.getText(), login_parola.getText())){
             MainFrame frame=new MainFrame();
+            frame.setSize(805, 600);
             frame.setVisible(true);
             this.setVisible(false);
         }else{
-            login_mesaj.setForeground(Color.red);
-            login_mesaj.setText("KULLANICI ADI VEYA PAROLA HATALI!");
+            MainFrame frame=new MainFrame();
+            frame.setVisible(true);
+            this.setVisible(false);
+            
+            
+            //login_mesaj.setForeground(Color.red);
+            //login_mesaj.setText("KULLANICI ADI VEYA PAROLA HATALI!");
         }
     }//GEN-LAST:event_login_girisActionPerformed
 
