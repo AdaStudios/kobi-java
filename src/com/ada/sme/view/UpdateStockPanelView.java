@@ -107,6 +107,10 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel2, gridBagConstraints);
+
+        USPV_kod.setMaximumSize(new java.awt.Dimension(100, 28));
+        USPV_kod.setMinimumSize(new java.awt.Dimension(100, 28));
+        USPV_kod.setPreferredSize(new java.awt.Dimension(100, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -135,6 +139,10 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel4, gridBagConstraints);
+
+        USPV_fiyat.setMaximumSize(new java.awt.Dimension(100, 28));
+        USPV_fiyat.setMinimumSize(new java.awt.Dimension(100, 28));
+        USPV_fiyat.setPreferredSize(new java.awt.Dimension(100, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -142,6 +150,9 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         add(USPV_fiyat, gridBagConstraints);
 
         USPV_adet_s.setText("0");
+        USPV_adet_s.setMaximumSize(new java.awt.Dimension(50, 28));
+        USPV_adet_s.setMinimumSize(new java.awt.Dimension(50, 28));
+        USPV_adet_s.setPreferredSize(new java.awt.Dimension(50, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -163,6 +174,10 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel6, gridBagConstraints);
+
+        USPV_resim.setMaximumSize(new java.awt.Dimension(100, 28));
+        USPV_resim.setMinimumSize(new java.awt.Dimension(100, 28));
+        USPV_resim.setPreferredSize(new java.awt.Dimension(100, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -218,6 +233,9 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         add(jLabel9, gridBagConstraints);
 
         USPV_adet_l.setText("0");
+        USPV_adet_l.setMaximumSize(new java.awt.Dimension(50, 28));
+        USPV_adet_l.setMinimumSize(new java.awt.Dimension(50, 28));
+        USPV_adet_l.setPreferredSize(new java.awt.Dimension(50, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
@@ -225,6 +243,9 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         add(USPV_adet_l, gridBagConstraints);
 
         USPV_adet_m.setText("0");
+        USPV_adet_m.setMaximumSize(new java.awt.Dimension(50, 28));
+        USPV_adet_m.setMinimumSize(new java.awt.Dimension(50, 28));
+        USPV_adet_m.setPreferredSize(new java.awt.Dimension(50, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -238,6 +259,10 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel10, gridBagConstraints);
+
+        USPV_agirlik.setMaximumSize(new java.awt.Dimension(100, 28));
+        USPV_agirlik.setMinimumSize(new java.awt.Dimension(100, 28));
+        USPV_agirlik.setPreferredSize(new java.awt.Dimension(100, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
@@ -251,6 +276,10 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel11, gridBagConstraints);
+
+        USPV_minimum.setMaximumSize(new java.awt.Dimension(100, 28));
+        USPV_minimum.setMinimumSize(new java.awt.Dimension(100, 28));
+        USPV_minimum.setPreferredSize(new java.awt.Dimension(100, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 9;
