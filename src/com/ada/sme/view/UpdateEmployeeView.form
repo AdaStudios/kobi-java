@@ -22,7 +22,6 @@
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel3" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
@@ -33,7 +32,6 @@
                           <Component id="UEV_kullaniciadi" alignment="1" pref="279" max="32767" attributes="0"/>
                           <Component id="UEV_soyad" alignment="1" max="32767" attributes="0"/>
                           <Component id="UEV_isim" alignment="1" max="32767" attributes="0"/>
-                          <Component id="UEV_kod" alignment="1" max="32767" attributes="0"/>
                           <Component id="UEV_sifre" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -54,12 +52,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="UEV_kod" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="UEV_isim" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -79,13 +72,12 @@
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="UEV_sifre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="UEV_update" alignment="3" max="32767" attributes="0"/>
                   <Component id="UEV_delete" alignment="3" max="32767" attributes="0"/>
                   <Component id="UEV_geri" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,14 +87,6 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="&#xc7;al&#x131;&#x15f;an&#x131;n Bilgilerini G&#xfc;ncelle"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="UEV_kod">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="&#xc7;al&#x131;&#x15f;an Kodu:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">

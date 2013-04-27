@@ -8,7 +8,6 @@ package com.ada.sme.view;
  *
  * @author PaDaWaN
  */
-
 import com.ada.sme.controller.*;
 import java.awt.List;
 import java.sql.ResultSet;
@@ -22,18 +21,20 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
     /**
      * Creates new form UpdateEmployeeView
      */
+    ArrayList res;
+
     public UpdateEmployeeView(String id) {
         initComponents();
-        
-        DBController dbController=new DBController();
-        ArrayList res;
-        res = dbController.selectSingleRowDB("SELECT * FROM employee WHERE id="+id);
-        UEV_kod.setText(String.valueOf(res.get(0)));
+
+        DBController dbController = new DBController();
+
+        res = dbController.selectSingleRowDB("SELECT * FROM employee WHERE id=" + id);
+
         UEV_isim.setText((String) res.get(1));
         UEV_soyad.setText((String) res.get(2));
         UEV_kullaniciadi.setText((String) res.get(3));
         UEV_sifre.setText((String) res.get(4));
-        
+
     }
 
     /**
@@ -46,8 +47,6 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        UEV_kod = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         UEV_isim = new javax.swing.JTextField();
         UEV_soyad = new javax.swing.JTextField();
@@ -62,9 +61,6 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Çalışanın Bilgilerini Güncelle");
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Çalışan Kodu:");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Çalışan İsmi:");
@@ -109,7 +105,6 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -119,7 +114,6 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
                             .addComponent(UEV_kullaniciadi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                             .addComponent(UEV_soyad, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(UEV_isim, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(UEV_kod, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(UEV_sifre)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(UEV_update, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,11 +128,7 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(UEV_kod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(UEV_isim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -154,23 +144,22 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(UEV_sifre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UEV_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(UEV_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(UEV_geri, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(UEV_geri, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void UEV_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UEV_updateActionPerformed
-        DBController dbController= new DBController();
-        dbController.insDelUpDB("UPDATE employee SET name='"+UEV_isim.getText()+"', surname='"+UEV_soyad.getText()+"', username='"+UEV_kullaniciadi.getText()+"', password='"+UEV_sifre.getText()+"' WHERE id="+UEV_kod.getText());
+        DBController dbController = new DBController();
+        dbController.empInsDelUpDB("UPDATE employee SET name='" + UEV_isim.getText() + "', surname='" + UEV_soyad.getText() + "', username='" + UEV_kullaniciadi.getText() + "', password='" + UEV_sifre.getText() + "' WHERE id=" + String.valueOf(res.get(0)));
     }//GEN-LAST:event_UEV_updateActionPerformed
 
     private void UEV_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UEV_deleteActionPerformed
         DBController dbController = new DBController();
-        dbController.insDelUpDB("DELETE FROM employee WHERE id="+Integer.parseInt(UEV_kod.getText()));
+        dbController.empInsDelUpDB("DELETE FROM employee WHERE id=" + String.valueOf(res.get(0)));
         MainFrame.main_anapanel.removeAll();
         MainFrame.main_anapanel.add(new ManageEmployeeView());
         MainFrame.main_anapanel.validate();
@@ -181,18 +170,15 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         MainFrame.main_anapanel.add(new ManageEmployeeView());
         MainFrame.main_anapanel.validate();
     }//GEN-LAST:event_UEV_geriActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton UEV_delete;
     private javax.swing.JButton UEV_geri;
     private javax.swing.JTextField UEV_isim;
-    private javax.swing.JTextField UEV_kod;
     private javax.swing.JTextField UEV_kullaniciadi;
     private javax.swing.JTextField UEV_sifre;
     private javax.swing.JTextField UEV_soyad;
     private javax.swing.JButton UEV_update;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
