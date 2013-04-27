@@ -149,7 +149,7 @@ public class CreateOwnerView extends javax.swing.JFrame {
         // TODO add your handling code here:
         DBController db = new DBController();
         if(COV_sifre.getText().equals(COV_sifre_t.getText())){
-            db.insDelUpDB("INSERT INTO employee VALUES(1, '"+COV_ad.getText()+"', '"+COV_soyad.getText()+"', '"+COV_kullanici_adi.getText()+"', '"+COV_sifre.getText()+"')");
+            db.empInsDelUpDB("INSERT INTO employee VALUES(1, '"+COV_ad.getText()+"', '"+COV_soyad.getText()+"', '"+COV_kullanici_adi.getText()+"', '"+COV_sifre.getText()+"')");
             LoginView loginScreen = new LoginView();           
 
             loginScreen.setVisible(true);
