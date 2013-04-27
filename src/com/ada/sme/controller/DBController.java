@@ -84,6 +84,17 @@ public class DBController {
             e.printStackTrace();
         }
     }
+    
+    public void insProductDB(String sql) {
+        sm.check();
+        PreparedStatement prestat;
+        try {               
+                prestat = conn_off.prepareStatement(sql);
+                prestat.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public DefaultTableModel selectDB(String sql) {
 
@@ -145,7 +156,8 @@ public class DBController {
             ResultSetMetaData meta = result.getMetaData();
             int numberOfColumns = meta.getColumnCount();
 
-            result.next();
+            
+            if(result.next())
             if (result.getObject(1).toString().equals(pass)) {
                 return true;
             }

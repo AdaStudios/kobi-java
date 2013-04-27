@@ -28,27 +28,23 @@ public class Main
         products = new ArrayList<Product>();
         //System.out.println("Arraylist size:"+products.size());
         /*CreateDBController createDB =new CreateDBController();
-            createDB.createDB();*/
+        createDB.createDB();*/
+        
        DBController db = new DBController();
        ArrayList a = db.selectSingleRowDB("select * from employee");
        
         if (a.isEmpty())
         {
             CreateOwnerView createOwner = new CreateOwnerView();
-            createOwner.setVisible(true);
-            
+            createOwner.setVisible(true);            
            /* CreateDBController createDB =new CreateDBController();
             createDB.createDB();*/
         } else
-        {     
-            
+        {                 
            /* CreateDBController createDB =new CreateDBController();
-            createDB.createDB(); */
-         
+            createDB.createDB(); */         
             LoginView loginScreen = new LoginView();           
-
             loginScreen.setVisible(true);
-
             
         }
     }

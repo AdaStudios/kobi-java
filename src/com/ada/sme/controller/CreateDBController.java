@@ -15,6 +15,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.derby.drda.NetworkServerControl;
 
 public class CreateDBController {
@@ -46,7 +48,7 @@ public class CreateDBController {
             stmt = conn.createStatement();
             try {
                 stmt.execute("CREATE TABLE employee(id int primary key, name varchar(20), surname varchar(20), username varchar(20), password varchar(20))");
-                stmt.execute("CREATE TABLE product(product_id int , model varchar(64), quantity int , stock_status_id int , image varchar(255) , shipping int , price decimal(15,4) , tax_class_id int , date_avaiable date , weight decimal(15,8) , weight_class_id int , minimum int , subtract int , status int , date_added date , date_modified date)");
+                stmt.execute("CREATE TABLE product(product_id int , model varchar(64), quantity int , stock_status_id int , image varchar(255) , shipping int , price decimal(15,4) , tax_class_id int , date_available date , weight decimal(15,8) , weight_class_id int , minimum int , subtract int , status int , date_added date , date_modified date)");
                 stmt.execute("CREATE TABLE product_description(product_id int , language_id int , name varchar(255) , description varchar(255) , tag varchar(255))");
                 stmt.execute("CREATE TABLE product_option(product_option_id int , product_id int , option_id int , required int)");
                 stmt.execute("CREATE TABLE product_option_value(product_option_value_id int , product_option_id int , product_id int , option_id int, option_value_id int , quantity int , subtract int)");
@@ -81,5 +83,26 @@ public class CreateDBController {
                 conn = null;
             }
         }
+    }
+    
+    public void deleteAll(){
+        NetworkServerControl server = null;
+        Connection conn = null;
+        PreparedStatement prestat = null;
+        Statement stmt = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDB;");
+            stmt = conn.createStatement();
+            stmt.execute("DELETE FROM product");
+            stmt.execute("DELETE FROM product_description");
+            stmt.execute("DELETE FROM product_option");
+            stmt.execute("DELETE FROM product_option_value");
+            stmt.execute("DELETE FROM product_to_category");
+            stmt.execute("DELETE FROM product_image");
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateDBController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        
     }
 }

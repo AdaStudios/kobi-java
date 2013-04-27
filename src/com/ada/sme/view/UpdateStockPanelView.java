@@ -307,11 +307,11 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         
         DBController dbController= new DBController();
         int total= Integer.parseInt(USPV_adet_s.getText())+Integer.parseInt(USPV_adet_m.getText())+Integer.parseInt(USPV_adet_l.getText());
-        dbController.insDelUpDB("UPDATE product SET model='"+USPV_kod.getText()+"', price="+USPV_fiyat.getText()+", quantity="+String.valueOf(total)+", image='"+USPV_resim.getText()+"', weight="+USPV_agirlik.getText()+", minimum="+USPV_minimum.getText()+", status="+USPV_listele.getSelectedIndex()+" WHERE product_id="+pro_id);
-        dbController.insDelUpDB("UPDATE product_description SET description='"+USPV_aciklama.getText()+"', tag='"+USPV_etiketler.getText()+"', name='"+USPV_isim.getText()+"' WHERE product_id="+pro_id);
-        dbController.insDelUpDB("UPDATE product_option_value SET quantity="+USPV_adet_s.getText()+" WHERE product_id="+pro_id+" and option_value_id=46");
-        dbController.insDelUpDB("UPDATE product_option_value SET quantity="+USPV_adet_m.getText()+" WHERE product_id="+pro_id+" and option_value_id=47");
-        dbController.insDelUpDB("UPDATE product_option_value SET quantity="+USPV_adet_l.getText()+" WHERE product_id="+pro_id+" and option_value_id=48");
+        dbController.insProductDB("UPDATE product SET model='"+USPV_kod.getText()+"', price="+USPV_fiyat.getText()+", quantity="+String.valueOf(total)+", image='"+USPV_resim.getText()+"', weight="+USPV_agirlik.getText()+", minimum="+USPV_minimum.getText()+", status="+USPV_listele.getSelectedIndex()+" WHERE product_id="+pro_id);
+        dbController.insProductDB("UPDATE product_description SET description='"+USPV_aciklama.getText()+"', tag='"+USPV_etiketler.getText()+"', name='"+USPV_isim.getText()+"' WHERE product_id="+pro_id);
+        dbController.insProductDB("UPDATE product_option_value SET quantity="+USPV_adet_s.getText()+" WHERE product_id="+pro_id+" and option_value_id=46");
+        dbController.insProductDB("UPDATE product_option_value SET quantity="+USPV_adet_m.getText()+" WHERE product_id="+pro_id+" and option_value_id=47");
+        dbController.insProductDB("UPDATE product_option_value SET quantity="+USPV_adet_l.getText()+" WHERE product_id="+pro_id+" and option_value_id=48");
    
     }//GEN-LAST:event_USPV_guncelleActionPerformed
 
@@ -323,12 +323,12 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
 
     private void USPV_silActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USPV_silActionPerformed
         DBController dbController = new DBController();
-        dbController.insDelUpDB("DELETE FROM product WHERE product_id="+pro_id);
-        dbController.insDelUpDB("DELETE FROM product_description WHERE product_id="+pro_id);
-        dbController.insDelUpDB("DELETE FROM product_option WHERE product_id="+pro_id);
-        dbController.insDelUpDB("DELETE FROM product_option_value WHERE product_id="+pro_id);
-        dbController.insDelUpDB("DELETE FROM product_to_category WHERE product_id="+pro_id);
-        dbController.insDelUpDB("DELETE FROM product_image WHERE product_id="+pro_id);
+        dbController.insProductDB("DELETE FROM product WHERE product_id="+pro_id);
+        dbController.insProductDB("DELETE FROM product_description WHERE product_id="+pro_id);
+        dbController.insProductDB("DELETE FROM product_option WHERE product_id="+pro_id);
+        dbController.insProductDB("DELETE FROM product_option_value WHERE product_id="+pro_id);
+        dbController.insProductDB("DELETE FROM product_to_category WHERE product_id="+pro_id);
+        dbController.insProductDB("DELETE FROM product_image WHERE product_id="+pro_id);
         
         
         MainFrame.main_anapanel.removeAll();
