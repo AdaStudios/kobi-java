@@ -44,6 +44,7 @@ public class CreateOwnerView extends javax.swing.JFrame {
         COV_soyad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(227, 227, 227));
 
         COV_mesaj.setColumns(20);
         COV_mesaj.setRows(5);

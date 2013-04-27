@@ -64,6 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(227, 227, 227));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         main_durum.setBackground(new java.awt.Color(67, 149, 195));
@@ -231,9 +232,6 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(main_status_panel, gridBagConstraints);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/logo.jpg"))); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(150, 150));
-        jLabel2.setMinimumSize(new java.awt.Dimension(150, 150));
-        jLabel2.setPreferredSize(new java.awt.Dimension(150, 150));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

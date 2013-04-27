@@ -89,6 +89,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         ASPV_etiketler = new javax.swing.JTextField();
         ASPV_gozat = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(227, 227, 227));
         setMaximumSize(new java.awt.Dimension(805, 600));
         setMinimumSize(new java.awt.Dimension(805, 600));
         setPreferredSize(new java.awt.Dimension(805, 600));

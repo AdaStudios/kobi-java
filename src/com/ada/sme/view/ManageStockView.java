@@ -69,6 +69,7 @@ public class ManageStockView extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         MEV_value = new javax.swing.JTextField();
         MEV_identifier = new javax.swing.JComboBox();
@@ -76,12 +77,44 @@ public class ManageStockView extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         MSV_list1 = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(227, 227, 227));
+        setLayout(new java.awt.GridBagLayout());
+
+        MEV_value.setMaximumSize(new java.awt.Dimension(100, 28));
+        MEV_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEV_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(13, 12, 0, 0);
+        add(MEV_value, gridBagConstraints);
+
+        MEV_identifier.setMaximumSize(new java.awt.Dimension(100, 28));
+        MEV_identifier.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEV_identifier.setPreferredSize(new java.awt.Dimension(100, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(13, 12, 0, 0);
+        add(MEV_identifier, gridBagConstraints);
+
+        MSV_ara.setBackground(new java.awt.Color(67, 149, 195));
+        MSV_ara.setForeground(new java.awt.Color(254, 254, 254));
         MSV_ara.setText("Ürün Ara");
+        MSV_ara.setMaximumSize(new java.awt.Dimension(72, 50));
+        MSV_ara.setMinimumSize(new java.awt.Dimension(72, 50));
+        MSV_ara.setPreferredSize(new java.awt.Dimension(72, 50));
         MSV_ara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MSV_araActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
+        add(MSV_ara, gridBagConstraints);
 
         MSV_list1.setModel(MSV_list1.getModel());
         MSV_list1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,34 +124,16 @@ public class ManageStockView extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(MSV_list1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(MEV_value, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(MEV_identifier, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MSV_ara, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MEV_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MEV_identifier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MSV_ara))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(12, 12, 12, 12);
+        add(jScrollPane2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void MSV_list1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MSV_list1MouseClicked
