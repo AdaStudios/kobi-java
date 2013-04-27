@@ -27,40 +27,55 @@ public class StockLeftPanelView extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         SLPV_ekle = new javax.swing.JButton();
         SLPV_yonet = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(227, 227, 227));
+        setForeground(new java.awt.Color(254, 254, 254));
+        setMaximumSize(new java.awt.Dimension(146, 2000));
+        setMinimumSize(new java.awt.Dimension(146, 250));
+        setPreferredSize(new java.awt.Dimension(146, 250));
+        setLayout(new java.awt.GridBagLayout());
+
+        SLPV_ekle.setBackground(new java.awt.Color(67, 149, 195));
+        SLPV_ekle.setForeground(new java.awt.Color(254, 254, 254));
         SLPV_ekle.setText("Ürün Ekle");
+        SLPV_ekle.setMaximumSize(new java.awt.Dimension(146, 80));
+        SLPV_ekle.setMinimumSize(new java.awt.Dimension(146, 80));
+        SLPV_ekle.setPreferredSize(new java.awt.Dimension(146, 80));
         SLPV_ekle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SLPV_ekleActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 20, 0);
+        add(SLPV_ekle, gridBagConstraints);
 
+        SLPV_yonet.setBackground(new java.awt.Color(67, 149, 195));
+        SLPV_yonet.setForeground(new java.awt.Color(254, 254, 254));
         SLPV_yonet.setText("Ürünleri Yönet");
+        SLPV_yonet.setMaximumSize(new java.awt.Dimension(146, 80));
+        SLPV_yonet.setMinimumSize(new java.awt.Dimension(146, 80));
+        SLPV_yonet.setPreferredSize(new java.awt.Dimension(146, 80));
         SLPV_yonet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SLPV_yonetActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SLPV_ekle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SLPV_yonet, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(SLPV_ekle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(SLPV_yonet)
-                .addGap(63, 63, 63))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 20, 0);
+        add(SLPV_yonet, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SLPV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SLPV_ekleActionPerformed
