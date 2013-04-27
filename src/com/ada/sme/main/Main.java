@@ -27,6 +27,8 @@ public class Main
     {
         products = new ArrayList<Product>();
         //System.out.println("Arraylist size:"+products.size());
+        /*CreateDBController createDB =new CreateDBController();
+            createDB.createDB();*/
        DBController db = new DBController();
        ArrayList a = db.selectSingleRowDB("select * from employee");
        
