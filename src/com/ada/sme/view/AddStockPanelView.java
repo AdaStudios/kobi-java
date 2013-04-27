@@ -57,6 +57,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -85,29 +86,110 @@ public class AddStockPanelView extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         ASPV_aciklama = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        ASPV_etiketler = new javax.swing.JTextArea();
+        ASPV_etiketler = new javax.swing.JTextField();
         ASPV_gozat = new javax.swing.JButton();
+
+        setMaximumSize(new java.awt.Dimension(805, 600));
+        setMinimumSize(new java.awt.Dimension(805, 600));
+        setPreferredSize(new java.awt.Dimension(805, 600));
+        setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Yeni Ürün Ekle");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel1, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Ürün Kodu:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel2, gridBagConstraints);
+
+        ASPV_kod.setMaximumSize(new java.awt.Dimension(60, 28));
+        ASPV_kod.setMinimumSize(new java.awt.Dimension(60, 28));
+        ASPV_kod.setPreferredSize(new java.awt.Dimension(60, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(ASPV_kod, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 15);
+        add(ASPV_isim, gridBagConstraints);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Ürün İsmi:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel3, gridBagConstraints);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Ürün Fiyatı:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel4, gridBagConstraints);
+
+        ASPV_fiyat.setMaximumSize(new java.awt.Dimension(60, 28));
+        ASPV_fiyat.setMinimumSize(new java.awt.Dimension(60, 28));
+        ASPV_fiyat.setPreferredSize(new java.awt.Dimension(60, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(ASPV_fiyat, gridBagConstraints);
 
         ASPV_adet_s.setText("0");
+        ASPV_adet_s.setMaximumSize(new java.awt.Dimension(60, 28));
+        ASPV_adet_s.setMinimumSize(new java.awt.Dimension(60, 28));
+        ASPV_adet_s.setPreferredSize(new java.awt.Dimension(60, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(ASPV_adet_s, gridBagConstraints);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Ürün Adeti:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel5, gridBagConstraints);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Ürün Resmi:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel6, gridBagConstraints);
 
         AEV_ekle.setText("Ürün Ekle");
         AEV_ekle.addActionListener(new java.awt.event.ActionListener() {
@@ -115,46 +197,168 @@ public class AddStockPanelView extends javax.swing.JPanel {
                 AEV_ekleActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 10, 1);
+        add(AEV_ekle, gridBagConstraints);
 
         AEV_liste.setText("Ürün Listesi");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 10, 15);
+        add(AEV_liste, gridBagConstraints);
 
         jLabel7.setText("Small");
         jLabel7.setToolTipText("");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel7, gridBagConstraints);
 
         jLabel8.setText("Medium");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel8, gridBagConstraints);
 
         jLabel9.setText("Large");
         jLabel9.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel9, gridBagConstraints);
 
         ASPV_adet_l.setText("0");
+        ASPV_adet_l.setMaximumSize(new java.awt.Dimension(60, 28));
+        ASPV_adet_l.setMinimumSize(new java.awt.Dimension(60, 28));
+        ASPV_adet_l.setPreferredSize(new java.awt.Dimension(60, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(ASPV_adet_l, gridBagConstraints);
 
         ASPV_adet_m.setText("0");
+        ASPV_adet_m.setMaximumSize(new java.awt.Dimension(60, 28));
+        ASPV_adet_m.setMinimumSize(new java.awt.Dimension(60, 28));
+        ASPV_adet_m.setPreferredSize(new java.awt.Dimension(60, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(ASPV_adet_m, gridBagConstraints);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Ürün Ağırlığı(Gr):");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel10, gridBagConstraints);
+
+        ASPV_agirlik.setMaximumSize(new java.awt.Dimension(60, 28));
+        ASPV_agirlik.setMinimumSize(new java.awt.Dimension(60, 28));
+        ASPV_agirlik.setPreferredSize(new java.awt.Dimension(60, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(ASPV_agirlik, gridBagConstraints);
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Minimum:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 15, 1, 1);
+        add(jLabel11, gridBagConstraints);
+
+        ASPV_minimum.setMaximumSize(new java.awt.Dimension(60, 28));
+        ASPV_minimum.setMinimumSize(new java.awt.Dimension(60, 28));
+        ASPV_minimum.setPreferredSize(new java.awt.Dimension(60, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(ASPV_minimum, gridBagConstraints);
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Ürünü Listele:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel12, gridBagConstraints);
 
         ASPV_listele.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PASİF", "AKTİF" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(ASPV_listele, gridBagConstraints);
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Açıklama:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel13, gridBagConstraints);
 
         ASPV_aciklama.setColumns(20);
         ASPV_aciklama.setRows(5);
         jScrollPane1.setViewportView(ASPV_aciklama);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.8;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 15);
+        add(jScrollPane1, gridBagConstraints);
+
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Etiketler:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(jLabel14, gridBagConstraints);
 
-        ASPV_etiketler.setColumns(20);
-        ASPV_etiketler.setRows(5);
-        jScrollPane2.setViewportView(ASPV_etiketler);
+        ASPV_etiketler.setText("asdasdasdasd");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 15);
+        add(ASPV_etiketler, gridBagConstraints);
 
         ASPV_gozat.setText("Gözat");
         ASPV_gozat.addActionListener(new java.awt.event.ActionListener() {
@@ -162,136 +366,12 @@ public class AddStockPanelView extends javax.swing.JPanel {
                 ASPV_gozatActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ASPV_fiyat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                                .addComponent(ASPV_isim, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(ASPV_kod, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ASPV_adet_s, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ASPV_adet_m)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(21, 21, 21))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(ASPV_adet_l)
-                                        .addGap(18, 18, 18))))
-                            .addComponent(ASPV_gozat, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(AEV_ekle, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AEV_liste, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ASPV_minimum, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ASPV_agirlik, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(ASPV_listele, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(191, 191, 191))
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(18, 18, 18)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(ASPV_kod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(ASPV_isim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(ASPV_fiyat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ASPV_adet_s, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ASPV_adet_l, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ASPV_adet_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(ASPV_gozat))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ASPV_agirlik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ASPV_minimum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(ASPV_listele, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(AEV_ekle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AEV_liste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(22, 22, 22))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        add(ASPV_gozat, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AEV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AEV_ekleActionPerformed
@@ -368,7 +448,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
     private javax.swing.JTextField ASPV_adet_m;
     private javax.swing.JTextField ASPV_adet_s;
     private javax.swing.JTextField ASPV_agirlik;
-    private javax.swing.JTextArea ASPV_etiketler;
+    private javax.swing.JTextField ASPV_etiketler;
     private javax.swing.JTextField ASPV_fiyat;
     private javax.swing.JButton ASPV_gozat;
     private javax.swing.JTextField ASPV_isim;
@@ -390,6 +470,5 @@ public class AddStockPanelView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
