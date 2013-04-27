@@ -26,7 +26,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
     
       
     
-    int res;
+     int res;
     int image_id;
     ArrayList<String> imageList;
     
@@ -296,31 +296,33 @@ public class AddStockPanelView extends javax.swing.JPanel {
 
     private void AEV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AEV_ekleActionPerformed
         
-        java.util.Date today = new java.util.Date();
+       java.util.Date today = new java.util.Date();
         java.sql.Date sqlToday = new java.sql.Date(today.getTime());
         
         
         res++;
         DBController dbcontroller=new DBController();
-        dbcontroller.insDelUpDB("INSERT INTO product VALUES("+res+", '"+ASPV_kod.getText()+"', "
+        dbcontroller.insDelUpDB("INSERT INTO oc_product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES("+res+", '"+ASPV_kod.getText()+"', "
                 + ""+(Integer.parseInt(ASPV_adet_s.getText())+Integer.parseInt(ASPV_adet_m.getText())+Integer.parseInt(ASPV_adet_l.getText()))+", 6, 'hebele', 1, "
                 + ""+Double.parseDouble(ASPV_fiyat.getText())+", 9, '"+sqlToday+"' , "+Double.parseDouble(ASPV_agirlik.getText())+", 2, "+Integer.parseInt(ASPV_minimum.getText())+", 1, "
                 + ""+ASPV_listele.getSelectedIndex()+", '"+sqlToday+"'  , '"+sqlToday+"' )");
-        dbcontroller.insDelUpDB("INSERT INTO product_description VALUES("+res+", 1, '"+ASPV_isim.getText()+"', '"+ASPV_aciklama.getText()+"', '"+ASPV_etiketler.getText()+"')");
-        dbcontroller.insDelUpDB("INSERT INTO product_option VALUES(227, "+res+",  11, 1 )");
+        dbcontroller.insDelUpDB("INSERT INTO oc_product_description(product_id,language_id,name,description,tag) VALUES("+res+", 1, '"+ASPV_isim.getText()+"', '"+ASPV_aciklama.getText()+"', '"+ASPV_etiketler.getText()+"')");
+      /*  dbcontroller.insDelUpDB("INSERT INTO product_option VALUES(227, "+res+",  11, 1 )");
         dbcontroller.insDelUpDB("INSERT INTO product_option_value VALUES("+(res+1000)+", 227, "+res+", 11, 46, "+Integer.parseInt(ASPV_adet_s.getText())+", 1)");
         dbcontroller.insDelUpDB("INSERT INTO product_option_value VALUES("+(res+1001)+", 227, "+res+", 11, 47, "+Integer.parseInt(ASPV_adet_m.getText())+", 1)");
         dbcontroller.insDelUpDB("INSERT INTO product_option_value VALUES("+(res+1002)+", 227, "+res+", 11, 48, "+Integer.parseInt(ASPV_adet_l.getText())+", 1)");
-        dbcontroller.insDelUpDB("INSERT INTO product_to_category VALUES("+res+",  61)");
+       */ dbcontroller.insDelUpDB("INSERT INTO oc_product_to_category(product_id, category_id) VALUES("+res+",  61)");
+       dbcontroller.insDelUpDB("INSERT INTO oc_product_to_store VALUES("+res+",  0)");
         
-        for(int i=0;i<imageList.size();i++){
-            try {
-                
-                DBController dbController=new DBController();
+        DBController dbController=new DBController();
                 
                  ArrayList a = dbController.selectSingleRowDB("select * from product_image");
-                 if (a.isEmpty())
+         if (a.isEmpty())
                         dbController.insDelUpDB("INSERT INTO product_image VALUES(1000, 1000, 'image' ,0)");
+        for(int i=0;i<imageList.size();i++){
+            try {      
+                
+                
                 
         
                 image_id = DBController.getLastID("SELECT * FROM product_image");
@@ -341,7 +343,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
                 in.close();
                 
                 
-                dbcontroller.insDelUpDB("INSERT INTO product_image VALUES("+image_id+", "+res+", 'data/"+image_id+"')");
+                dbcontroller.insDelUpDB("INSERT INTO product_image VALUES("+image_id+", "+res+", 'data/"+image_id+"',0)");
             }catch (Exception e) {
                 System.out.println(e.getMessage());
             }
