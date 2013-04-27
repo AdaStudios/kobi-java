@@ -184,7 +184,12 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_resim, gridBagConstraints);
 
+        USPV_guncelle.setBackground(new java.awt.Color(67, 149, 195));
+        USPV_guncelle.setForeground(new java.awt.Color(254, 254, 254));
         USPV_guncelle.setText("Güncelle");
+        USPV_guncelle.setMaximumSize(new java.awt.Dimension(74, 50));
+        USPV_guncelle.setMinimumSize(new java.awt.Dimension(74, 50));
+        USPV_guncelle.setPreferredSize(new java.awt.Dimension(74, 50));
         USPV_guncelle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USPV_guncelleActionPerformed(evt);
@@ -196,7 +201,12 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_guncelle, gridBagConstraints);
 
+        USPV_sil.setBackground(new java.awt.Color(67, 149, 195));
+        USPV_sil.setForeground(new java.awt.Color(254, 254, 254));
         USPV_sil.setText("Ürünü Sil");
+        USPV_sil.setMaximumSize(new java.awt.Dimension(73, 50));
+        USPV_sil.setMinimumSize(new java.awt.Dimension(73, 50));
+        USPV_sil.setPreferredSize(new java.awt.Dimension(73, 50));
         USPV_sil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USPV_silActionPerformed(evt);
@@ -332,7 +342,12 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel14, gridBagConstraints);
 
+        USPV_sil1.setBackground(new java.awt.Color(67, 149, 195));
+        USPV_sil1.setForeground(new java.awt.Color(254, 254, 254));
         USPV_sil1.setText("Geri");
+        USPV_sil1.setMaximumSize(new java.awt.Dimension(40, 50));
+        USPV_sil1.setMinimumSize(new java.awt.Dimension(40, 50));
+        USPV_sil1.setPreferredSize(new java.awt.Dimension(40, 50));
         USPV_sil1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USPV_sil1ActionPerformed(evt);
