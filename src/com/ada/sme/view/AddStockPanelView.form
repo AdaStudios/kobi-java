@@ -241,6 +241,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xdc;r&#xfc;n Listesi"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AEV_listeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
