@@ -84,9 +84,8 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         USPV_aciklama = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        USPV_etiketler = new javax.swing.JTextArea();
         USPV_sil1 = new javax.swing.JButton();
+        USPV_etiketler = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(227, 227, 227));
         setLayout(new java.awt.GridBagLayout());
@@ -116,6 +115,8 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_isim, gridBagConstraints);
 
@@ -246,13 +247,13 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Minimum:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel11, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_minimum, gridBagConstraints);
 
@@ -260,14 +261,15 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jLabel12.setText("Ürünü Listele:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel12, gridBagConstraints);
 
         USPV_listele.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PASİF", "AKTİF" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_listele, gridBagConstraints);
 
@@ -275,7 +277,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jLabel13.setText("Açıklama:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel13, gridBagConstraints);
 
@@ -285,29 +287,21 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         add(jScrollPane1, gridBagConstraints);
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Etiketler:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel14, gridBagConstraints);
-
-        USPV_etiketler.setColumns(20);
-        USPV_etiketler.setRows(5);
-        jScrollPane2.setViewportView(USPV_etiketler);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        add(jScrollPane2, gridBagConstraints);
 
         USPV_sil1.setText("Geri");
         USPV_sil1.addActionListener(new java.awt.event.ActionListener() {
@@ -320,6 +314,15 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(USPV_sil1, gridBagConstraints);
+
+        USPV_etiketler.setText("asdasdadasdasd");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        add(USPV_etiketler, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void USPV_guncelleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USPV_guncelleActionPerformed
@@ -361,7 +364,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
     private javax.swing.JTextField USPV_adet_m;
     private javax.swing.JTextField USPV_adet_s;
     private javax.swing.JTextField USPV_agirlik;
-    private javax.swing.JTextArea USPV_etiketler;
+    private javax.swing.JTextField USPV_etiketler;
     private javax.swing.JTextField USPV_fiyat;
     private javax.swing.JButton USPV_guncelle;
     private javax.swing.JTextField USPV_isim;
@@ -386,6 +389,5 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

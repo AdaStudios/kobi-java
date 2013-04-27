@@ -1,11 +1,11 @@
-2013-04-27 10:02:10.107 GMT : Apache Derby Network Server - 10.5.3.0 - (802917) started and ready to accept connections on port 1527
+2013-04-27 11:02:16.334 GMT : Apache Derby Network Server - 10.5.3.0 - (802917) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-2013-04-27 10:02:10.740 GMT:
- Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-013e-4af1-54f1-000003606050
+2013-04-27 11:02:16.763 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-013e-4b28-5bc6-000003606050
 on database directory /home/tvostro/NetBeansProjects/kobi-j/kobi-java/MyDB  
 
 Database Class Loader started - derby.database.classpath=''
-2013-04-27 10:02:11.414 GMT : Could not listen on port 1527 on host 127.0.0.1:
+2013-04-27 11:02:17.348 GMT : Could not listen on port 1527 on host 127.0.0.1:
  java.net.BindException: Address already in use
 An exception was thrown during network server startup. DRDA_ListenPort.S:Could not listen on port 1527 on host 127.0.0.1:
  java.net.BindException: Address already in use
