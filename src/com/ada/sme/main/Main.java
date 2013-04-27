@@ -47,9 +47,7 @@ public class Main
          
             LoginView loginScreen = new LoginView();           
 
-            loginScreen.setVisible(true);
-
-            
+            loginScreen.setVisible(true);  
         }
     }
 

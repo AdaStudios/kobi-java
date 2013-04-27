@@ -90,9 +90,9 @@ public class AddStockPanelView extends javax.swing.JPanel {
         ASPV_gozat = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(227, 227, 227));
-        setMaximumSize(new java.awt.Dimension(805, 600));
-        setMinimumSize(new java.awt.Dimension(805, 600));
-        setPreferredSize(new java.awt.Dimension(805, 600));
+        setMaximumSize(new java.awt.Dimension(640, 470));
+        setMinimumSize(new java.awt.Dimension(640, 470));
+        setPreferredSize(new java.awt.Dimension(640, 470));
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -192,7 +192,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         add(jLabel6, gridBagConstraints);
 
-        AEV_ekle.setText("Ürün Ekle");
+        AEV_ekle.setText("Kaydet");
         AEV_ekle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AEV_ekleActionPerformed(evt);
@@ -213,7 +213,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 10, 15);
         add(AEV_liste, gridBagConstraints);
 
-        jLabel7.setText("Small");
+        jLabel7.setText("Küçük");
         jLabel7.setToolTipText("");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -223,7 +223,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         add(jLabel7, gridBagConstraints);
 
-        jLabel8.setText("Medium");
+        jLabel8.setText("Orta");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -231,7 +231,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         add(jLabel8, gridBagConstraints);
 
-        jLabel9.setText("Large");
+        jLabel9.setText("Büyük");
         jLabel9.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -351,7 +351,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         add(jLabel14, gridBagConstraints);
 
-        ASPV_etiketler.setText("asdasdasdasd");
+        ASPV_etiketler.setToolTipText("ürünle ilgili etiketleri giriniz.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;

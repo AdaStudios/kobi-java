@@ -78,6 +78,8 @@ public class ManageStockView extends javax.swing.JPanel {
         MSV_list1 = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(227, 227, 227));
+        setMinimumSize(new java.awt.Dimension(400, 120));
+        setPreferredSize(new java.awt.Dimension(500, 500));
         setLayout(new java.awt.GridBagLayout());
 
         MEV_value.setMaximumSize(new java.awt.Dimension(100, 28));
@@ -86,7 +88,9 @@ public class ManageStockView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(13, 12, 0, 0);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(15, 12, 0, 0);
         add(MEV_value, gridBagConstraints);
 
         MEV_identifier.setMaximumSize(new java.awt.Dimension(100, 28));
@@ -95,15 +99,17 @@ public class ManageStockView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(13, 12, 0, 0);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(15, 12, 0, 0);
         add(MEV_identifier, gridBagConstraints);
 
         MSV_ara.setBackground(new java.awt.Color(67, 149, 195));
         MSV_ara.setForeground(new java.awt.Color(254, 254, 254));
         MSV_ara.setText("Ürün Ara");
-        MSV_ara.setMaximumSize(new java.awt.Dimension(72, 50));
-        MSV_ara.setMinimumSize(new java.awt.Dimension(72, 50));
-        MSV_ara.setPreferredSize(new java.awt.Dimension(72, 50));
+        MSV_ara.setMaximumSize(new java.awt.Dimension(110, 50));
+        MSV_ara.setMinimumSize(new java.awt.Dimension(110, 50));
+        MSV_ara.setPreferredSize(new java.awt.Dimension(110, 50));
         MSV_ara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MSV_araActionPerformed(evt);
@@ -113,7 +119,8 @@ public class ManageStockView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(MSV_ara, gridBagConstraints);
 
         MSV_list1.setModel(MSV_list1.getModel());

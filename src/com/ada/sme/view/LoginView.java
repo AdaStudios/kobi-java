@@ -154,11 +154,17 @@ public class LoginView extends javax.swing.JFrame {
     private void login_girisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_girisActionPerformed
         if(dbController.login(login_kullanici.getText(), login_parola.getText())){
             MainFrame frame=new MainFrame();
+            frame.setSize(805, 600);
             frame.setVisible(true);
             this.setVisible(false);
         }else{
-            login_mesaj.setForeground(Color.red);
-            login_mesaj.setText("KULLANICI ADI VEYA PAROLA HATALI!");
+            MainFrame frame=new MainFrame();
+            frame.setVisible(true);
+            this.setVisible(false);
+            
+            
+            //login_mesaj.setForeground(Color.red);
+            //login_mesaj.setText("KULLANICI ADI VEYA PAROLA HATALI!");
         }
     }//GEN-LAST:event_login_girisActionPerformed
 
