@@ -328,6 +328,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         dbController.insDelUpDB("DELETE FROM product_option WHERE product_id="+pro_id);
         dbController.insDelUpDB("DELETE FROM product_option_value WHERE product_id="+pro_id);
         dbController.insDelUpDB("DELETE FROM product_to_category WHERE product_id="+pro_id);
+        dbController.insDelUpDB("DELETE FROM product_image WHERE product_id="+pro_id);
         
         
         MainFrame.main_anapanel.removeAll();

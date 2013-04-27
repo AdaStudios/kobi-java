@@ -23,6 +23,9 @@ public class AddStockPanelView extends javax.swing.JPanel {
      * Creates new form AddStockPanelView
      */
     
+    
+      
+    
     int res;
     int image_id;
     ArrayList<String> imageList;
@@ -30,6 +33,17 @@ public class AddStockPanelView extends javax.swing.JPanel {
     public AddStockPanelView() {
         initComponents();
         DBController dbController=new DBController();
+        
+        
+        ArrayList a = dbController.selectSingleRowDB("select * from product");
+        java.util.Date today = new java.util.Date();
+        java.sql.Date sqlToday = new java.sql.Date(today.getTime());
+        
+        if (a.isEmpty())
+            dbController.insDelUpDB("INSERT INTO product VALUES(1000, 'model', "
+                + "0, 6, 'hebele', 1, "
+                + "0, 9, '"+sqlToday+"' , 0, 2, 1, 1, "
+                + "0, '"+sqlToday+"'  , '"+sqlToday+"' )");
         
         res = DBController.getLastID("SELECT * FROM product");
         imageList=new ArrayList<String>();
@@ -303,6 +317,11 @@ public class AddStockPanelView extends javax.swing.JPanel {
             try {
                 
                 DBController dbController=new DBController();
+                
+                 ArrayList a = dbController.selectSingleRowDB("select * from product_image");
+                 if (a.isEmpty())
+                        dbController.insDelUpDB("INSERT INTO product_image VALUES(1000, 1000, 'image' ,0)");
+                
         
                 image_id = DBController.getLastID("SELECT * FROM product_image");
                 image_id++;

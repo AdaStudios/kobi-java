@@ -51,7 +51,7 @@ public class CreateDBController {
                 stmt.execute("CREATE TABLE product_option(product_option_id int , product_id int , option_id int , required int)");
                 stmt.execute("CREATE TABLE product_option_value(product_option_value_id int , product_option_id int , product_id int , option_id int, option_value_id int , quantity int , subtract int)");
                 stmt.execute("CREATE TABLE product_to_category(product_id int , category_id int)");
-                stmt.execute("CREATE TABLE product_image(product_image_id int , product_id int , image varchar(255) , sort_order)");
+                stmt.execute("CREATE TABLE product_image(product_image_id int , product_id int , image varchar(255) , sort_order int)");
                // stmt.execute("INSERT INTO employee VALUES(1, 'riza', 'akbiyik', 'riza', 'riza')");
                 
                 //cagdas
