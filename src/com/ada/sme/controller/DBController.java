@@ -70,6 +70,12 @@ public class DBController {
         sm.check();
         PreparedStatement prestat;
         try {
+            prestat = conn_on.prepareStatement("SET NAMES 'latin5'");
+            prestat.execute();
+            prestat = conn_on.prepareStatement("SET CHARACTER SET latin5");
+            prestat.execute();
+            prestat = conn_on.prepareStatement("SET COLLATION_CONNECTION = 'latin5_turkish_ci'");
+            prestat.execute();
             prestat = conn_on.prepareStatement(sql);
             prestat.execute();
         } catch (SQLException ex) {
