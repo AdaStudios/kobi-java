@@ -238,6 +238,13 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void main_durumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_durumActionPerformed
+        main_solpanel.removeAll();
+        main_solpanel.add(new MainPageLeftPanelView());
+        main_solpanel.validate();
+        
+        main_anapanel.removeAll();
+        main_anapanel.add(new MainPagePanelView() );
+        main_anapanel.validate();
     }//GEN-LAST:event_main_durumActionPerformed
 
     private void main_magazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_magazaActionPerformed
@@ -261,9 +268,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_main_stokActionPerformed
 
     private void main_online_marketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_online_marketActionPerformed
-        // TODO add your handling code here:
         main_solpanel.removeAll();
-        main_solpanel.add(new JPanel());
+        main_solpanel.add(new OnlineStoreLeftPanelView() );
         main_solpanel.validate();
         
         main_anapanel.removeAll();

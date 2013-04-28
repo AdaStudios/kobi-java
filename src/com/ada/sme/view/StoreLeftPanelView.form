@@ -69,7 +69,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fe" green="fe" red="fe" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#xc7;al&#x131;&#x15f;anlar&#x131; Y&#xf6;net"/>
+        <Property name="text" type="java.lang.String" value="&#xc7;al&#x131;&#x15f;an Y&#xf6;net"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[146, 80]"/>
         </Property>

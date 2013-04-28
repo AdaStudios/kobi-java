@@ -62,7 +62,7 @@ public class StoreLeftPanelView extends javax.swing.JPanel {
 
         SLPV_yonet.setBackground(new java.awt.Color(67, 149, 195));
         SLPV_yonet.setForeground(new java.awt.Color(254, 254, 254));
-        SLPV_yonet.setText("Çalışanları Yönet");
+        SLPV_yonet.setText("Çalışan Yönet");
         SLPV_yonet.setMaximumSize(new java.awt.Dimension(146, 80));
         SLPV_yonet.setMinimumSize(new java.awt.Dimension(146, 80));
         SLPV_yonet.setPreferredSize(new java.awt.Dimension(146, 80));

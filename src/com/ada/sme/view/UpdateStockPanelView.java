@@ -205,7 +205,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 8, 0);
         add(USPV_guncelle, gridBagConstraints);
 
         USPV_sil.setText("Ürünü Sil");
@@ -218,7 +218,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 8, 0);
         add(USPV_sil, gridBagConstraints);
 
         jLabel7.setText("Küçük");
@@ -371,7 +371,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 8, 4);
         add(USPV_sil1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
