@@ -201,57 +201,11 @@ public class TempAddStockView extends javax.swing.JPanel {
             bw.close();
 
 
-            oin_image = new FileReader(Main.file1);
-            BufferedReader reader_image = new BufferedReader(oin_image);
-            String satir;
-            while ((satir = reader_image.readLine()) != null) {
-                String[] split;
-                split = satir.split("\\\\");
-                String name = split[split.length - 1];
-                try {
-                    File f = new File(satir);
-                    String urlString = "ftp://openftp:ozyaz.11@ozguryazilim.bilkent.edu.tr/" + name;
-                    URL url = new URL(urlString);
-                    URLConnection connection = url.openConnection();
-                    connection.setDoOutput(true);
-                    BufferedOutputStream out = new BufferedOutputStream(connection.getOutputStream());
-                    FileInputStream in = new FileInputStream(f);
-                    byte[] buffer = new byte[1024];
-                    int j = 0;
-                    while ((j = in.read(buffer)) >= 0) {
-                        out.write(buffer, 0, j);
-                    }
-                    out.close();
-                    in.close();
-
-
-                    String source = satir;
-                    String target = "data/";
-
-                    //name of source file
-                    File sourceFile = new File(source);
-
-
-                    File targetFile = new File(target + name);
-                    System.out.println("Copying file : " + sourceFile.getName() + " from Java Program");
-
-                    //copy file from one location to other
-                    FileUtils.copyFile(sourceFile, targetFile);
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-
-            }
-            reader_image.close();
-
-            oout_image = new FileWriter(Main.file1);
-            BufferedWriter bw_image = new BufferedWriter(oout_image);
-            System.out.print("Yazdım");
-            bw_image.close();
+            
 
             oin_image_sql = new FileReader(Main.file2);
             BufferedReader reader_image_sql = new BufferedReader(oin_image_sql);
-
+            String satir;
             while ((satir = reader_image_sql.readLine()) != null) {
 
                 db.insDelUpDB(satir);

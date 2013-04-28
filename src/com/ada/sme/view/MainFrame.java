@@ -5,6 +5,7 @@
 package com.ada.sme.view;
 
 import com.ada.sme.main.Main;
+import static com.ada.sme.main.Main.file1;
 import com.ada.sme.model.StatusModel;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,6 +22,7 @@ public class MainFrame extends javax.swing.JFrame {
     StatusModel sm;
     static int pingFlag = 0;
     static int statusNormalizer = 0;
+    public static boolean uploading = false;
     final int SLEEPTIME = 5000;
     final String IPADDRESS = "139.179.139.112";
 
@@ -429,7 +431,7 @@ public class MainFrame extends javax.swing.JFrame {
             while (true) {
                 try {
                     Thread.sleep(SLEEPTIME);
-
+                    System.out.println("Image: "+Main.file1.length());
                     boolean ans = sm.check();
 
                     if (ans) {
@@ -438,6 +440,10 @@ public class MainFrame extends javax.swing.JFrame {
                         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-green.png")));
                         if (Main.temp_sql.length() > 0) {
                             Main.read();
+                        }
+                        if (!uploading && Main.file1.length() > 0) {
+                            System.err.println("Uploading-Thread");
+                            Main.imageUpload();
                         }
 
                     } else if (!ans) {
