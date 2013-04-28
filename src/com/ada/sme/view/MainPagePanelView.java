@@ -5,6 +5,8 @@
 package com.ada.sme.view;
 
 import com.ada.sme.controller.DBController;
+import com.ada.sme.main.Main;
+import com.ada.sme.model.StatusModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,13 +18,21 @@ public class MainPagePanelView extends javax.swing.JPanel {
     /**
      * Creates new form MainPagePanelView
      */
+    public static int store_status = 0;
+    DBController dbc;
+
     public MainPagePanelView() {
         initComponents();
         DefaultTableModel dtm = new DefaultTableModel();
-        DBController dbc = new DBController();
+        dbc = new DBController();
         dtm = dbc.selectDB("Select * from log_table");
         jTable1.setModel(dtm);
-        
+        Object[] cols = new Object[3];
+         cols[0]="Kullanıcı";
+         cols[1]="Kayıt";
+         cols[2]="Tarih";
+         dtm.setColumnIdentifiers(cols);
+
     }
 
     /**
@@ -47,10 +57,10 @@ public class MainPagePanelView extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(646, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Online Mağaza");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 288, -1));
+        jLabel1.setText("Mağaza");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 20, 130, -1));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 237, 389, -1));
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -65,6 +75,11 @@ public class MainPagePanelView extends javax.swing.JPanel {
         jButton1.setMaximumSize(new java.awt.Dimension(90, 35));
         jButton1.setMinimumSize(new java.awt.Dimension(90, 35));
         jButton1.setPreferredSize(new java.awt.Dimension(90, 35));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -82,6 +97,30 @@ public class MainPagePanelView extends javax.swing.JPanel {
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 740, 370));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (store_status == 0) {
+            if (StatusModel.check()) {
+                dbc.insDelUpDB("UPDATE pingtable SET closed=0 WHERE clientid=22");
+            } else {
+                Main.write("UPDATE pingtable SET closed=0 WHERE clientid=22");
+            }
+
+            store_status = 1;
+            jButton1.setText("KAPAT");
+        } else {
+            if (StatusModel.check()) {
+                dbc.insDelUpDB("UPDATE pingtable SET closed=1 WHERE clientid=22");
+            } else {
+                Main.write("UPDATE pingtable SET closed=1 WHERE clientid=22");
+            }
+            
+            jButton1.setText("AÇ");
+            store_status = 0;
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;

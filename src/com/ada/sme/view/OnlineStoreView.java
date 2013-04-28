@@ -92,9 +92,9 @@ public class OnlineStoreView extends javax.swing.JPanel {
         MEV_list = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(227, 227, 227));
-        setMaximumSize(new java.awt.Dimension(646, 500));
-        setMinimumSize(new java.awt.Dimension(646, 500));
-        setPreferredSize(new java.awt.Dimension(646, 500));
+        setMaximumSize(new java.awt.Dimension(800, 500));
+        setMinimumSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(800, 500));
         setLayout(new java.awt.GridBagLayout());
 
         MEV_list.setModel(MEV_list.getModel());
@@ -107,9 +107,10 @@ public class OnlineStoreView extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 731;
+        gridBagConstraints.ipady = 250;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
