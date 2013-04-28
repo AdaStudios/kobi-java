@@ -321,6 +321,8 @@ public class OrderView extends javax.swing.JFrame {
         jLabel31.setText("Kargo Durumu Değiştir:");
         getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 510, -1, -1));
 
+        jLabel32.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(25, 35, 231));
         jLabel32.setText("0");
         getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, -1, -1));
 
