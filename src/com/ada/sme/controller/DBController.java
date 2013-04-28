@@ -175,7 +175,7 @@ public class DBController {
                     
                 }
 
-                return selectDB("SELECT order_id, firstname, lastname, total, name, date_modified FROM order_t, order_status where order_t.order_status_id=order_status.order_status_id AND order_language=1");
+                return selectDB("SELECT order_id, firstname, lastname, total, name, date_modified FROM order_t, order_status where order_t.order_status_id=order_status.order_status_id AND order_language=1 order by date_modified DESC");
                 // server.shutdown();
             
         } catch (Exception e) {
