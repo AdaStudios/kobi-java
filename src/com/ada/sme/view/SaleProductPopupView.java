@@ -47,10 +47,7 @@ public class SaleProductPopupView extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(646, 500));
         setMinimumSize(new java.awt.Dimension(646, 500));
         setPreferredSize(new java.awt.Dimension(646, 500));
-        java.awt.GridBagLayout layout1 = new java.awt.GridBagLayout();
-        layout1.columnWidths = new int[] {0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0};
-        layout1.rowHeights = new int[] {0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0};
-        setLayout(layout1);
+        setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setBackground(new java.awt.Color(200, 200, 200));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/resim_bulunamadi.jpg"))); // NOI18N
@@ -66,21 +63,22 @@ public class SaleProductPopupView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(11, 0, 0, 0);
         add(jLabel2, gridBagConstraints);
 
         jLabel3.setText("Model:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         add(jLabel3, gridBagConstraints);
 
         jLabel4.setText("Beden:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         add(jLabel4, gridBagConstraints);
 
         jButton1.setText("Sat");
@@ -114,6 +112,7 @@ public class SaleProductPopupView extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(11, 0, 0, 0);
         add(jTextField1, gridBagConstraints);
 
         jTextField2.setMinimumSize(new java.awt.Dimension(160, 28));
@@ -129,18 +128,21 @@ public class SaleProductPopupView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         add(jLabel5, gridBagConstraints);
 
         jLabel6.setText("Medium");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         add(jLabel6, gridBagConstraints);
 
         jLabel7.setText("Large");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         add(jLabel7, gridBagConstraints);
 
         jTextField3.setMaximumSize(new java.awt.Dimension(60, 28));
