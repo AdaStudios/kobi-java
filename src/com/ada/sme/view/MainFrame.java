@@ -80,6 +80,10 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         main_anapanel = new javax.swing.JPanel();
         main_status_panel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -232,15 +236,40 @@ public class MainFrame extends javax.swing.JFrame {
         main_status_panel.setMinimumSize(new java.awt.Dimension(100, 20));
         main_status_panel.setPreferredSize(new java.awt.Dimension(200, 20));
 
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel5.setText("Sistem Durumu:");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png"))); // NOI18N
+
+        jLabel7.setText("Senkronizasyon:");
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png"))); // NOI18N
+
         javax.swing.GroupLayout main_status_panelLayout = new javax.swing.GroupLayout(main_status_panel);
         main_status_panel.setLayout(main_status_panelLayout);
         main_status_panelLayout.setHorizontalGroup(
             main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1054, Short.MAX_VALUE)
+            .addGroup(main_status_panelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addGap(43, 43, 43)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addContainerGap(696, Short.MAX_VALUE))
         );
         main_status_panelLayout.setVerticalGroup(
             main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
+            .addGroup(main_status_panelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addGap(62, 62, 62))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -370,6 +399,10 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     public static javax.swing.JPanel main_anapanel;
     private javax.swing.JButton main_anasayfa;
     private javax.swing.JButton main_destek;
@@ -403,14 +436,19 @@ public class MainFrame extends javax.swing.JFrame {
 
                     if (ans) {
                         System.out.println("ulasiliyor");
+                       jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-green.png")));
                          if(Main.temp_sql.length()>0){
                              Main.read();
                          }
 
                     } else if (!ans) {
                         System.out.println("ulasilmiyor");
+                         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png")));
                     }
-
+                    if(Main.temp_sql.length()>0)
+                    jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png")));
+                    else
+                    jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-green.png")));
 
                     if((pingFlag%4)==0){
                     conn = url.openConnection();
