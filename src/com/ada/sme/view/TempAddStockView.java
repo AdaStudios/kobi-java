@@ -7,6 +7,7 @@ package com.ada.sme.view;
 
 import com.ada.sme.main.*;
 import com.ada.sme.controller.DBController;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.EOFException;
@@ -19,6 +20,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,10 +39,11 @@ public class TempAddStockView extends javax.swing.JPanel {
      * Creates new form TempAddStockView
      */
     MainFrame frame;
-    FileReader oin;
-    FileWriter oout;
+    FileReader oin,oin_image,oin_image_sql;
+    FileWriter oout,oout_image,oout_image_sql;
     
     ArrayList<String> sql_list;
+    int image_id;
     
     public TempAddStockView(MainFrame main) {
         initComponents();
@@ -191,6 +195,61 @@ public class TempAddStockView extends javax.swing.JPanel {
             BufferedWriter bw = new BufferedWriter(oout);
             System.out.print("Yazdım");
             bw.close();
+            
+            
+            oin_image = new FileReader(Main.file1);
+            BufferedReader reader_image = new BufferedReader(oin_image);
+            String satir;
+            while((satir = reader_image.readLine()) != null){
+                String[] split;
+                split=satir.split("\\\\");
+                String name=split[split.length-1];
+                try {
+                    File f = new File(satir);
+                    String urlString = "ftp://openftp:ozyaz.11@ozguryazilim.bilkent.edu.tr/" + name;
+                    URL url = new URL(urlString);
+                    URLConnection connection = url.openConnection();
+                    connection.setDoOutput(true);
+                    BufferedOutputStream out = new BufferedOutputStream(connection.getOutputStream());
+                    FileInputStream in = new FileInputStream(f);
+                    byte[] buffer = new byte[1024];
+                    int j = 0;
+                    while ((j = in.read(buffer)) >= 0) {
+                        out.write(buffer, 0, j);
+                    }
+                    out.close();
+                    in.close();
+                
+             
+                 }catch (Exception e) {
+                    System.out.println(e.getMessage());
+                 }
+                
+            }
+            reader_image.close();
+            
+            oout_image = new FileWriter(Main.file1);
+            BufferedWriter bw_image = new BufferedWriter(oout_image);
+            System.out.print("Yazdım");
+            bw_image.close();
+            
+            oin_image_sql = new FileReader(Main.file2);
+            BufferedReader reader_image_sql = new BufferedReader(oin_image_sql);
+            
+             while((satir = reader_image_sql.readLine()) != null){
+                
+                 db.insDelUpDB(satir);
+                 
+                    
+                 
+                
+             }
+             reader_image_sql.close();
+             oout_image_sql = new FileWriter(Main.file2);
+            BufferedWriter bw_image_sql = new BufferedWriter(oout_image_sql);
+            System.out.print("Yazdım");
+            bw_image_sql.close();
+            
             
             
             
