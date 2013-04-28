@@ -15,7 +15,8 @@ import javax.swing.table.DefaultTableModel;
  * @author osman
  */
 public class OrderView extends javax.swing.JFrame {
-
+ DefaultTableModel dtm;
+ DBController dbController;
     /**
      * Creates new form OrderView
      */
@@ -26,25 +27,10 @@ public class OrderView extends javax.swing.JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
-        DBController dbController = new DBController();
-       
-        DefaultTableModel dtm;        
-        dtm=dbController.selectDB("SELECT * FROM order_product");
-       // System.out.println(dtm.getValueAt(12, 0));
-        System.out.println("firstSelect");
-        if(dtm.getRowCount()==0){
-       // dtm = dbController.selectDBFromOnline("Select * from oc_order_product");
-            System.out.println("BOŞ!!!\n\n");
-         dbController.updateOrderProductDBFromOnline("SELECT * FROM oc_order_product");
-        }else{
-             int id2 = DBController.getLastID("SELECT order_product_id from order_product order by order_product_id DESC");
-             System.out.println(id2+"Last id\n\n");
-            
-           dbController.updateOrderProductDBFromOnline("Select * from oc_order_product WHERE order_product_id>"+id2);          
-        }
+        dbController = new DBController(); 
+        updateOrderProduct();
         
-         ArrayList all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_product WHERE order_product.order_id=order_t.order_id AND order_t.order_id="+id);
-        // System.out.println("Geliyor\n"+all.toString()); 
+        ArrayList all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_product WHERE order_product.order_id=order_t.order_id AND order_t.order_id="+id);
          
         dtm = dbController.selectDB("Select name,model,quantity,price,total from order_product WHERE order_id="+all.get(0).toString());
         Object[] cols = new Object[5];
@@ -54,8 +40,8 @@ public class OrderView extends javax.swing.JFrame {
         cols[3]="Fiyat";
         cols[4]="Toplam";
          dtm.setColumnIdentifiers(cols);
-         MEV_list.setModel(dtm);
-        
+         
+         MEV_list.setModel(dtm);        
         
          jLabel12.setText(all.get(0).toString());
          jLabel11.setText(all.get(31).toString());
@@ -73,6 +59,42 @@ public class OrderView extends javax.swing.JFrame {
          jLabel25.setText(all.get(20).toString()+" "+all.get(21).toString());
          jLabel26.setText(all.get(23).toString()+" "+all.get(22).toString()+" "+all.get(25).toString());
          
+         jLabel28.setText(all.get(36).toString());
+         jLabel30.setText(all.get(37).toString());
+         jLabel32.setText(all.get(40).toString());
+         jLabel34.setText(all.get(39).toString());
+         
+    }
+    
+    public void updateOrderProduct(){        
+        
+        dtm=dbController.selectDB("SELECT * FROM order_product");
+       // System.out.println(dtm.getValueAt(12, 0));
+        System.out.println("firstSelect");
+        if(dtm.getRowCount()==0){
+       // dtm = dbController.selectDBFromOnline("Select * from oc_order_product");
+            System.out.println("BOŞ!!!\n\n");
+         dbController.updateOrderProductDBFromOnline("SELECT * FROM oc_order_product");
+        }else{
+             int id2 = DBController.getLastID("SELECT order_product_id from order_product order by order_product_id DESC");
+             System.out.println(id2+"Last id\n\n");
+            
+           dbController.updateOrderProductDBFromOnline("Select * from oc_order_product WHERE order_product_id>"+id2);          
+        }
+    }
+    
+    public void updateOrderOption(){        
+        
+        dtm=dbController.selectDB("SELECT * FROM order_option");
+
+        if(dtm.getRowCount()==0){
+         dbController.updateOrderProductDBFromOnline("SELECT order_option_id, order_id, order_product_id,name,value FROM oc_order_option");
+        }else{
+             int id2 = DBController.getLastID("SELECT order_option_id from order_option order by order_option DESC");
+             System.out.println(id2+"Option Last Id\n\n");
+            
+           dbController.updateOrderProductDBFromOnline("Select order_option_id, order_id, order_product_id, name, value FROM oc_order_option WHERE order_option_id>"+id2);          
+        }
     }
 
     /**
