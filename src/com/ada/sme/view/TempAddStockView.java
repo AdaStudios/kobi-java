@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import org.apache.commons.io.FileUtils;
+
 
 /**
  *
@@ -219,6 +221,23 @@ public class TempAddStockView extends javax.swing.JPanel {
                     }
                     out.close();
                     in.close();
+                    
+                   
+                    String source = satir;
+                    String target ="data/";
+      
+                    //name of source file
+                    File sourceFile = new File(source);
+                    
+      
+                    File targetFile = new File(target+name);
+                    System.out.println("Copying file : " + sourceFile.getName() +" from Java Program");
+      
+                    //copy file from one location to other
+                    FileUtils.copyFile(sourceFile, targetFile);
+      
+                    
+
                 
              
                  }catch (Exception e) {

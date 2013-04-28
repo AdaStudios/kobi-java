@@ -4,6 +4,7 @@
  */
 package com.ada.sme.view;
 
+import com.ada.sme.main.Main;
 import com.ada.sme.model.StatusModel;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -41,8 +42,8 @@ public class MainFrame extends javax.swing.JFrame {
         clear_buttons();
         main_magaza.setBackground(new Color(41, 66, 80));
         main_anapanel.add(new SaleProductPanelView() );
-
-       // new Thread(new runCheck()).start();
+       
+        new Thread(new runCheck()).start();
     }
     
     public void clear_buttons(){
@@ -396,11 +397,15 @@ public class MainFrame extends javax.swing.JFrame {
 
             while (true) {
                 try {
-                    sm.check();
-                    boolean ans = sm.getStatus();
+                    Thread.sleep(SLEEPTIME);
+                    
+                    boolean ans = sm.check();
 
                     if (ans) {
                         System.out.println("ulasiliyor");
+                         if(Main.temp_sql.length()>0){
+                             Main.read();
+                         }
 
                     } else if (!ans) {
                         System.out.println("ulasilmiyor");
@@ -411,11 +416,14 @@ public class MainFrame extends javax.swing.JFrame {
                     conn = url.openConnection();
                     is = conn.getInputStream();
                     }
-
-                    Thread.sleep(SLEEPTIME);
+                    
+                   
+                   
+                    
+                    
                     pingFlag++;
                 } catch (Exception e) {
-                    e.printStackTrace();
+                   // e.printStackTrace();
                 }
             }
         }

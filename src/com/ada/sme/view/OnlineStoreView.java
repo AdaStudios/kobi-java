@@ -6,6 +6,8 @@ package com.ada.sme.view;
 
 import com.ada.sme.controller.DBController;
 import com.ada.sme.controller.ManageEmployeeController;
+import com.ada.sme.main.Main;
+import com.ada.sme.model.StatusModel;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.Connection;
@@ -32,51 +34,49 @@ public class OnlineStoreView extends javax.swing.JPanel {
      * Creates new form ManageEmployeeView
      */
     MainFrame frame;
-     public static DefaultTableModel dtm;
-    
+    public static DefaultTableModel dtm;
+
     public OnlineStoreView() {
         initComponents();
-        
+
         DBController dbController = new DBController();
-      
-        
-        dtm=dbController.selectDB("SELECT order_id, firstname, lastname, total, order_status_id, date_modified FROM order_t");
+
+
+        dtm = dbController.selectDB("SELECT order_id, firstname, lastname, total, name, date_modified FROM order_t, order_status where order_t.order_status_id=order_status.order_status_id AND order_language=1 order by date_modified DESC");
         System.out.println("firstSelect");
-        if(dtm.getRowCount()==0){
-             System.out.println("OnlineView Empty");
-             dtm = dbController.selectDBFromOnline("Select order_id, customer_id, firstname, lastname, email, telephone, fax, payment_firstname, payment_lastname, payment_company, payment_address_1, payment_address_2, payment_city, payment_postcode , payment_country, payment_zone, payment_method, shipping_firstname, shipping_lastname, shipping_company, shipping_address_1, shipping_address_2, shipping_city, shipping_postcode, shipping_country, shipping_zone, comment, total, order_status_id, currency_code, date_added, date_modified from oc_order order by date_modified DESC");          
-            System.out.println("OnlineView Empty Finished");
-        }else{            
-             int id = DBController.getLastID("SELECT * from order_t order by order_id DESC");
-             System.out.println("OnlineView Update"+id);
-             dtm = dbController.selectDBFromOnline("Select order_id, customer_id, firstname, lastname, email, telephone, fax, payment_firstname, payment_lastname, payment_company, payment_address_1, payment_address_2, payment_city, payment_postcode , payment_country, payment_zone, payment_method, shipping_firstname, shipping_lastname, shipping_company, shipping_address_1, shipping_address_2, shipping_city, shipping_postcode, shipping_country, shipping_zone, comment, total, order_status_id, currency_code, date_added, date_modified from oc_order WHERE order_id>"+id);            
+        if (StatusModel.check()) {
+            if (dtm.getRowCount() == 0) {
+                System.out.println("OnlineView Empty");
+                dtm = dbController.selectDBFromOnline("Select order_id, customer_id, firstname, lastname, email, telephone, fax, payment_firstname, payment_lastname, payment_company, payment_address_1, payment_address_2, payment_city, payment_postcode , payment_country, payment_zone, payment_method, shipping_firstname, shipping_lastname, shipping_company, shipping_address_1, shipping_address_2, shipping_city, shipping_postcode, shipping_country, shipping_zone, comment, total, order_status_id, currency_code, date_added, date_modified from oc_order order by date_modified DESC");
+                System.out.println("OnlineView Empty Finished");
+            } else {
+                int id = DBController.getLastID("SELECT * from order_t order by order_id DESC");
+                System.out.println("OnlineView Update" + id);
+                dtm = dbController.selectDBFromOnline("Select order_id, customer_id, firstname, lastname, email, telephone, fax, payment_firstname, payment_lastname, payment_company, payment_address_1, payment_address_2, payment_city, payment_postcode , payment_country, payment_zone, payment_method, shipping_firstname, shipping_lastname, shipping_company, shipping_address_1, shipping_address_2, shipping_city, shipping_postcode, shipping_country, shipping_zone, comment, total, order_status_id, currency_code, date_added, date_modified from oc_order WHERE order_id>" + id);
+            }
         }
-         Object[] cols = new Object[6];
-        cols[0]="SPN";
-        cols[1]="İsim";
-        cols[2]="Soyisim";
-        cols[3]="Toplam";
-        cols[4]="Kargo";
-        cols[5]="Günc.Tar.";
+        Object[] cols = new Object[6];
+        cols[0] = "SPN";
+        cols[1] = "İsim";
+        cols[2] = "Soyisim";
+        cols[3] = "Toplam";
+        cols[4] = "Kargo";
+        cols[5] = "Günc.Tar.";
         dtm.setColumnIdentifiers(cols);
         MEV_list.setModel(dtm);
+
+        /*  ArrayList meta = dbController.fillCombo("SELECT * FROM order_t");
         
-      /*  ArrayList meta = dbController.fillCombo("SELECT * FROM order_t");
-        
-        MEV_identifier.addItem(meta.get(0).toString());
-        MEV_identifier.addItem(meta.get(1).toString());
-        MEV_identifier.addItem(meta.get(2).toString());
-        MEV_identifier.addItem(meta.get(3).toString());*/
- 
-        
+         MEV_identifier.addItem(meta.get(0).toString());
+         MEV_identifier.addItem(meta.get(1).toString());
+         MEV_identifier.addItem(meta.get(2).toString());
+         MEV_identifier.addItem(meta.get(3).toString());*/
+
+
     }
-    
-    
-    
-    public void getnPrintAllData(ResultSet res){
-        
-        
-    } 
+
+    public void getnPrintAllData(ResultSet res) {
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -119,14 +119,13 @@ public class OnlineStoreView extends javax.swing.JPanel {
 
     private void MEV_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MEV_listMouseClicked
         String id = MEV_list.getValueAt(MEV_list.getSelectedRow(), 0).toString();
-        OrderView orderView=new OrderView(id);        
+        OrderView orderView = new OrderView(id);
         orderView.setVisible(true);
-       /* MainFrame.main_anapanel.removeAll();
-        MainFrame.main_anapanel.add(orderView);
-        MainFrame.main_anapanel.validate();*/
-        
-    }//GEN-LAST:event_MEV_listMouseClicked
+        /* MainFrame.main_anapanel.removeAll();
+         MainFrame.main_anapanel.add(orderView);
+         MainFrame.main_anapanel.validate();*/
 
+    }//GEN-LAST:event_MEV_listMouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable MEV_list;
     private javax.swing.JScrollPane jScrollPane2;
