@@ -78,7 +78,13 @@ public class ManageEmployeeView extends javax.swing.JPanel {
         MEV_list = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(227, 227, 227));
-        setLayout(new java.awt.GridBagLayout());
+        setMaximumSize(new java.awt.Dimension(646, 500));
+        setMinimumSize(new java.awt.Dimension(646, 500));
+        setPreferredSize(new java.awt.Dimension(646, 500));
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0, 2, 0, 2, 0};
+        layout.rowHeights = new int[] {0, 2, 0};
+        setLayout(layout);
 
         MEV_value.setMaximumSize(new java.awt.Dimension(100, 28));
         MEV_value.setMinimumSize(new java.awt.Dimension(100, 28));
@@ -93,7 +99,7 @@ public class ManageEmployeeView extends javax.swing.JPanel {
         MEV_identifier.setMinimumSize(new java.awt.Dimension(100, 28));
         MEV_identifier.setPreferredSize(new java.awt.Dimension(100, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(13, 12, 0, 0);
         add(MEV_identifier, gridBagConstraints);
@@ -101,16 +107,16 @@ public class ManageEmployeeView extends javax.swing.JPanel {
         MEV_seach.setBackground(new java.awt.Color(67, 149, 195));
         MEV_seach.setForeground(new java.awt.Color(254, 254, 254));
         MEV_seach.setText("Çalışan Ara");
-        MEV_seach.setMaximumSize(new java.awt.Dimension(87, 50));
-        MEV_seach.setMinimumSize(new java.awt.Dimension(87, 50));
-        MEV_seach.setPreferredSize(new java.awt.Dimension(87, 50));
+        MEV_seach.setMaximumSize(new java.awt.Dimension(180, 35));
+        MEV_seach.setMinimumSize(new java.awt.Dimension(180, 35));
+        MEV_seach.setPreferredSize(new java.awt.Dimension(180, 35));
         MEV_seach.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MEV_seachActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 12);
@@ -126,8 +132,8 @@ public class ManageEmployeeView extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;

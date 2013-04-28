@@ -5,6 +5,8 @@
 package com.ada.sme.view;
 
 import com.ada.sme.model.StatusModel;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -12,10 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 
-/**
- *
- * @author PaDaWaN
- */
 public class MainFrame extends javax.swing.JFrame {
 
     StatusModel sm;
@@ -28,17 +26,16 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        
+        //open frame at the center of the screen
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
         main_solpanel.removeAll();
         main_solpanel.add(new StoreLeftPanelView(this));
         sm = new StatusModel(IPADDRESS);
 
        // new Thread(new runCheck()).start();
-
-
-
-    }
-
-    public void setLeftPanel(JPanel p) {
     }
 
     /**
@@ -63,9 +60,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Kobilere Özgürlük");
         setBackground(new java.awt.Color(227, 227, 227));
-        setMinimumSize(new java.awt.Dimension(805, 600));
-        setPreferredSize(new java.awt.Dimension(805, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         main_durum.setBackground(new java.awt.Color(67, 149, 195));
@@ -164,9 +163,9 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(main_destek, gridBagConstraints);
 
         main_solpanel.setBackground(new java.awt.Color(227, 227, 227));
-        main_solpanel.setMaximumSize(new java.awt.Dimension(150, 2147));
-        main_solpanel.setMinimumSize(new java.awt.Dimension(150, 200));
-        main_solpanel.setPreferredSize(new java.awt.Dimension(150, 200));
+        main_solpanel.setMaximumSize(new java.awt.Dimension(150, 600));
+        main_solpanel.setMinimumSize(new java.awt.Dimension(150, 600));
+        main_solpanel.setPreferredSize(new java.awt.Dimension(150, 600));
         main_solpanel.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -184,6 +183,9 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel1, gridBagConstraints);
 
         main_anapanel.setBackground(new java.awt.Color(227, 227, 227));
+        main_anapanel.setMaximumSize(new java.awt.Dimension(646, 521));
+        main_anapanel.setMinimumSize(new java.awt.Dimension(646, 521));
+        main_anapanel.setPreferredSize(new java.awt.Dimension(646, 521));
         main_anapanel.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -206,7 +208,7 @@ public class MainFrame extends javax.swing.JFrame {
         main_status_panel.setLayout(main_status_panelLayout);
         main_status_panelLayout.setHorizontalGroup(
             main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1055, Short.MAX_VALUE)
+            .addGap(0, 1054, Short.MAX_VALUE)
         );
         main_status_panelLayout.setVerticalGroup(
             main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

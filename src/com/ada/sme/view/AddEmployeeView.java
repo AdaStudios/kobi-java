@@ -44,6 +44,9 @@ public class AddEmployeeView extends javax.swing.JPanel {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 13), new java.awt.Dimension(0, 13), new java.awt.Dimension(32767, 13));
 
         setBackground(new java.awt.Color(227, 227, 227));
+        setMaximumSize(new java.awt.Dimension(646, 500));
+        setMinimumSize(new java.awt.Dimension(646, 500));
+        setPreferredSize(new java.awt.Dimension(646, 500));
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -151,7 +154,7 @@ public class AddEmployeeView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 15, 0, 0);
         add(AEV_liste, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

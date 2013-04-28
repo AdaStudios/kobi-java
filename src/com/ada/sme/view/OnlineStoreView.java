@@ -82,6 +82,9 @@ public class OnlineStoreView extends javax.swing.JPanel {
         MEV_list = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(227, 227, 227));
+        setMaximumSize(new java.awt.Dimension(646, 500));
+        setMinimumSize(new java.awt.Dimension(646, 500));
+        setPreferredSize(new java.awt.Dimension(646, 500));
         setLayout(new java.awt.GridBagLayout());
 
         MEV_list.setModel(MEV_list.getModel());

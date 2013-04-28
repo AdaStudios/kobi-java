@@ -8,30 +8,25 @@ import java.awt.event.ActionListener;
 import com.ada.sme.model.*;
 import java.awt.Color;
 import com.ada.sme.controller.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
  * @author PaDaWaN
  */
 public class LoginView extends javax.swing.JFrame {
-
-    /**
-     * Creates new form LoginView
-     */
-    
     DBController dbController;
     
     public LoginView() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+
         dbController=new DBController();
        // dbController.insDelUpDB("INSERT INTO employee VALUES(1, 'riza', 'akbiyik', 'riza', 'riza')");
         
     }    
-    
-    
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,6 +59,7 @@ public class LoginView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jScrollPane1, gridBagConstraints);
@@ -116,9 +112,9 @@ public class LoginView extends javax.swing.JFrame {
         login_cıkıs.setBackground(new java.awt.Color(67, 149, 195));
         login_cıkıs.setForeground(new java.awt.Color(254, 254, 254));
         login_cıkıs.setText("Çıkış");
-        login_cıkıs.setMaximumSize(new java.awt.Dimension(43, 50));
-        login_cıkıs.setMinimumSize(new java.awt.Dimension(43, 50));
-        login_cıkıs.setPreferredSize(new java.awt.Dimension(43, 50));
+        login_cıkıs.setMaximumSize(new java.awt.Dimension(80, 50));
+        login_cıkıs.setMinimumSize(new java.awt.Dimension(80, 50));
+        login_cıkıs.setPreferredSize(new java.awt.Dimension(80, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -140,6 +136,7 @@ public class LoginView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 15, 0);
         getContentPane().add(login_giris, gridBagConstraints);
@@ -158,13 +155,8 @@ public class LoginView extends javax.swing.JFrame {
             frame.setVisible(true);
             this.setVisible(false);
         }else{
-            MainFrame frame=new MainFrame();
-            frame.setVisible(true);
-            this.setVisible(false);
-            
-            
-            //login_mesaj.setForeground(Color.red);
-            //login_mesaj.setText("KULLANICI ADI VEYA PAROLA HATALI!");
+            login_mesaj.setForeground(Color.red);
+            login_mesaj.setText("KULLANICI ADI VEYA PAROLA HATALI!");
         }
     }//GEN-LAST:event_login_girisActionPerformed
 
