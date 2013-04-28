@@ -6,6 +6,7 @@ package com.ada.sme.view;
 
 import com.ada.sme.main.*;
 import com.ada.sme.controller.DBController;
+import com.ada.sme.model.StatusModel;
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -35,21 +36,19 @@ public class AddStockPanelView extends javax.swing.JPanel {
     int res;
     int image_id;
     boolean is_product_empty = false;
-    ArrayList<String> imageList;   
-    FileWriter oout,oout_image_sql,oout_image;
-    
+    ArrayList<String> imageList;
+    FileWriter oout, oout_image_sql, oout_image;
     ObjectInputStream oin;
     MainFrame frame;
-    
     DBController dbController;
-    String first_image=null;
+    String first_image = null;
 
     public AddStockPanelView(MainFrame main) throws IOException {
-        frame=main;
+        frame = main;
         initComponents();
         dbController = new DBController();
-        
-        
+
+
         ArrayList a = dbController.selectSingleRowDB("select * from product");
         java.util.Date today = new java.util.Date();
         java.sql.Date sqlToday = new java.sql.Date(today.getTime());
@@ -58,9 +57,9 @@ public class AddStockPanelView extends javax.swing.JPanel {
             is_product_empty = true;
         }
         imageList = new ArrayList<String>();
-        
-       
-                 
+
+
+
 
     }
 
@@ -423,81 +422,65 @@ public class AddStockPanelView extends javax.swing.JPanel {
         }
 
         res++;
-        
+
         dbController.insProductDB("INSERT INTO product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES(" + res + ", '" + ASPV_kod.getText() + "', "
-                + "" + (Integer.parseInt(ASPV_adet_s.getText()) + Integer.parseInt(ASPV_adet_m.getText()) + Integer.parseInt(ASPV_adet_l.getText())) + ", 6, 'data/"+first_image+"', 1, "
+                + "" + (Integer.parseInt(ASPV_adet_s.getText()) + Integer.parseInt(ASPV_adet_m.getText()) + Integer.parseInt(ASPV_adet_l.getText())) + ", 6, 'data/" + first_image + "', 1, "
                 + "" + Double.parseDouble(ASPV_fiyat.getText()) + ", 9, '" + sqlToday + "' , " + Double.parseDouble(ASPV_agirlik.getText()) + ", 2, " + Integer.parseInt(ASPV_minimum.getText()) + ", 1, "
                 + "" + ASPV_listele.getSelectedIndex() + ", '" + sqlToday + "'  , '" + sqlToday + "' )");
         dbController.insProductDB("INSERT INTO product_description(product_id,language_id,name,description,tag) VALUES(" + res + ", 1, '" + ASPV_isim.getText() + "', '" + ASPV_aciklama.getText() + "', '" + ASPV_etiketler.getText() + "')");
-        dbController.insProductDB("INSERT INTO product_option(product_option_id,product_id,option_id,required) VALUES(" +(res + 4000)+ ", " + res + ",  11, 1 )");
-        dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " +(res + 4000)+ ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)");
-        dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " +(res + 4000)+ ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)");
-        dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " +(res + 4000)+ ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)");
+        dbController.insProductDB("INSERT INTO product_option(product_option_id,product_id,option_id,required) VALUES(" + (res + 4000) + ", " + res + ",  11, 1 )");
+        dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " + (res + 4000) + ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)");
+        dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " + (res + 4000) + ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)");
+        dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " + (res + 4000) + ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)");
         dbController.insProductDB("INSERT INTO product_to_category(product_id, category_id) VALUES(" + res + ",  61)");
-        
         try {
-            
-            oout = new FileWriter(Main.file,true);
+
+            oout = new FileWriter(Main.file, true);
             BufferedWriter bw = new BufferedWriter(oout);
-           
-       
-            bw.write(res+"\n");
+
+            bw.write(res + "\n");
             bw.write("INSERT INTO oc_product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES(" + res + ", '" + ASPV_kod.getText() + "', "
-                    + "" + (Integer.parseInt(ASPV_adet_s.getText()) + Integer.parseInt(ASPV_adet_m.getText()) + Integer.parseInt(ASPV_adet_l.getText())) + ", 6, 'data/"+first_image+"', 1, "
+                    + "" + (Integer.parseInt(ASPV_adet_s.getText()) + Integer.parseInt(ASPV_adet_m.getText()) + Integer.parseInt(ASPV_adet_l.getText())) + ", 6, 'data/" + first_image + "', 1, "
                     + "" + Double.parseDouble(ASPV_fiyat.getText()) + ", 9, '" + sqlToday + "' , " + Double.parseDouble(ASPV_agirlik.getText()) + ", 2, " + Integer.parseInt(ASPV_minimum.getText()) + ", 1, "
                     + "" + ASPV_listele.getSelectedIndex() + ", '" + sqlToday + "'  , '" + sqlToday + "' )\n");
-            
+
             bw.write("INSERT INTO oc_product_description(product_id,language_id,name,description,tag) VALUES(" + res + ", 1, '" + ASPV_isim.getText() + "', '" + ASPV_aciklama.getText() + "', '" + ASPV_etiketler.getText() + "')\n");
-            bw.write("INSERT INTO oc_product_option(product_option_id,product_id,option_id,required) VALUES(" +(res + 4000)+ ", " + res + ",  11, 1 )\n");
-            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " +(res + 4000)+ ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)\n");
-            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " +(res + 4000)+ ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)\n");
-            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " +(res + 4000)+ ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)\n");
+            bw.write("INSERT INTO oc_product_option(product_option_id,product_id,option_id,required) VALUES(" + (res + 4000) + ", " + res + ",  11, 1 )\n");
+            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " + (res + 4000) + ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)\n");
+            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " + (res + 4000) + ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)\n");
+            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " + (res + 4000) + ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)\n");
             bw.write("INSERT INTO oc_product_to_category(product_id, category_id) VALUES(" + res + ",  61)\n");
             bw.write("INSERT INTO oc_product_to_store(product_id, store_id) VALUES(" + res + ",  0)\n");
-            
-          
-            
+
             System.out.print("Yazdım");
             bw.close();
-       
-            
+
+
             frame.main_anapanel.removeAll();
             frame.main_anapanel.add(new TempAddStockView(frame));
             frame.main_anapanel.validate();
-          
 
-            
-                    
-             
-             
-                
-             
-             
         } catch (IOException ex) {
             Logger.getLogger(AddStockPanelView.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-
     }//GEN-LAST:event_AEV_ekleActionPerformed
-
     private void ASPV_gozatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASPV_gozatActionPerformed
         String s;
         JFileChooser jfc = new JFileChooser();
         jfc.showDialog(jfc, "Choose an image file");
         s = jfc.getSelectedFile().getAbsolutePath();
         imageList.add(s);
-        
-        
-        
+
+
+
         File f = new File(s);
-        String name=f.getName();
-        if (first_image==null){
-            first_image=name;
+        String name = f.getName();
+        if (first_image == null) {
+            first_image = name;
         }
-        
+
         try {
-            
+
             if (is_product_empty) {
                 res = 1000;
             } else {
@@ -505,32 +488,33 @@ public class AddStockPanelView extends javax.swing.JPanel {
             }
 
             res++;
-            
-            oout_image_sql = new FileWriter(Main.file2,true);
+
+            oout_image_sql = new FileWriter(Main.file2, true);
             BufferedWriter bw_image_sql = new BufferedWriter(oout_image_sql);
-            bw_image_sql.write("INSERT INTO oc_product_image(product_id,image,sort_order) VALUES("+res+", 'data/"+name+"',0)\n");
-            dbController.insProductDB("INSERT INTO product_image(product_image_id,product_id,image,sort_order) VALUES("+(res+5000)+","+res+", 'data/"+name+"',0)\n");
+            bw_image_sql.write("INSERT INTO oc_product_image(product_id,image,sort_order) VALUES(" + res + ", 'data/" + name + "',0)\n");
+            dbController.insProductDB("INSERT INTO product_image(product_image_id,product_id,image,sort_order) VALUES(" + (res + 5000) + "," + res + ", 'data/" + name + "',0)\n");
             bw_image_sql.close();
-            
-            oout_image = new FileWriter(Main.file1,true);
+
+            oout_image = new FileWriter(Main.file1, true);
             BufferedWriter bw_image = new BufferedWriter(oout_image);
-            bw_image.write(s+"\n");
+            bw_image.write(s + "\n");
             bw_image.close();
-        
+
+
+
         } catch (IOException ex) {
-            Logger.getLogger(AddStockPanelView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddStockPanelView.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        ASPV_resim_list.append(s+"\n");
+
+
+
+        ASPV_resim_list.append(s + "\n");
 
     }//GEN-LAST:event_ASPV_gozatActionPerformed
 
     private void AEV_listeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AEV_listeActionPerformed
-       
     }//GEN-LAST:event_AEV_listeActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AEV_ekle;
     private javax.swing.JButton AEV_liste;

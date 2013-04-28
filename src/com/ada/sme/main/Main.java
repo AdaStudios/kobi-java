@@ -54,8 +54,8 @@ public class Main
         file2 = new File("tmp_image_list_sql.txt");
         products = new ArrayList<Product>();
         //System.out.println("Arraylist size:"+products.size());
-        CreateDBController createDB =new CreateDBController();
-        createDB.createDB();
+        /*CreateDBController createDB =new CreateDBController();
+        createDB.createDB();*/
         
        db = new DBController();
        ArrayList a = db.selectSingleRowDB("select * from employee");

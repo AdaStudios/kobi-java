@@ -4,9 +4,9 @@
  */
 package com.ada.sme.view;
 
-
 import com.ada.sme.main.*;
 import com.ada.sme.controller.DBController;
+import com.ada.sme.model.StatusModel;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -28,72 +28,69 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import org.apache.commons.io.FileUtils;
 
-
 /**
  *
  * @author PaDaWaN
  */
-
-
 public class TempAddStockView extends javax.swing.JPanel {
 
     /**
      * Creates new form TempAddStockView
      */
     MainFrame frame;
-    FileReader oin,oin_image,oin_image_sql;
-    FileWriter oout,oout_image,oout_image_sql;
-    
+    FileReader oin, oin_image, oin_image_sql;
+    FileWriter oout, oout_image, oout_image_sql;
     ArrayList<String> sql_list;
     int image_id;
-    
+
     public TempAddStockView(MainFrame main) {
         initComponents();
-        sql_list=new ArrayList<String>();
-        frame= main;
-        
+        sql_list = new ArrayList<String>();
+        frame = main;
+
         String select_sql;
-        
-         try {
-             
-             oin = new FileReader(Main.file);
+
+        try {
+
+            oin = new FileReader(Main.file);
             BufferedReader reader = new BufferedReader(oin);
-    
-            
-            String tmp;           
-            
-             DBController dbController = new DBController();
-             DefaultTableModel dtm;
-             select_sql="SELECT product.product_id,model,quantity,image,price,status FROM product WHERE ";
-             
-             int flag=0;
-             String satir;
-             
-             while((satir = reader.readLine()) != null){
+
+
+            String tmp;
+
+            DBController dbController = new DBController();
+            DefaultTableModel dtm;
+            select_sql = "SELECT product.product_id,model,quantity,image,price,status FROM product WHERE ";
+
+            int flag = 0;
+            String satir;
+
+            while ((satir = reader.readLine()) != null) {
                 tmp = satir;
                 sql_list.add(reader.readLine());
                 sql_list.add(reader.readLine());
                 sql_list.add(reader.readLine());
-                sql_list.add(reader.readLine());  
                 sql_list.add(reader.readLine());
                 sql_list.add(reader.readLine());
                 sql_list.add(reader.readLine());
                 sql_list.add(reader.readLine());
-                
-                System.out.print("IDDDDDDDDDD="+tmp+"\n");
-                if (flag==0){
-                    flag=1;
-                    select_sql+="product_id="+tmp+" ";                    
-                }else
-                    select_sql+="OR product_id="+tmp+" ";
-                
-        }
-      
-            
-             reader.close();
-             System.out.println(select_sql);
-             dtm=dbController.selectDB(select_sql);
-             TASV_list.setModel(dtm);
+                sql_list.add(reader.readLine());
+
+                System.out.print("IDDDDDDDDDD=" + tmp + "\n");
+                if (flag == 0) {
+                    flag = 1;
+                    select_sql += "product_id=" + tmp + " ";
+                } else {
+                    select_sql += "OR product_id=" + tmp + " ";
+                }
+
+            }
+
+
+            reader.close();
+            System.out.println(select_sql);
+            dtm = dbController.selectDB(select_sql);
+            TASV_list.setModel(dtm);
         } catch (IOException ex) {
             Logger.getLogger(AddStockPanelView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -170,7 +167,7 @@ public class TempAddStockView extends javax.swing.JPanel {
 
     private void TASV_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TASV_listMouseClicked
         String id = TASV_list.getValueAt(TASV_list.getSelectedRow(), 0).toString();
-        UpdateStockPanelView updateStockPanelView=new UpdateStockPanelView(id);
+        UpdateStockPanelView updateStockPanelView = new UpdateStockPanelView(id);
         MainFrame.main_anapanel.removeAll();
         MainFrame.main_anapanel.add(updateStockPanelView);
         MainFrame.main_anapanel.validate();
@@ -189,23 +186,28 @@ public class TempAddStockView extends javax.swing.JPanel {
 
     private void TASV_kaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TASV_kaydetActionPerformed
         try {
-            DBController db=new DBController();
-            for (int i=0;i<sql_list.size();i++){
-                db.insDelUpDB(sql_list.get(i));
+            DBController db = new DBController();
+            for (int i = 0; i < sql_list.size(); i++) {
+                if (StatusModel.check()) {
+                    db.insDelUpDB(sql_list.get(i));
+                } else {
+                    Main.write(sql_list.get(i));
+                }
+
             }
             oout = new FileWriter(Main.file);
             BufferedWriter bw = new BufferedWriter(oout);
             System.out.print("Yazdım");
             bw.close();
-            
-            
+
+
             oin_image = new FileReader(Main.file1);
             BufferedReader reader_image = new BufferedReader(oin_image);
             String satir;
-            while((satir = reader_image.readLine()) != null){
+            while ((satir = reader_image.readLine()) != null) {
                 String[] split;
-                split=satir.split("\\\\");
-                String name=split[split.length-1];
+                split = satir.split("\\\\");
+                String name = split[split.length - 1];
                 try {
                     File f = new File(satir);
                     String urlString = "ftp://openftp:ozyaz.11@ozguryazilim.bilkent.edu.tr/" + name;
@@ -221,67 +223,66 @@ public class TempAddStockView extends javax.swing.JPanel {
                     }
                     out.close();
                     in.close();
-                    
-                   
+
+
                     String source = satir;
-                    String target ="data/";
-      
+                    String target = "data/";
+
                     //name of source file
                     File sourceFile = new File(source);
-                    
-      
-                    File targetFile = new File(target+name);
-                    System.out.println("Copying file : " + sourceFile.getName() +" from Java Program");
-      
+
+
+                    File targetFile = new File(target + name);
+                    System.out.println("Copying file : " + sourceFile.getName() + " from Java Program");
+
                     //copy file from one location to other
                     FileUtils.copyFile(sourceFile, targetFile);
-      
-                    
 
-                
-             
-                 }catch (Exception e) {
+
+
+
+
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
-                 }
-                
+                }
+
             }
             reader_image.close();
-            
+
             oout_image = new FileWriter(Main.file1);
             BufferedWriter bw_image = new BufferedWriter(oout_image);
             System.out.print("Yazdım");
             bw_image.close();
-            
+
             oin_image_sql = new FileReader(Main.file2);
             BufferedReader reader_image_sql = new BufferedReader(oin_image_sql);
-            
-             while((satir = reader_image_sql.readLine()) != null){
-                
-                 db.insDelUpDB(satir);
-                 
-                    
-                 
-                
-             }
-             reader_image_sql.close();
-             oout_image_sql = new FileWriter(Main.file2);
+
+            while ((satir = reader_image_sql.readLine()) != null) {
+
+                db.insDelUpDB(satir);
+
+
+
+
+            }
+            reader_image_sql.close();
+            oout_image_sql = new FileWriter(Main.file2);
             BufferedWriter bw_image_sql = new BufferedWriter(oout_image_sql);
             System.out.print("Yazdım");
             bw_image_sql.close();
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
         } catch (IOException ex) {
             Logger.getLogger(TempAddStockView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-    }//GEN-LAST:event_TASV_kaydetActionPerformed
 
+
+
+    }//GEN-LAST:event_TASV_kaydetActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton TASV_kaydet;
     private javax.swing.JTable TASV_list;

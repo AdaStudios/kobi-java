@@ -39,27 +39,18 @@ public class ManageStockView extends javax.swing.JPanel {
         DBController dbController = new DBController();
         DefaultTableModel dtm;
         
-        dtm=dbController.selectDB("SELECT product.product_id,model,quantity,image,price,status FROM product");
+        dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description");
         System.out.println(dtm);
         
         MSV_list1.setModel(dtm);
         
-        ArrayList meta = dbController.fillCombo("SELECT * FROM product");
+        ArrayList meta = dbController.fillCombo("SELECT product.product_id, product.model, product_description.name FROM product, product_description");
         
-        MEV_identifier.addItem(meta.get(0).toString());
-        MEV_identifier.addItem(meta.get(1).toString());
-        MEV_identifier.addItem(meta.get(2).toString());
-        MEV_identifier.addItem(meta.get(3).toString());
- 
-        
+        MSV_identifier.addItem(meta.get(0).toString());
+        MSV_identifier.addItem(meta.get(1).toString());
+        MSV_identifier.addItem(meta.get(2).toString());
     }
-    
-    
-    
-    public void getnPrintAllData(ResultSet res){
-        
-        
-    } 
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,10 +63,10 @@ public class ManageStockView extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         MEV_value = new javax.swing.JTextField();
-        MEV_identifier = new javax.swing.JComboBox();
         MSV_ara = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         MSV_list1 = new javax.swing.JTable();
+        MSV_identifier = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(227, 227, 227));
         setMaximumSize(new java.awt.Dimension(646, 500));
@@ -94,17 +85,6 @@ public class ManageStockView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(1, 12, 0, 0);
         add(MEV_value, gridBagConstraints);
 
-        MEV_identifier.setMaximumSize(new java.awt.Dimension(100, 28));
-        MEV_identifier.setMinimumSize(new java.awt.Dimension(100, 28));
-        MEV_identifier.setPreferredSize(new java.awt.Dimension(100, 28));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(1, 12, 0, 0);
-        add(MEV_identifier, gridBagConstraints);
-
         MSV_ara.setBackground(new java.awt.Color(67, 149, 195));
         MSV_ara.setForeground(new java.awt.Color(254, 254, 254));
         MSV_ara.setText("Ürün Ara");
@@ -119,7 +99,7 @@ public class ManageStockView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(MSV_ara, gridBagConstraints);
@@ -142,6 +122,11 @@ public class ManageStockView extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(12, 12, 12, 12);
         add(jScrollPane2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        add(MSV_identifier, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void MSV_list1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MSV_list1MouseClicked
@@ -156,13 +141,12 @@ public class ManageStockView extends javax.swing.JPanel {
     private void MSV_araActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSV_araActionPerformed
         DBController dbController = new DBController();
         DefaultTableModel dtm;
-        if(MEV_identifier.getSelectedItem().toString().equals("product_id"))
-            dtm=dbController.selectDB("SELECT * FROM product WHERE "+MEV_identifier.getSelectedItem().toString()+"="+MEV_value.getText());
+        if(MSV_identifier.getSelectedItem().toString().equals("product_id"))
+            dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product WHERE "+MSV_identifier.getSelectedItem().toString()+"="+MEV_value.getText());
         else
-            dtm=dbController.selectDB("SELECT * FROM product WHERE "+MEV_identifier.getSelectedItem().toString()+" LIKE '%"+MEV_value.getText()+"%'");
+            dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description WHERE "+MSV_identifier.getSelectedItem().toString()+" LIKE '%"+MEV_value.getText()+"%'");
         
         System.out.println(dtm);
-        
         MSV_list1.setModel(dtm);
     }//GEN-LAST:event_MSV_araActionPerformed
 
@@ -179,9 +163,9 @@ public class ManageStockView extends javax.swing.JPanel {
     }//GEN-LAST:event_MSV_list4MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox MEV_identifier;
     private javax.swing.JTextField MEV_value;
     private javax.swing.JButton MSV_ara;
+    private javax.swing.JComboBox MSV_identifier;
     private javax.swing.JTable MSV_list1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

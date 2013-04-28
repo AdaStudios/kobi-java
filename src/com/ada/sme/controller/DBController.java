@@ -352,13 +352,10 @@ public class DBController {
             result = prestat.executeQuery();
 
             System.out.println(result.toString());
-
-            DefaultTableModel dtm = new DefaultTableModel();
-
             ResultSetMetaData meta = result.getMetaData();
 
-            int numberOfColumns = meta.getColumnCount();
-            for (int j = 1; j < meta.getColumnCount(); j++) {
+            for (int j = 1; j <= meta.getColumnCount(); j++) {
+                System.err.println(meta.getColumnName(j).toString());
                 list.add(meta.getColumnName(j));
             }
 
