@@ -18,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
 public class OrderView extends javax.swing.JFrame {
  DefaultTableModel dtm;
  DBController dbController;
+ DefaultTableModel meta;
+  ArrayList all;
     /**
      * Creates new form OrderView
      */
@@ -32,7 +34,7 @@ public class OrderView extends javax.swing.JFrame {
         updateOrderProduct();
         updateOrderOption();
         
-        ArrayList all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_status WHERE order_language=1 AND order_t.order_status_id=order_status.order_status_id AND order_t.order_id="+id);
+        all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_status WHERE order_language=1 AND order_t.order_status_id=order_status.order_status_id AND order_t.order_id="+id);
         System.err.println(all.size()+": all list");
         dtm = dbController.selectDB("Select name,model,quantity,price,total from order_product WHERE order_id="+all.get(0).toString());
         Object[] cols = new Object[5];
@@ -77,6 +79,13 @@ public class OrderView extends javax.swing.JFrame {
          jLabel25.setText(all.get(20).toString()+" "+all.get(21).toString());
          jLabel26.setText(all.get(23).toString()+" "+all.get(22).toString()+" "+all.get(25).toString());
          
+       
+        meta = dbController.selectDB("Select order_status_id, name from order_status");
+        
+        for (int i = 0; i < meta.getRowCount(); i++) {
+            jComboBox1.addItem(meta.getValueAt(i,1).toString());
+        }
+        
        
         // jLabel32.setText(all.get(37).toString());
         
@@ -161,6 +170,10 @@ public class OrderView extends javax.swing.JFrame {
         MEV_list1 = new javax.swing.JTable();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(900, 600));
@@ -287,11 +300,32 @@ public class OrderView extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 600, 120));
 
         jLabel31.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel31.setText("Kargo Durumu:");
-        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, -1, -1));
+        jLabel31.setText("Kargo Durumu Değiştir:");
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 510, -1, -1));
 
         jLabel32.setText("0");
         getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel35.setText("Kargo Durumu:");
+        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, 170, -1));
+
+        jButton1.setText("Değiştir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 170, -1));
+
+        jButton2.setText("Çıkış");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 490, 140, 80));
     }// </editor-fold>//GEN-END:initComponents
 
     private void MEV_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MEV_listMouseClicked
@@ -306,9 +340,25 @@ public class OrderView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MEV_list1MouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int a = jComboBox1.getSelectedIndex();
+        dbController.insProductDB("UPDATE order_t SET order_status_id="+meta.getValueAt(a, 0)+" WHERE order_id="+all.get(0).toString());
+        jLabel32.setText(meta.getValueAt(a, 1).toString());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+                // TODO add your handling code here:
+        MainFrame.callOnlineAgain();
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable MEV_list;
     private javax.swing.JTable MEV_list1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -336,6 +386,7 @@ public class OrderView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
