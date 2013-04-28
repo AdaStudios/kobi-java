@@ -28,7 +28,6 @@ public class MainPagePanelView extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -37,12 +36,13 @@ public class MainPagePanelView extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(12, 0), new java.awt.Dimension(12, 0), new java.awt.Dimension(12, 32767));
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(227, 227, 227));
         setMaximumSize(new java.awt.Dimension(646, 500));
         setMinimumSize(new java.awt.Dimension(646, 500));
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 2, 0, 2, 0};
+        layout.columnWidths = new int[] {0, 2, 0, 2, 0, 2, 0};
         layout.rowHeights = new int[] {0, 2, 0, 2, 0, 2, 0, 2, 0};
         setLayout(layout);
 
@@ -55,14 +55,6 @@ public class MainPagePanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 0.1;
         add(jLabel1, gridBagConstraints);
-
-        jToggleButton1.setText("Aç / Kapa");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 2);
-        add(jToggleButton1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -129,9 +121,21 @@ public class MainPagePanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         add(filler1, gridBagConstraints);
+
+        jButton1.setBackground(new java.awt.Color(67, 149, 195));
+        jButton1.setForeground(new java.awt.Color(254, 254, 254));
+        jButton1.setText("Aç/Kapa");
+        jButton1.setMaximumSize(new java.awt.Dimension(90, 35));
+        jButton1.setMinimumSize(new java.awt.Dimension(90, 35));
+        jButton1.setPreferredSize(new java.awt.Dimension(90, 35));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        add(jButton1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -140,6 +144,5 @@ public class MainPagePanelView extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

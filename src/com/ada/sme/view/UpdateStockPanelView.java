@@ -195,7 +195,12 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
         add(USPV_resim, gridBagConstraints);
 
+        USPV_guncelle.setBackground(new java.awt.Color(67, 149, 195));
+        USPV_guncelle.setForeground(new java.awt.Color(254, 254, 254));
         USPV_guncelle.setText("Güncelle");
+        USPV_guncelle.setMaximumSize(new java.awt.Dimension(130, 35));
+        USPV_guncelle.setMinimumSize(new java.awt.Dimension(130, 35));
+        USPV_guncelle.setPreferredSize(new java.awt.Dimension(130, 35));
         USPV_guncelle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USPV_guncelleActionPerformed(evt);
@@ -205,10 +210,15 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 8, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 13, 0);
         add(USPV_guncelle, gridBagConstraints);
 
+        USPV_sil.setBackground(new java.awt.Color(67, 149, 195));
+        USPV_sil.setForeground(new java.awt.Color(254, 254, 254));
         USPV_sil.setText("Ürünü Sil");
+        USPV_sil.setMaximumSize(new java.awt.Dimension(160, 35));
+        USPV_sil.setMinimumSize(new java.awt.Dimension(160, 35));
+        USPV_sil.setPreferredSize(new java.awt.Dimension(160, 35));
         USPV_sil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USPV_silActionPerformed(evt);
@@ -218,7 +228,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 8, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 13, 0);
         add(USPV_sil, gridBagConstraints);
 
         jLabel7.setText("Küçük");
@@ -361,7 +371,12 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel14, gridBagConstraints);
 
+        USPV_sil1.setBackground(new java.awt.Color(67, 149, 195));
+        USPV_sil1.setForeground(new java.awt.Color(254, 254, 254));
         USPV_sil1.setText("Geri");
+        USPV_sil1.setMaximumSize(new java.awt.Dimension(80, 35));
+        USPV_sil1.setMinimumSize(new java.awt.Dimension(80, 35));
+        USPV_sil1.setPreferredSize(new java.awt.Dimension(80, 35));
         USPV_sil1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USPV_sil1ActionPerformed(evt);
@@ -371,7 +386,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 4, 8, 4);
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 13, 4);
         add(USPV_sil1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

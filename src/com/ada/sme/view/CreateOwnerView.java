@@ -55,6 +55,7 @@ public class CreateOwnerView extends javax.swing.JFrame {
 
         COV_mesaj.setColumns(20);
         COV_mesaj.setRows(5);
+        COV_mesaj.setText("Programı ilk defa çalıştırıyorsunuz. ");
         jScrollPane1.setViewportView(COV_mesaj);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -107,7 +108,11 @@ public class CreateOwnerView extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(COV_sifre_t, gridBagConstraints);
 
+        COV_cıkıs.setBackground(new java.awt.Color(67, 149, 195));
         COV_cıkıs.setText("Çıkış");
+        COV_cıkıs.setMaximumSize(new java.awt.Dimension(70, 35));
+        COV_cıkıs.setMinimumSize(new java.awt.Dimension(70, 35));
+        COV_cıkıs.setPreferredSize(new java.awt.Dimension(70, 35));
         COV_cıkıs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 COV_cıkısActionPerformed(evt);
@@ -119,7 +124,11 @@ public class CreateOwnerView extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         getContentPane().add(COV_cıkıs, gridBagConstraints);
 
+        COV_olustur.setBackground(new java.awt.Color(67, 149, 195));
         COV_olustur.setText("Yönetici Oluştur");
+        COV_olustur.setMaximumSize(new java.awt.Dimension(150, 35));
+        COV_olustur.setMinimumSize(new java.awt.Dimension(150, 35));
+        COV_olustur.setPreferredSize(new java.awt.Dimension(150, 35));
         COV_olustur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 COV_olusturActionPerformed(evt);

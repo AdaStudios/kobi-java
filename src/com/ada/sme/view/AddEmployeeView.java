@@ -136,7 +136,12 @@ public class AddEmployeeView extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         add(AEV_sifre, gridBagConstraints);
 
+        AEV_ekle.setBackground(new java.awt.Color(67, 149, 195));
+        AEV_ekle.setForeground(new java.awt.Color(254, 254, 254));
         AEV_ekle.setText("Çalışan Ekle");
+        AEV_ekle.setMaximumSize(new java.awt.Dimension(120, 35));
+        AEV_ekle.setMinimumSize(new java.awt.Dimension(120, 35));
+        AEV_ekle.setPreferredSize(new java.awt.Dimension(120, 35));
         AEV_ekle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AEV_ekleActionPerformed(evt);
@@ -149,7 +154,12 @@ public class AddEmployeeView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(AEV_ekle, gridBagConstraints);
 
+        AEV_liste.setBackground(new java.awt.Color(67, 149, 195));
+        AEV_liste.setForeground(new java.awt.Color(254, 254, 254));
         AEV_liste.setText("Çalışan Listesi");
+        AEV_liste.setMaximumSize(new java.awt.Dimension(150, 35));
+        AEV_liste.setMinimumSize(new java.awt.Dimension(150, 35));
+        AEV_liste.setPreferredSize(new java.awt.Dimension(150, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;

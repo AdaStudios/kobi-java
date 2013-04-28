@@ -105,7 +105,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(646, 500));
         setPreferredSize(new java.awt.Dimension(646, 500));
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 2, 0, 2, 0, 2, 0};
+        layout.columnWidths = new int[] {0, 2, 0, 2, 0, 2, 0, 2, 0};
         layout.rowHeights = new int[] {0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0};
         setLayout(layout);
 
@@ -197,30 +197,39 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         add(jLabel6, gridBagConstraints);
 
+        AEV_ekle.setBackground(new java.awt.Color(67, 149, 195));
+        AEV_ekle.setForeground(new java.awt.Color(254, 254, 254));
         AEV_ekle.setText("Ürün Ekle");
+        AEV_ekle.setMaximumSize(new java.awt.Dimension(130, 35));
+        AEV_ekle.setMinimumSize(new java.awt.Dimension(130, 35));
+        AEV_ekle.setPreferredSize(new java.awt.Dimension(130, 35));
         AEV_ekle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AEV_ekleActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 26;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         add(AEV_ekle, gridBagConstraints);
 
+        AEV_liste.setBackground(new java.awt.Color(67, 149, 195));
+        AEV_liste.setForeground(new java.awt.Color(254, 254, 254));
         AEV_liste.setText("Ürün Listesi");
+        AEV_liste.setMaximumSize(new java.awt.Dimension(130, 35));
+        AEV_liste.setMinimumSize(new java.awt.Dimension(130, 35));
+        AEV_liste.setPreferredSize(new java.awt.Dimension(130, 35));
         AEV_liste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AEV_listeActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 26;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(AEV_liste, gridBagConstraints);
 
@@ -364,7 +373,12 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         add(jLabel14, gridBagConstraints);
 
+        ASPV_gozat.setBackground(new java.awt.Color(67, 149, 195));
+        ASPV_gozat.setForeground(new java.awt.Color(254, 254, 254));
         ASPV_gozat.setText("Gözat");
+        ASPV_gozat.setMaximumSize(new java.awt.Dimension(90, 35));
+        ASPV_gozat.setMinimumSize(new java.awt.Dimension(90, 35));
+        ASPV_gozat.setPreferredSize(new java.awt.Dimension(90, 35));
         ASPV_gozat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ASPV_gozatActionPerformed(evt);

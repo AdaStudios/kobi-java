@@ -153,6 +153,11 @@ public class MainFrame extends javax.swing.JFrame {
         main_destek.setMaximumSize(new java.awt.Dimension(62, 70));
         main_destek.setMinimumSize(new java.awt.Dimension(62, 70));
         main_destek.setPreferredSize(new java.awt.Dimension(62, 70));
+        main_destek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                main_destekActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
@@ -276,6 +281,17 @@ public class MainFrame extends javax.swing.JFrame {
         main_anapanel.add(new OnlineStoreView());
         main_anapanel.validate();
     }//GEN-LAST:event_main_online_marketActionPerformed
+
+    private void main_destekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_destekActionPerformed
+        main_solpanel.removeAll();
+        main_solpanel.add(new SupportPanelLeftView() );
+        main_solpanel.validate();
+        
+        main_anapanel.removeAll();
+        main_anapanel.add(new SupportPanelView() );
+        main_anapanel.validate();
+
+    }//GEN-LAST:event_main_destekActionPerformed
 
     /**
      * @param args the command line arguments

@@ -48,27 +48,31 @@ public class LoginView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(227, 227, 227));
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0, 2, 0};
+        layout.rowHeights = new int[] {0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0};
+        getContentPane().setLayout(layout);
 
+        login_mesaj.setEditable(false);
         login_mesaj.setColumns(20);
         login_mesaj.setRows(5);
-        login_mesaj.setEnabled(false);
+        login_mesaj.setText("Kobilere Özgürlük:\n\nLütfen Kullanıcı adı ve \nparolanızı giriniz.");
         jScrollPane1.setViewportView(login_mesaj);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
         getContentPane().add(jScrollPane1, gridBagConstraints);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Kullanıcı Adı:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel1, gridBagConstraints);
@@ -77,7 +81,7 @@ public class LoginView extends javax.swing.JFrame {
         jLabel2.setText("Parola :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel2, gridBagConstraints);
@@ -92,10 +96,10 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
         getContentPane().add(login_kullanici, gridBagConstraints);
 
         login_parola.setText("riza");
@@ -103,21 +107,21 @@ public class LoginView extends javax.swing.JFrame {
         login_parola.setMinimumSize(new java.awt.Dimension(170, 28));
         login_parola.setPreferredSize(new java.awt.Dimension(170, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
         getContentPane().add(login_parola, gridBagConstraints);
 
         login_cıkıs.setBackground(new java.awt.Color(67, 149, 195));
         login_cıkıs.setForeground(new java.awt.Color(254, 254, 254));
         login_cıkıs.setText("Çıkış");
-        login_cıkıs.setMaximumSize(new java.awt.Dimension(80, 50));
-        login_cıkıs.setMinimumSize(new java.awt.Dimension(80, 50));
-        login_cıkıs.setPreferredSize(new java.awt.Dimension(80, 50));
+        login_cıkıs.setMaximumSize(new java.awt.Dimension(80, 35));
+        login_cıkıs.setMinimumSize(new java.awt.Dimension(80, 35));
+        login_cıkıs.setPreferredSize(new java.awt.Dimension(80, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 15, 0);
         getContentPane().add(login_cıkıs, gridBagConstraints);
@@ -125,20 +129,20 @@ public class LoginView extends javax.swing.JFrame {
         login_giris.setBackground(new java.awt.Color(67, 149, 195));
         login_giris.setForeground(new java.awt.Color(254, 254, 254));
         login_giris.setText("Giriş");
-        login_giris.setMaximumSize(new java.awt.Dimension(41, 50));
-        login_giris.setMinimumSize(new java.awt.Dimension(41, 50));
-        login_giris.setPreferredSize(new java.awt.Dimension(41, 50));
+        login_giris.setMaximumSize(new java.awt.Dimension(41, 35));
+        login_giris.setMinimumSize(new java.awt.Dimension(41, 35));
+        login_giris.setPreferredSize(new java.awt.Dimension(41, 35));
         login_giris.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 login_girisActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 15, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 15, 10);
         getContentPane().add(login_giris, gridBagConstraints);
 
         pack();
