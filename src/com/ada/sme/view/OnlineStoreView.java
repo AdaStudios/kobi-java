@@ -32,25 +32,33 @@ public class OnlineStoreView extends javax.swing.JPanel {
      * Creates new form ManageEmployeeView
      */
     MainFrame frame;
+     public static DefaultTableModel dtm;
     
     public OnlineStoreView() {
         initComponents();
         
         DBController dbController = new DBController();
-        DefaultTableModel dtm;
+      
         
         dtm=dbController.selectDB("SELECT order_id, firstname, lastname, total, order_status_id, date_modified FROM order_t");
         System.out.println("firstSelect");
         if(dtm.getRowCount()==0){
              System.out.println("OnlineView Empty");
-             dtm = dbController.selectDBFromOnline("Select order_id, customer_id, firstname, lastname, email, telephone, fax, payment_firstname, payment_lastname, payment_company, payment_address_1, payment_address_2, payment_city, payment_postcode , payment_country, payment_zone, payment_method, shipping_firstname, shipping_lastname, shipping_company, shipping_address_1, shipping_address_2, shipping_city, shipping_postcode, shipping_country, shipping_zone, comment, total, order_status_id, currency_code, date_added, date_modified from oc_order");          
+             dtm = dbController.selectDBFromOnline("Select order_id, customer_id, firstname, lastname, email, telephone, fax, payment_firstname, payment_lastname, payment_company, payment_address_1, payment_address_2, payment_city, payment_postcode , payment_country, payment_zone, payment_method, shipping_firstname, shipping_lastname, shipping_company, shipping_address_1, shipping_address_2, shipping_city, shipping_postcode, shipping_country, shipping_zone, comment, total, order_status_id, currency_code, date_added, date_modified from oc_order order by date_modified DESC");          
             System.out.println("OnlineView Empty Finished");
-        }else{
-            
+        }else{            
              int id = DBController.getLastID("SELECT * from order_t order by order_id DESC");
              System.out.println("OnlineView Update"+id);
              dtm = dbController.selectDBFromOnline("Select order_id, customer_id, firstname, lastname, email, telephone, fax, payment_firstname, payment_lastname, payment_company, payment_address_1, payment_address_2, payment_city, payment_postcode , payment_country, payment_zone, payment_method, shipping_firstname, shipping_lastname, shipping_company, shipping_address_1, shipping_address_2, shipping_city, shipping_postcode, shipping_country, shipping_zone, comment, total, order_status_id, currency_code, date_added, date_modified from oc_order WHERE order_id>"+id);            
         }
+         Object[] cols = new Object[6];
+        cols[0]="SPN";
+        cols[1]="İsim";
+        cols[2]="Soyisim";
+        cols[3]="Toplam";
+        cols[4]="Kargo";
+        cols[5]="Günc.Tar.";
+        dtm.setColumnIdentifiers(cols);
         MEV_list.setModel(dtm);
         
       /*  ArrayList meta = dbController.fillCombo("SELECT * FROM order_t");

@@ -52,6 +52,13 @@ public class MainFrame extends javax.swing.JFrame {
         main_stok.setBackground(new Color(67, 149, 195));
         main_destek.setBackground(new Color(67, 149, 195));
     }
+    public static void callOnlineAgain(){
+              
+        main_anapanel.removeAll();
+        main_anapanel.add(new OnlineStoreView());
+        main_anapanel.validate();        
+    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
