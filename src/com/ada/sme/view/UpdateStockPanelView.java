@@ -88,6 +88,9 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         USPV_etiketler = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(227, 227, 227));
+        setMaximumSize(new java.awt.Dimension(646, 500));
+        setMinimumSize(new java.awt.Dimension(646, 500));
+        setPreferredSize(new java.awt.Dimension(646, 500));
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -95,9 +98,10 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(jLabel1, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -105,7 +109,8 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel2, gridBagConstraints);
 
         USPV_kod.setMaximumSize(new java.awt.Dimension(100, 28));
@@ -115,6 +120,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_kod, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -122,6 +128,8 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
         add(USPV_isim, gridBagConstraints);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -129,7 +137,8 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel3, gridBagConstraints);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -137,7 +146,8 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel4, gridBagConstraints);
 
         USPV_fiyat.setMaximumSize(new java.awt.Dimension(100, 28));
@@ -147,177 +157,184 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_fiyat, gridBagConstraints);
 
         USPV_adet_s.setText("0");
-        USPV_adet_s.setMaximumSize(new java.awt.Dimension(50, 28));
-        USPV_adet_s.setMinimumSize(new java.awt.Dimension(50, 28));
-        USPV_adet_s.setPreferredSize(new java.awt.Dimension(50, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_adet_s, gridBagConstraints);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Ürün Adeti:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel5, gridBagConstraints);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Ürün Resmi:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel6, gridBagConstraints);
-
-        USPV_resim.setMaximumSize(new java.awt.Dimension(100, 28));
-        USPV_resim.setMinimumSize(new java.awt.Dimension(100, 28));
-        USPV_resim.setPreferredSize(new java.awt.Dimension(100, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
         add(USPV_resim, gridBagConstraints);
 
-        USPV_guncelle.setBackground(new java.awt.Color(67, 149, 195));
-        USPV_guncelle.setForeground(new java.awt.Color(254, 254, 254));
         USPV_guncelle.setText("Güncelle");
-        USPV_guncelle.setMaximumSize(new java.awt.Dimension(74, 50));
-        USPV_guncelle.setMinimumSize(new java.awt.Dimension(74, 50));
-        USPV_guncelle.setPreferredSize(new java.awt.Dimension(74, 50));
         USPV_guncelle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USPV_guncelleActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_guncelle, gridBagConstraints);
 
-        USPV_sil.setBackground(new java.awt.Color(67, 149, 195));
-        USPV_sil.setForeground(new java.awt.Color(254, 254, 254));
         USPV_sil.setText("Ürünü Sil");
-        USPV_sil.setMaximumSize(new java.awt.Dimension(73, 50));
-        USPV_sil.setMinimumSize(new java.awt.Dimension(73, 50));
-        USPV_sil.setPreferredSize(new java.awt.Dimension(73, 50));
         USPV_sil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USPV_silActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_sil, gridBagConstraints);
 
-        jLabel7.setText("Small");
+        jLabel7.setText("Küçük");
         jLabel7.setToolTipText("");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel7.setMaximumSize(new java.awt.Dimension(100, 18));
+        jLabel7.setMinimumSize(new java.awt.Dimension(100, 18));
+        jLabel7.setPreferredSize(new java.awt.Dimension(100, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(jLabel7, gridBagConstraints);
 
-        jLabel8.setText("Medium");
+        jLabel8.setText("Orta");
+        jLabel8.setMaximumSize(new java.awt.Dimension(100, 18));
+        jLabel8.setMinimumSize(new java.awt.Dimension(100, 18));
+        jLabel8.setPreferredSize(new java.awt.Dimension(100, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(jLabel8, gridBagConstraints);
 
-        jLabel9.setText("Large");
+        jLabel9.setText("Büyük");
         jLabel9.setToolTipText("");
+        jLabel9.setMaximumSize(new java.awt.Dimension(100, 18));
+        jLabel9.setMinimumSize(new java.awt.Dimension(100, 18));
+        jLabel9.setPreferredSize(new java.awt.Dimension(100, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(jLabel9, gridBagConstraints);
 
         USPV_adet_l.setText("0");
-        USPV_adet_l.setMaximumSize(new java.awt.Dimension(50, 28));
-        USPV_adet_l.setMinimumSize(new java.awt.Dimension(50, 28));
-        USPV_adet_l.setPreferredSize(new java.awt.Dimension(50, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_adet_l, gridBagConstraints);
 
         USPV_adet_m.setText("0");
-        USPV_adet_m.setMaximumSize(new java.awt.Dimension(50, 28));
-        USPV_adet_m.setMinimumSize(new java.awt.Dimension(50, 28));
-        USPV_adet_m.setPreferredSize(new java.awt.Dimension(50, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_adet_m, gridBagConstraints);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Ürün Ağırlığı(Gr):");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel10, gridBagConstraints);
 
-        USPV_agirlik.setMaximumSize(new java.awt.Dimension(100, 28));
-        USPV_agirlik.setMinimumSize(new java.awt.Dimension(100, 28));
-        USPV_agirlik.setPreferredSize(new java.awt.Dimension(100, 28));
+        USPV_agirlik.setMaximumSize(new java.awt.Dimension(70, 28));
+        USPV_agirlik.setMinimumSize(new java.awt.Dimension(70, 28));
+        USPV_agirlik.setPreferredSize(new java.awt.Dimension(70, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_agirlik, gridBagConstraints);
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Minimum:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(jLabel11, gridBagConstraints);
 
-        USPV_minimum.setMaximumSize(new java.awt.Dimension(100, 28));
-        USPV_minimum.setMinimumSize(new java.awt.Dimension(100, 28));
-        USPV_minimum.setPreferredSize(new java.awt.Dimension(100, 28));
+        USPV_minimum.setMaximumSize(new java.awt.Dimension(40, 28));
+        USPV_minimum.setMinimumSize(new java.awt.Dimension(40, 28));
+        USPV_minimum.setPreferredSize(new java.awt.Dimension(40, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_minimum, gridBagConstraints);
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Ürünü Listele:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel12, gridBagConstraints);
 
         USPV_listele.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PASİF", "AKTİF" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_listele, gridBagConstraints);
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Açıklama:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel13, gridBagConstraints);
 
         USPV_aciklama.setColumns(20);
@@ -326,46 +343,43 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
         add(jScrollPane1, gridBagConstraints);
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Etiketler:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel14, gridBagConstraints);
 
-        USPV_sil1.setBackground(new java.awt.Color(67, 149, 195));
-        USPV_sil1.setForeground(new java.awt.Color(254, 254, 254));
         USPV_sil1.setText("Geri");
-        USPV_sil1.setMaximumSize(new java.awt.Dimension(40, 50));
-        USPV_sil1.setMinimumSize(new java.awt.Dimension(40, 50));
-        USPV_sil1.setPreferredSize(new java.awt.Dimension(40, 50));
         USPV_sil1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USPV_sil1ActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(USPV_sil1, gridBagConstraints);
-
-        USPV_etiketler.setText("asdasdadasdasd");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
         add(USPV_etiketler, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

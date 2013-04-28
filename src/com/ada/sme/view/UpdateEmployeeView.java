@@ -62,14 +62,20 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 15), new java.awt.Dimension(0, 15), new java.awt.Dimension(32767, 15));
 
         setBackground(new java.awt.Color(227, 227, 227));
-        setLayout(new java.awt.GridBagLayout());
+        setMaximumSize(new java.awt.Dimension(646, 500));
+        setMinimumSize(new java.awt.Dimension(646, 500));
+        setPreferredSize(new java.awt.Dimension(646, 500));
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0, 2, 0, 2, 0};
+        layout.rowHeights = new int[] {0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0};
+        setLayout(layout);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Çalışanın Bilgilerini Güncelle");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(15, 55, 0, 0);
@@ -79,18 +85,18 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         jLabel3.setText("Çalışan İsmi:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         add(jLabel3, gridBagConstraints);
 
         UEV_isim.setMaximumSize(new java.awt.Dimension(170, 28));
         UEV_isim.setMinimumSize(new java.awt.Dimension(170, 28));
         UEV_isim.setPreferredSize(new java.awt.Dimension(170, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         add(UEV_isim, gridBagConstraints);
@@ -99,9 +105,9 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         UEV_soyad.setMinimumSize(new java.awt.Dimension(170, 28));
         UEV_soyad.setPreferredSize(new java.awt.Dimension(170, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         add(UEV_soyad, gridBagConstraints);
@@ -110,27 +116,27 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         jLabel4.setText("Çalışan Soyadı:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         add(jLabel4, gridBagConstraints);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Kullanıcı Adı:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         add(jLabel5, gridBagConstraints);
 
         UEV_kullaniciadi.setMaximumSize(new java.awt.Dimension(170, 28));
         UEV_kullaniciadi.setMinimumSize(new java.awt.Dimension(170, 28));
         UEV_kullaniciadi.setPreferredSize(new java.awt.Dimension(170, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         add(UEV_kullaniciadi, gridBagConstraints);
@@ -139,9 +145,9 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         UEV_sifre.setMinimumSize(new java.awt.Dimension(170, 28));
         UEV_sifre.setPreferredSize(new java.awt.Dimension(170, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         add(UEV_sifre, gridBagConstraints);
@@ -150,43 +156,43 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         jLabel6.setText("Şifre:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         add(jLabel6, gridBagConstraints);
 
         UEV_update.setBackground(new java.awt.Color(67, 149, 195));
         UEV_update.setForeground(new java.awt.Color(254, 254, 254));
         UEV_update.setText("Güncelle");
-        UEV_update.setMaximumSize(new java.awt.Dimension(74, 50));
-        UEV_update.setMinimumSize(new java.awt.Dimension(74, 50));
-        UEV_update.setPreferredSize(new java.awt.Dimension(74, 50));
+        UEV_update.setMaximumSize(new java.awt.Dimension(170, 35));
+        UEV_update.setMinimumSize(new java.awt.Dimension(170, 35));
+        UEV_update.setPreferredSize(new java.awt.Dimension(170, 35));
         UEV_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UEV_updateActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         add(UEV_update, gridBagConstraints);
 
         UEV_delete.setBackground(new java.awt.Color(67, 149, 195));
         UEV_delete.setForeground(new java.awt.Color(254, 254, 254));
         UEV_delete.setText("Çalışanı Sil");
-        UEV_delete.setMaximumSize(new java.awt.Dimension(82, 50));
-        UEV_delete.setMinimumSize(new java.awt.Dimension(82, 50));
-        UEV_delete.setPreferredSize(new java.awt.Dimension(82, 50));
+        UEV_delete.setMaximumSize(new java.awt.Dimension(170, 35));
+        UEV_delete.setMinimumSize(new java.awt.Dimension(170, 35));
+        UEV_delete.setPreferredSize(new java.awt.Dimension(170, 35));
         UEV_delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UEV_deleteActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         add(UEV_delete, gridBagConstraints);
@@ -194,23 +200,23 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
         UEV_geri.setBackground(new java.awt.Color(67, 149, 195));
         UEV_geri.setForeground(new java.awt.Color(254, 254, 254));
         UEV_geri.setText("Geri");
-        UEV_geri.setMaximumSize(new java.awt.Dimension(40, 50));
-        UEV_geri.setMinimumSize(new java.awt.Dimension(40, 50));
-        UEV_geri.setPreferredSize(new java.awt.Dimension(40, 50));
+        UEV_geri.setMaximumSize(new java.awt.Dimension(90, 35));
+        UEV_geri.setMinimumSize(new java.awt.Dimension(90, 35));
+        UEV_geri.setPreferredSize(new java.awt.Dimension(90, 35));
         UEV_geri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UEV_geriActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 4);
         add(UEV_geri, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.weighty = 1.0;
         add(filler1, gridBagConstraints);

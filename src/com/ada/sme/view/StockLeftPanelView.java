@@ -61,6 +61,7 @@ public class StockLeftPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
         add(SLPV_ekle, gridBagConstraints);
 
@@ -80,6 +81,7 @@ public class StockLeftPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
         add(SLPV_yonet, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();

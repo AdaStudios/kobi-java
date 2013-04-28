@@ -90,9 +90,7 @@ public class OrderView extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(1000, 600));
-        setMinimumSize(new java.awt.Dimension(1000, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
+        setMinimumSize(new java.awt.Dimension(646, 500));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setText("Meşrutiyet Cad. Kızılay No:32 Çankaya/Ankara");
@@ -100,9 +98,8 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 13;
-        gridBagConstraints.gridheight = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jLabel3.setText("(0312) 290 40 64");
@@ -110,9 +107,8 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.gridheight = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel3, gridBagConstraints);
 
         jLabel4.setText("www.magazam.com");
@@ -121,7 +117,7 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel4, gridBagConstraints);
 
         jLabel5.setText("magazam@magazam.com");
@@ -129,9 +125,8 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 12;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(7, 12, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel5, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -140,7 +135,6 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 13;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel7, gridBagConstraints);
@@ -151,7 +145,6 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 13;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel8, gridBagConstraints);
@@ -162,7 +155,6 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 13;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel9, gridBagConstraints);
@@ -173,7 +165,7 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 54;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 155, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel10, gridBagConstraints);
 
         jLabel11.setText("2013");
@@ -181,9 +173,8 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 21;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 4, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel11, gridBagConstraints);
 
         jLabel12.setText("0");
@@ -191,9 +182,8 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 21;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 4, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel12, gridBagConstraints);
 
         jLabel13.setText("Kapıda");
@@ -202,7 +192,7 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 4, 0, 104);
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel13, gridBagConstraints);
 
         jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -222,7 +212,7 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(24, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel15, gridBagConstraints);
 
         jLabel16.setText("Örnek Mağaza");
@@ -231,7 +221,7 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 12, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel16, gridBagConstraints);
 
         jLabel17.setText("Ad Soyad");
@@ -240,7 +230,7 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel17, gridBagConstraints);
 
         jLabel18.setText("İşyeri");
@@ -248,9 +238,8 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel18, gridBagConstraints);
 
         jLabel19.setText("adress1");
@@ -258,9 +247,8 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 22;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.gridheight = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel19, gridBagConstraints);
 
         jLabel20.setText("city/zone/postcode");
@@ -268,9 +256,8 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 31;
         gridBagConstraints.gridwidth = 11;
-        gridBagConstraints.gridheight = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel20, gridBagConstraints);
 
         jLabel21.setText("mail");
@@ -278,9 +265,8 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 44;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel21, gridBagConstraints);
 
         jLabel22.setText("tel");
@@ -288,7 +274,7 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 53;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         getContentPane().add(jLabel22, gridBagConstraints);
 
         jLabel23.setText("Ad Soyad");
@@ -296,7 +282,6 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 13;
         gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel23, gridBagConstraints);
@@ -305,7 +290,6 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 13;
         gridBagConstraints.gridy = 19;
-        gridBagConstraints.gridheight = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel24, gridBagConstraints);
@@ -315,7 +299,6 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 13;
         gridBagConstraints.gridy = 26;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel25, gridBagConstraints);
@@ -325,7 +308,6 @@ public class OrderView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 13;
         gridBagConstraints.gridy = 37;
         gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.gridheight = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel26, gridBagConstraints);
