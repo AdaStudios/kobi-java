@@ -509,6 +509,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
             oout_image_sql = new FileWriter(Main.file2,true);
             BufferedWriter bw_image_sql = new BufferedWriter(oout_image_sql);
             bw_image_sql.write("INSERT INTO oc_product_image(product_id,image,sort_order) VALUES("+res+", 'data/"+name+"',0)\n");
+            dbController.insProductDB("INSERT INTO product_image(product_image_id,product_id,image,sort_order) VALUES("+(res+5000)+","+res+", 'data/"+name+"',0)\n");
             bw_image_sql.close();
             
             oout_image = new FileWriter(Main.file1,true);
