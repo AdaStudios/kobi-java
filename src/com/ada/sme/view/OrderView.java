@@ -32,8 +32,8 @@ public class OrderView extends javax.swing.JFrame {
         updateOrderProduct();
         updateOrderOption();
         
-        ArrayList all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_product WHERE order_product.order_id=order_t.order_id AND order_t.order_id="+id);
-         
+        ArrayList all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_status WHERE order_language=1 AND order_t.order_status_id=order_status.order_status_id AND order_t.order_id="+id);
+        System.err.println(all.size()+": all list");
         dtm = dbController.selectDB("Select name,model,quantity,price,total from order_product WHERE order_id="+all.get(0).toString());
         Object[] cols = new Object[5];
         cols[0]="Ürün Adı";
@@ -41,7 +41,7 @@ public class OrderView extends javax.swing.JFrame {
         cols[2]="Adet";
         cols[3]="Fiyat";
         cols[4]="Toplam";
-         dtm.setColumnIdentifiers(cols);
+        dtm.setColumnIdentifiers(cols);
          
          MEV_list1.setModel(dtm);    
          
@@ -57,6 +57,7 @@ public class OrderView extends javax.swing.JFrame {
            jLabel28.setText(total+"");
            total+=7;
            jLabel34.setText(total+"");
+           jLabel32.setText(all.get(34).toString());
            
         // MEV_list.getValueAt(WIDTH, WIDTH)
          
@@ -77,7 +78,7 @@ public class OrderView extends javax.swing.JFrame {
          jLabel26.setText(all.get(23).toString()+" "+all.get(22).toString()+" "+all.get(25).toString());
          
        
-         jLabel32.setText(all.get(37).toString());
+        // jLabel32.setText(all.get(37).toString());
         
        /*  jLabel34.setText(all.get(39).toString());*/
          
