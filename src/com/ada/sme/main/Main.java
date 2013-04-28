@@ -33,7 +33,7 @@ public class Main
         file1 = new File("tmp_image_list.txt");
         products = new ArrayList<Product>();
         //System.out.println("Arraylist size:"+products.size());
-       /* CreateDBController createDB =new CreateDBController();
+        /*CreateDBController createDB =new CreateDBController();
         createDB.createDB();*/
         
        DBController db = new DBController();
