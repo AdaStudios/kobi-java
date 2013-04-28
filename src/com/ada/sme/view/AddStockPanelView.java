@@ -36,7 +36,6 @@ public class AddStockPanelView extends javax.swing.JPanel {
     int res;
     int image_id;
     boolean is_product_empty = false;
-    ArrayList<String> imageList;
     FileWriter oout, oout_image_sql, oout_image;
     ObjectInputStream oin;
     MainFrame frame;
@@ -56,10 +55,6 @@ public class AddStockPanelView extends javax.swing.JPanel {
         if (a.isEmpty()) {
             is_product_empty = true;
         }
-        imageList = new ArrayList<String>();
-
-
-
 
     }
 
@@ -469,8 +464,6 @@ public class AddStockPanelView extends javax.swing.JPanel {
         JFileChooser jfc = new JFileChooser();
         jfc.showDialog(jfc, "Choose an image file");
         s = jfc.getSelectedFile().getAbsolutePath();
-        imageList.add(s);
-
         File f = new File(s);
         String name = f.getName();
         if (first_image == null) {
@@ -486,11 +479,10 @@ public class AddStockPanelView extends javax.swing.JPanel {
 
             res++;
 
-            oout_image_sql = new FileWriter(Main.file2, true);
-            BufferedWriter bw_image_sql = new BufferedWriter(oout_image_sql);
-            bw_image_sql.write("INSERT INTO oc_product_image(product_id,image,sort_order) VALUES(" + res + ", 'data/" + name + "',0)\n");
+            
+            Main.write("INSERT INTO oc_product_image(product_id,image,sort_order) VALUES(" + res + ", 'data/" + name + "',0)\n");
             dbController.insProductDB("INSERT INTO product_image(product_image_id,product_id,image,sort_order) VALUES(" + (res + 5000) + "," + res + ", 'data/" + name + "',0)\n");
-            bw_image_sql.close();
+            
 
             oout_image = new FileWriter(Main.file1, true);
             BufferedWriter bw_image = new BufferedWriter(oout_image);

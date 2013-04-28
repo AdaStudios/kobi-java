@@ -7,7 +7,14 @@ package com.ada.sme.view;
 import com.ada.sme.controller.DBController;
 import com.ada.sme.main.Main;
 import com.ada.sme.model.StatusModel;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -20,6 +27,8 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
      */
     int res;
     String pro_id;
+    FileWriter oout_image_sql, oout_image;
+    String first_image;
 
     public UpdateStockPanelView(String id) {
         initComponents();
@@ -27,7 +36,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         ArrayList res;
         res = dbController.selectSingleRowDB("SELECT model,image,weight,minimum,status,price FROM product WHERE product_id=" + id);
         USPV_kod.setText(res.get(0).toString());
-        USPV_resim.setText(res.get(1).toString());
+        first_image=res.get(1).toString();
         USPV_agirlik.setText(res.get(2).toString());
         USPV_minimum.setText(res.get(3).toString());
         USPV_listele.setSelectedIndex(Integer.parseInt(res.get(4).toString()));
@@ -68,7 +77,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         USPV_adet_s = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        USPV_resim = new javax.swing.JTextField();
         USPV_guncelle = new javax.swing.JButton();
         USPV_sil = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -88,6 +96,9 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         USPV_sil1 = new javax.swing.JButton();
         USPV_etiketler = new javax.swing.JTextField();
+        USPV_gozat = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        USPV_resim_list = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(227, 227, 227));
         setMaximumSize(new java.awt.Dimension(646, 500));
@@ -187,15 +198,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel6, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
-        add(USPV_resim, gridBagConstraints);
 
         USPV_guncelle.setBackground(new java.awt.Color(67, 149, 195));
         USPV_guncelle.setForeground(new java.awt.Color(254, 254, 254));
@@ -210,7 +212,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 13, 0);
         add(USPV_guncelle, gridBagConstraints);
@@ -228,7 +230,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 13, 0);
         add(USPV_sil, gridBagConstraints);
@@ -289,7 +291,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jLabel10.setText("Ürün Ağırlığı(Gr):");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel10, gridBagConstraints);
@@ -299,7 +301,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         USPV_agirlik.setPreferredSize(new java.awt.Dimension(70, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_agirlik, gridBagConstraints);
@@ -308,7 +310,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jLabel11.setText("Minimum:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(jLabel11, gridBagConstraints);
@@ -318,7 +320,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         USPV_minimum.setPreferredSize(new java.awt.Dimension(40, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_minimum, gridBagConstraints);
@@ -327,7 +329,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jLabel12.setText("Ürünü Listele:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel12, gridBagConstraints);
@@ -335,7 +337,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         USPV_listele.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PASİF", "AKTİF" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         add(USPV_listele, gridBagConstraints);
@@ -344,7 +346,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jLabel13.setText("Açıklama:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel13, gridBagConstraints);
@@ -355,7 +357,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -368,7 +370,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         jLabel14.setText("Etiketler:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 0, 4);
         add(jLabel14, gridBagConstraints);
@@ -386,38 +388,61 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 13, 4);
         add(USPV_sil1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
         add(USPV_etiketler, gridBagConstraints);
+
+        USPV_gozat.setText("Gözat");
+        USPV_gozat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                USPV_gozatActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        add(USPV_gozat, gridBagConstraints);
+
+        USPV_resim_list.setColumns(20);
+        USPV_resim_list.setRows(3);
+        jScrollPane2.setViewportView(USPV_resim_list);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        add(jScrollPane2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void USPV_guncelleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USPV_guncelleActionPerformed
 
         DBController dbController = new DBController();
         int total = Integer.parseInt(USPV_adet_s.getText()) + Integer.parseInt(USPV_adet_m.getText()) + Integer.parseInt(USPV_adet_l.getText());
-        dbController.insProductDB("UPDATE product SET model='" + USPV_kod.getText() + "', price=" + USPV_fiyat.getText() + ", quantity=" + String.valueOf(total) + ", image='" + USPV_resim.getText() + "', weight=" + USPV_agirlik.getText() + ", minimum=" + USPV_minimum.getText() + ", status=" + USPV_listele.getSelectedIndex() + " WHERE product_id=" + pro_id);
+        dbController.insProductDB("UPDATE product SET model='" + USPV_kod.getText() + "', price=" + USPV_fiyat.getText() + ", quantity=" + String.valueOf(total) + ", image='" + first_image + "', weight=" + USPV_agirlik.getText() + ", minimum=" + USPV_minimum.getText() + ", status=" + USPV_listele.getSelectedIndex() + " WHERE product_id=" + pro_id);
         dbController.insProductDB("UPDATE product_description SET description='" + USPV_aciklama.getText() + "', tag='" + USPV_etiketler.getText() + "', name='" + USPV_isim.getText() + "' WHERE product_id=" + pro_id);
         dbController.insProductDB("UPDATE product_option_value SET quantity=" + USPV_adet_s.getText() + " WHERE product_id=" + pro_id + " and option_value_id=46");
         dbController.insProductDB("UPDATE product_option_value SET quantity=" + USPV_adet_m.getText() + " WHERE product_id=" + pro_id + " and option_value_id=47");
         dbController.insProductDB("UPDATE product_option_value SET quantity=" + USPV_adet_l.getText() + " WHERE product_id=" + pro_id + " and option_value_id=48");
 
         if (StatusModel.check()) {
-            dbController.insDelUpDB("UPDATE oc_product SET model='" + USPV_kod.getText() + "', price=" + USPV_fiyat.getText() + ", quantity=" + String.valueOf(total) + ", image='" + USPV_resim.getText() + "', weight=" + USPV_agirlik.getText() + ", minimum=" + USPV_minimum.getText() + ", status=" + USPV_listele.getSelectedIndex() + " WHERE product_id=" + pro_id);
+            dbController.insDelUpDB("UPDATE oc_product SET model='" + USPV_kod.getText() + "', price=" + USPV_fiyat.getText() + ", quantity=" + String.valueOf(total) + ", image='" + first_image + "', weight=" + USPV_agirlik.getText() + ", minimum=" + USPV_minimum.getText() + ", status=" + USPV_listele.getSelectedIndex() + " WHERE product_id=" + pro_id);
             dbController.insDelUpDB("UPDATE oc_product_description SET description='" + USPV_aciklama.getText() + "', tag='" + USPV_etiketler.getText() + "', name='" + USPV_isim.getText() + "' WHERE product_id=" + pro_id);
             dbController.insDelUpDB("UPDATE oc_product_option_value SET quantity=" + USPV_adet_s.getText() + " WHERE product_id=" + pro_id + " and option_value_id=46");
             dbController.insDelUpDB("UPDATE oc_product_option_value SET quantity=" + USPV_adet_m.getText() + " WHERE product_id=" + pro_id + " and option_value_id=47");
             dbController.insDelUpDB("UPDATE oc_product_option_value SET quantity=" + USPV_adet_l.getText() + " WHERE product_id=" + pro_id + " and option_value_id=48");
         } else {
-            Main.write("UPDATE oc_product SET model='" + USPV_kod.getText() + "', price=" + USPV_fiyat.getText() + ", quantity=" + String.valueOf(total) + ", image='" + USPV_resim.getText() + "', weight=" + USPV_agirlik.getText() + ", minimum=" + USPV_minimum.getText() + ", status=" + USPV_listele.getSelectedIndex() + " WHERE product_id=" + pro_id);
+            Main.write("UPDATE oc_product SET model='" + USPV_kod.getText() + "', price=" + USPV_fiyat.getText() + ", quantity=" + String.valueOf(total) + ", image='" + first_image + "', weight=" + USPV_agirlik.getText() + ", minimum=" + USPV_minimum.getText() + ", status=" + USPV_listele.getSelectedIndex() + " WHERE product_id=" + pro_id);
             Main.write("UPDATE oc_product_description SET description='" + USPV_aciklama.getText() + "', tag='" + USPV_etiketler.getText() + "', name='" + USPV_isim.getText() + "' WHERE product_id=" + pro_id);
             Main.write("UPDATE oc_product_option_value SET quantity=" + USPV_adet_s.getText() + " WHERE product_id=" + pro_id + " and option_value_id=46");
             Main.write("UPDATE oc_product_option_value SET quantity=" + USPV_adet_m.getText() + " WHERE product_id=" + pro_id + " and option_value_id=47");
@@ -460,6 +485,44 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         MainFrame.main_anapanel.add(new ManageStockView());
         MainFrame.main_anapanel.validate();
     }//GEN-LAST:event_USPV_silActionPerformed
+
+    private void USPV_gozatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USPV_gozatActionPerformed
+        String s;
+        JFileChooser jfc = new JFileChooser();
+        jfc.showDialog(jfc, "Choose an image file");
+        s = jfc.getSelectedFile().getAbsolutePath();
+        System.out.println(s+"  fileeeeeeee");
+        
+
+        File f = new File(s);
+        String name = f.getName();
+        if(first_image.equals("data/null"))
+            first_image="data/"+name;
+
+        try {
+            DBController dbController = new DBController();
+            
+            Main.write("INSERT INTO oc_product_image(product_id,image,sort_order) VALUES(" + pro_id + ", 'data/" + name + "',0)\n");
+            dbController.insProductDB("INSERT INTO product_image(product_image_id,product_id,image,sort_order) VALUES(" + (pro_id + 5000) + "," + pro_id + ", 'data/" + name + "',0)\n");
+          
+
+            oout_image = new FileWriter(Main.file1, true);
+            BufferedWriter bw_image = new BufferedWriter(oout_image);
+            bw_image.write(s + "\n");
+            bw_image.close();
+
+
+
+        } catch (IOException ex) {
+            Logger.getLogger(AddStockPanelView.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+
+        USPV_resim_list.append(s + "\n");
+    }//GEN-LAST:event_USPV_gozatActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea USPV_aciklama;
     private javax.swing.JTextField USPV_adet_l;
@@ -468,12 +531,13 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
     private javax.swing.JTextField USPV_agirlik;
     private javax.swing.JTextField USPV_etiketler;
     private javax.swing.JTextField USPV_fiyat;
+    private javax.swing.JButton USPV_gozat;
     private javax.swing.JButton USPV_guncelle;
     private javax.swing.JTextField USPV_isim;
     private javax.swing.JTextField USPV_kod;
     private javax.swing.JComboBox USPV_listele;
     private javax.swing.JTextField USPV_minimum;
-    private javax.swing.JTextField USPV_resim;
+    private javax.swing.JTextArea USPV_resim_list;
     private javax.swing.JButton USPV_sil;
     private javax.swing.JButton USPV_sil1;
     private javax.swing.JLabel jLabel1;
@@ -491,5 +555,6 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
