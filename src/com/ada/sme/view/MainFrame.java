@@ -39,12 +39,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         //which window will be opened settings
         main_solpanel.removeAll();
-        main_solpanel.add(new StoreLeftPanelView(this));
+        main_solpanel.add(new MainPageLeftPanelView());
         sm = new StatusModel(IPADDRESS);
 
         clear_buttons();
-        main_magaza.setBackground(new Color(41, 66, 80));
-        main_anapanel.add(new SaleProductPanelView());
+        main_anasayfa.setBackground(new Color(41, 66, 80));
+        main_anapanel.add(new MainPagePanelView());
 
         new Thread(new runCheck()).start();
     }
