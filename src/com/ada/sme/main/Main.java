@@ -74,28 +74,35 @@ public class Main
             loginScreen.setVisible(true);
             
         }
-    }
+   }
 
 
-public static void write(String sql) throws IOException  {
-    
+public static void write(String sql)  {
+        try {    
             sql_out = new FileWriter(temp_sql,true);
             BufferedWriter bw = new BufferedWriter(sql_out);
             bw.write(sql+"\n");
             bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
   }
   
   /** Read the contents of the given file. */
-  public static void read() throws IOException {
+  public static void read() {
     try{
      sql_read = new FileReader(temp_sql);
             BufferedReader sql_reader = new BufferedReader(sql_read);
             String satir = "";
              while((satir = sql_reader.readLine()) != null){                
-                 db.insDelUpDB(satir);             
+                 db.insDelUpDB(satir);
+                 System.err.println(satir);
     
              }
              sql_reader.close();
+                          
+            sql_out = new FileWriter(temp_sql);
             BufferedWriter opennew = new BufferedWriter(sql_out);
             System.out.print("Yazdım");
             opennew.close();

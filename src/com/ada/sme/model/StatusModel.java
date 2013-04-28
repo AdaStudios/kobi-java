@@ -8,10 +8,10 @@ import java.net.UnknownHostException;
 
 public class StatusModel extends Thread {
 
-	Inet4Address a;
+	public static Inet4Address a;
 	String ip;
 
-	Boolean status;
+	public static Boolean status;
 
 	public StatusModel(String ipaddress) {
 		ip = ipaddress;
@@ -22,15 +22,17 @@ public class StatusModel extends Thread {
 
 	}
 
-	public void check() {
+	public static boolean check() {
 		try {
 			status = a.isReachable(600);
+                        return status;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+                return false;
 	}
 	
-	public boolean getStatus(){
+	public static boolean getStatus(){
 		return status;
 	}
 

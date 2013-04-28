@@ -5,6 +5,8 @@
 package com.ada.sme.view;
 
 import com.ada.sme.controller.DBController;
+import com.ada.sme.main.Main;
+import com.ada.sme.model.StatusModel;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.FileInputStream;
@@ -41,8 +43,10 @@ public class OrderView extends javax.swing.JFrame {
          this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
          dbController = new DBController(); 
+         if(StatusModel.check()){
          updateOrderProduct();
-         updateOrderOption();
+         updateOrderOption();        
+         }
          
          all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_status WHERE order_language=1 AND order_t.order_status_id=order_status.order_status_id AND order_t.order_id="+id);
          System.err.println(all.size()+": all list");
@@ -57,7 +61,7 @@ public class OrderView extends javax.swing.JFrame {
           
           MEV_list1.setModel(dtm);    
           
-          updateOrderOption();
+          
           
           dtm=dbController.selectDB("SELECT model, value FROM order_product, order_option WHERE order_product.order_product_id=order_option.order_product_id AND order_product.order_id="+all.get(0).toString());
           MEV_list.setModel(dtm);
@@ -358,6 +362,11 @@ public class OrderView extends javax.swing.JFrame {
         // TODO add your handling code here:
         int a = jComboBox1.getSelectedIndex();
         dbController.insProductDB("UPDATE order_t SET order_status_id="+meta.getValueAt(a, 0)+" WHERE order_id="+all.get(0).toString());
+        if(StatusModel.check())
+            dbController.insDelUpDB("UPDATE oc_order SET order_status_id="+meta.getValueAt(a, 0)+" WHERE order_id="+all.get(0).toString());
+        else
+            Main.write("UPDATE oc_order SET order_status_id="+meta.getValueAt(a, 0)+" WHERE order_id="+all.get(0).toString());
+        
         jLabel32.setText(meta.getValueAt(a, 1).toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
