@@ -4,12 +4,15 @@
  */
 package com.ada.sme.view;
 
+import com.ada.sme.main.*;
 import com.ada.sme.controller.DBController;
 import java.io.BufferedOutputStream;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -32,21 +35,18 @@ public class AddStockPanelView extends javax.swing.JPanel {
     int res;
     int image_id;
     boolean is_product_empty = false;
-    ArrayList<String> imageList;
-    File file;
-    ObjectOutputStream oout;
+    ArrayList<String> imageList;   
+    FileWriter oout,oout_image;
+    
     ObjectInputStream oin;
+    MainFrame frame;
 
-    public AddStockPanelView() throws IOException {
-
+    public AddStockPanelView(MainFrame main) throws IOException {
+        frame=main;
         initComponents();
         DBController dbController = new DBController();
-        file = new File("tmp_stock_list");
-        try {
-            oout = new ObjectOutputStream(new FileOutputStream(file,true));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AddStockPanelView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        
         ArrayList a = dbController.selectSingleRowDB("select * from product");
         java.util.Date today = new java.util.Date();
         java.sql.Date sqlToday = new java.sql.Date(today.getTime());
@@ -98,6 +98,8 @@ public class AddStockPanelView extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         ASPV_etiketler = new javax.swing.JTextArea();
         ASPV_gozat = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        ASPV_resim_list = new javax.swing.JTextArea();
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Yeni Ürün Ekle");
@@ -178,6 +180,10 @@ public class AddStockPanelView extends javax.swing.JPanel {
             }
         });
 
+        ASPV_resim_list.setColumns(20);
+        ASPV_resim_list.setRows(5);
+        jScrollPane3.setViewportView(ASPV_resim_list);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -192,18 +198,37 @@ public class AddStockPanelView extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ASPV_fiyat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                                .addComponent(ASPV_isim, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(ASPV_kod, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ASPV_listele, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ASPV_minimum, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ASPV_agirlik, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ASPV_fiyat, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                            .addComponent(ASPV_isim)
+                            .addComponent(ASPV_kod)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ASPV_adet_s, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -219,34 +244,13 @@ public class AddStockPanelView extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(ASPV_adet_l)
                                         .addGap(18, 18, 18))))
-                            .addComponent(ASPV_gozat, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ASPV_gozat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(AEV_ekle, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AEV_liste, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ASPV_minimum, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 96, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ASPV_agirlik, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(ASPV_listele, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(191, 191, 191))
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(18, 18, 18)))
+                        .addComponent(AEV_liste, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -281,7 +285,9 @@ public class AddStockPanelView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(ASPV_gozat))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ASPV_agirlik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
@@ -298,14 +304,14 @@ public class AddStockPanelView extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(AEV_ekle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AEV_liste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(22, 22, 22))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AEV_ekle)
+                    .addComponent(AEV_liste))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -327,60 +333,76 @@ public class AddStockPanelView extends javax.swing.JPanel {
                 + "" + Double.parseDouble(ASPV_fiyat.getText()) + ", 9, '" + sqlToday + "' , " + Double.parseDouble(ASPV_agirlik.getText()) + ", 2, " + Integer.parseInt(ASPV_minimum.getText()) + ", 1, "
                 + "" + ASPV_listele.getSelectedIndex() + ", '" + sqlToday + "'  , '" + sqlToday + "' )");
         dbcontroller.insProductDB("INSERT INTO product_description(product_id,language_id,name,description,tag) VALUES(" + res + ", 1, '" + ASPV_isim.getText() + "', '" + ASPV_aciklama.getText() + "', '" + ASPV_etiketler.getText() + "')");
-        dbcontroller.insProductDB("INSERT INTO product_option(product_option_id,product_id,option_id,required) VALUES(227, " + res + ",  11, 1 )");
-        dbcontroller.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", 227, " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)");
-        dbcontroller.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1001) + ", 227, " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)");
-        dbcontroller.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1002) + ", 227, " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)");
+        dbcontroller.insProductDB("INSERT INTO product_option(product_option_id,product_id,option_id,required) VALUES(" +(res + 4000)+ ", " + res + ",  11, 1 )");
+        dbcontroller.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " +(res + 4000)+ ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)");
+        dbcontroller.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " +(res + 4000)+ ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)");
+        dbcontroller.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " +(res + 4000)+ ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)");
         dbcontroller.insProductDB("INSERT INTO product_to_category(product_id, category_id) VALUES(" + res + ",  61)");
+        
         try {
-            oout.writeUTF(res+"");
-            oout.writeUTF("INSERT INTO oc_product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES(" + res + ", '" + ASPV_kod.getText() + "', "
+            
+            oout = new FileWriter(Main.file,true);
+            BufferedWriter bw = new BufferedWriter(oout);
+           
+       
+            bw.write(res+"\n");
+            bw.write("INSERT INTO oc_product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES(" + res + ", '" + ASPV_kod.getText() + "', "
                     + "" + (Integer.parseInt(ASPV_adet_s.getText()) + Integer.parseInt(ASPV_adet_m.getText()) + Integer.parseInt(ASPV_adet_l.getText())) + ", 6, 'hebele', 1, "
                     + "" + Double.parseDouble(ASPV_fiyat.getText()) + ", 9, '" + sqlToday + "' , " + Double.parseDouble(ASPV_agirlik.getText()) + ", 2, " + Integer.parseInt(ASPV_minimum.getText()) + ", 1, "
-                    + "" + ASPV_listele.getSelectedIndex() + ", '" + sqlToday + "'  , '" + sqlToday + "' )");
-
-            oout.writeUTF("INSERT INTO oc_product_description(product_id,language_id,name,description,tag) VALUES(" + res + ", 1, '" + ASPV_isim.getText() + "', '" + ASPV_aciklama.getText() + "', '" + ASPV_etiketler.getText() + "')");
-            oout.writeUTF("INSERT INTO oc_product_option(product_option_id,product_id,option_id,required) VALUES(227, " + res + ",  11, 1 )");
-            oout.writeUTF("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", 227, " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)");
-            oout.writeUTF("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1001) + ", 227, " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)");
-            oout.writeUTF("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1002) + ", 227, " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)");
-            oout.writeUTF("INSERT INTO oc_product_to_category(product_id, category_id) VALUES(" + res + ",  61)");
+                    + "" + ASPV_listele.getSelectedIndex() + ", '" + sqlToday + "'  , '" + sqlToday + "' )\n");
+            
+            bw.write("INSERT INTO oc_product_description(product_id,language_id,name,description,tag) VALUES(" + res + ", 1, '" + ASPV_isim.getText() + "', '" + ASPV_aciklama.getText() + "', '" + ASPV_etiketler.getText() + "')\n");
+            bw.write("INSERT INTO oc_product_option(product_option_id,product_id,option_id,required) VALUES(" +(res + 4000)+ ", " + res + ",  11, 1 )\n");
+            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " +(res + 4000)+ ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)\n");
+            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " +(res + 4000)+ ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)\n");
+            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " +(res + 4000)+ ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)\n");
+            bw.write("INSERT INTO oc_product_to_category(product_id, category_id) VALUES(" + res + ",  61)\n");
+            bw.write("INSERT INTO oc_product_to_store(product_id, store_id) VALUES(" + res + ",  0)\n");
             
           
             
             System.out.print("Yazdım");
-          
-           
+            bw.close();
+       
             
-            //dbcontroller.insProductDB("INSERT INTO product_to_store VALUES("+res+",  0)");
+            frame.main_anapanel.removeAll();
+            frame.main_anapanel.add(new TempAddStockView(frame));
+            frame.main_anapanel.validate();
+          
 
-            /* DBController dbController=new DBController();
+            
                     
-             ArrayList a = dbController.selectSingleRowDB("select * from oc_product_image");
+             /*ArrayList a = dbcontroller.selectSingleRowDB("select * from oc_product_image order by product_image_id DESC");
              if (a.isEmpty())
-             dbController.insDelUpDB("INSERT INTO product_image VALUES(1000, 1000, 'image' ,0)");*/
-            /*  for(int i=0;i<imageList.size();i++){
+                dbcontroller.insDelUpDB("INSERT INTO product_image VALUES(1000, 1000, 'image' ,0)");
+             for(int i=0;i<imageList.size();i++){
                 
              try {                       
-             image_id = DBController.getLastID("SELECT * FROM product_image");
-             image_id++;
-             File f = new File(imageList.get(i));
-             String urlString = "ftp://openftp:ozyaz.11@ozguryazilim.bilkent.edu.tr/" + image_id;
-             URL url = new URL(urlString);
-             URLConnection connection = url.openConnection();
-             connection.setDoOutput(true);
-             BufferedOutputStream out = new BufferedOutputStream(connection.getOutputStream());
-             FileInputStream in = new FileInputStream(f);
-             byte[] buffer = new byte[1024];
-             int j = 0;
-             while ((j = in.read(buffer)) >= 0) {
-             out.write(buffer, 0, j);
-             }
-             out.close();
-             in.close();
+                image_id = DBController.getLastID("SELECT * FROM product_image");
+                image_id++;
+                
+                File f = new File(imageList.get(i));
+                String[] image_split;
+                image_split=f.getName().split(".");
+                String image_type=image_split[image_split.length-1];
+                String urlString = "ftp://openftp:ozyaz.11@ozguryazilim.bilkent.edu.tr/" + image_id;
+                URL url = new URL(urlString);
+                URLConnection connection = url.openConnection();
+                connection.setDoOutput(true);
+                BufferedOutputStream out = new BufferedOutputStream(connection.getOutputStream());
+                FileInputStream in = new FileInputStream(f);
+                byte[] buffer = new byte[1024];
+                int j = 0;
+                while ((j = in.read(buffer)) >= 0) {
+                    out.write(buffer, 0, j);
+                }
+                out.close();
+                in.close();
+                
+                oout_image = new FileWriter(Main.file1,true);
+                BufferedWriter bw_image = new BufferedWriter(oout_image);
                     
-                    
-             dbcontroller.insDelUpDB("INSERT INTO product_image VALUES("+image_id+", "+res+", 'data/"+image_id+"',0)");
+             bw_image.write("INSERT INTO product_image VALUES("+image_id+", "+res+", 'data/"+image_id+image_type+"',0)");
              }catch (Exception e) {
              System.out.println(e.getMessage());
              }
@@ -399,25 +421,14 @@ public class AddStockPanelView extends javax.swing.JPanel {
         jfc.showDialog(jfc, "Choose an image file");
         s = jfc.getSelectedFile().getAbsolutePath();
         imageList.add(s);
+        
+        
+        ASPV_resim_list.append(s+"\n");
 
     }//GEN-LAST:event_ASPV_gozatActionPerformed
 
     private void AEV_listeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AEV_listeActionPerformed
-        try {
-            // TODO add your handling code here:
-              oout.close();
-              
-            oin = new ObjectInputStream(new FileInputStream(file));
-            String tmp;
-           
-            while(oin.available()>0){
-            tmp = oin.readUTF();
-            System.out.print(tmp+"\n");
-            }
-             oin.close();
-        } catch (IOException ex) {
-            Logger.getLogger(AddStockPanelView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }//GEN-LAST:event_AEV_listeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -435,6 +446,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
     private javax.swing.JTextField ASPV_kod;
     private javax.swing.JComboBox ASPV_listele;
     private javax.swing.JTextField ASPV_minimum;
+    private javax.swing.JTextArea ASPV_resim_list;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -451,5 +463,6 @@ public class AddStockPanelView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }

@@ -70,19 +70,13 @@ public class DBController {
         sm.check();
         PreparedStatement prestat;
         try {
-            if (sm.getStatus()) {
-                prestat = conn_on.prepareStatement(sql);
-                prestat.execute();
-                prestat = conn_off.prepareStatement(sql);
-                prestat.execute();
-            } else {
-                prestat = conn_off.prepareStatement(sql);
-                prestat.execute();
-                /*file*/
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            prestat = conn_on.prepareStatement(sql);
+            prestat.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(DBController.class.getName()).log(Level.SEVERE, null, ex);
         }
+                
+           
     }
     
     public void insProductDB(String sql) {

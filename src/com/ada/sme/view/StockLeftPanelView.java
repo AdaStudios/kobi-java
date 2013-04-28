@@ -104,7 +104,7 @@ public class StockLeftPanelView extends javax.swing.JPanel {
     private void SLPV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SLPV_ekleActionPerformed
         frame.main_anapanel.removeAll();
         try {
-            frame.main_anapanel.add(new AddStockPanelView());
+            frame.main_anapanel.add(new AddStockPanelView(frame));
         } catch (IOException ex) {
             Logger.getLogger(StockLeftPanelView.class.getName()).log(Level.SEVERE, null, ex);
         }

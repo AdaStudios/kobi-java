@@ -13,6 +13,7 @@ package com.ada.sme.main;
 import com.ada.sme.view.CreateOwnerView;
 import com.ada.sme.view.LoginView;
 import com.ada.sme.controller.*;
+import java.io.File;
 //import com.ada.sme.view.LeftMenuView;
 
 import javax.swing.*;
@@ -22,9 +23,14 @@ public class Main
 {
     public static ArrayList<Product> products;
     static JFrame frame;
+    public static File file;
+    public static File file1;
 
     public static void main(String[] args)
     {
+        
+        file = new File("tmp_stock_list.txt");
+        file1 = new File("tmp_image_list.txt");
         products = new ArrayList<Product>();
         //System.out.println("Arraylist size:"+products.size());
        /* CreateDBController createDB =new CreateDBController();
