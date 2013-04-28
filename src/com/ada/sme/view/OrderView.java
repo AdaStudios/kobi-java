@@ -368,7 +368,9 @@ public class OrderView extends javax.swing.JFrame {
             dbController.insDelUpDB("UPDATE oc_order SET order_status_id="+meta.getValueAt(a, 0)+" WHERE order_id="+all.get(0).toString());
         else
             Main.write("UPDATE oc_order SET order_status_id="+meta.getValueAt(a, 0)+" WHERE order_id="+all.get(0).toString());
-        
+       java.util.Date today = new java.util.Date();
+        java.sql.Date sqlToday = new java.sql.Date(today.getTime());
+        dbController.insProductDB("INSERT INTO log_table VALUES('"+LoginView.username+"','"+all.get(0)+" nolu kargo "+all.get(34).toString()+"','"+sqlToday+"')");
         jLabel32.setText(meta.getValueAt(a, 1).toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
