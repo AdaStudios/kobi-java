@@ -38,9 +38,9 @@ public class OrderView extends javax.swing.JFrame {
          dbController.updateOrderProductDBFromOnline("SELECT * FROM oc_order_product");
         }else{
              int id2 = DBController.getLastID("SELECT order_product_id from order_product order by order_product_id DESC");
-             System.out.println(id+"!2!!\n\n");
+             System.out.println(id2+"Last id\n\n");
             
-           dbController.updateOrderProductDBFromOnline("Select * from oc_order_product WHERE order_product_id>"+id);          
+           dbController.updateOrderProductDBFromOnline("Select * from oc_order_product WHERE order_product_id>"+id2);          
         }
         
          ArrayList all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_product WHERE order_product.order_id=order_t.order_id AND order_t.order_id="+id);
