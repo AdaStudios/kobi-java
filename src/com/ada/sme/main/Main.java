@@ -179,7 +179,7 @@ public static void write(String sql)  {
                     System.out.println("Copying file : " + sourceFile.getName() + " from Java Program");
 
                     //copy file from one location to other
-                    //FileUtils.copyFile(sourceFile, targetFile);
+                    FileUtils.copyFile(sourceFile, targetFile);
                     
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
