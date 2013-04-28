@@ -60,6 +60,7 @@ public class CreateDBController {
                 stmt.execute("CREATE TABLE order_status(order_status_id int, order_language int, name varchar(32))");
                 stmt.execute("CREATE TABLE order_product(order_product_id int, order_id int,product_id int,name varchar(255), model varchar(64), quantity int, price decimal(15,4), total decimal(15,4), tax decimal(15,4), reward int)");
                 stmt.execute("CREATE TABLE order_option(order_option_id int, order_id int,order_product_id int,name varchar(255), value varchar(255) )");
+                stmt.execute("CREATE TABLE log_table(user_f varchar(32), log_f varchar(255), date_f varchar(32))");
                 
                 stmt.execute("INSERT INTO order_status VALUES (2, 1, 'Hazırlanıyor'), (3, 1, 'Kargolandı'), (7, 1, 'İptal edildi'), (5, 1, 'Tamamlandı'), (8, 1, 'Red edildi'), (9, 1, 'Canceled Reversal'), (10, 1, 'Başarısız'), (11, 1, 'Geri iade edildi'), (12, 1, 'Reversed'), (13, 1, 'Chargeback'), (1, 1, 'Onay aşamasında'), (16, 1, 'Voided'), (15, 1, 'Processed'), (14, 1, 'Expired')");
                 // stmt.execute("INSERT INTO employee VALUES(1, 'riza', 'akbiyik', 'riza', 'riza')");

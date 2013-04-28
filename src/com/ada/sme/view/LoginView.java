@@ -17,6 +17,7 @@ import java.awt.Toolkit;
  */
 public class LoginView extends javax.swing.JFrame {
     DBController dbController;
+    public static String username="";
     
     public LoginView() {
         initComponents();
@@ -157,6 +158,7 @@ public class LoginView extends javax.swing.JFrame {
             MainFrame frame=new MainFrame();
             frame.setSize(805, 600);
             frame.setVisible(true);
+            username = login_kullanici.getText();
             this.setVisible(false);
         }else{
             login_mesaj.setForeground(Color.red);
