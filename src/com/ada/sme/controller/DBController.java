@@ -249,6 +249,52 @@ public class DBController {
        
 
     }
+    
+    public void updateOrderOptionDBFromOnline(String sql) {
+
+        PreparedStatement prestat = null;
+        try {
+           
+                prestat = conn_on.prepareStatement(sql);
+                result = prestat.executeQuery();
+
+                ResultSetMetaData meta = result.getMetaData();
+                int numberOfColumns = meta.getColumnCount();
+ 
+                while (result.next()) {
+                    Object[] rowData = new Object[numberOfColumns];
+                    for (int i = 0; i < rowData.length; ++i) {
+                        rowData[i] = result.getObject(i + 1);
+                        //System.out.println(result.getObject(i + 1).toString());
+                    }
+                    String sql2 = "INSERT into order_option VALUES("+String.valueOf(rowData[0])+","+String.valueOf(rowData[1])+","+String.valueOf(rowData[2])+",'"+String.valueOf(rowData[3])+"','"+String.valueOf(rowData[4])+"')";
+                    System.out.print("updateOP"+sql2);
+                    empInsDelUpDB(sql2);                   
+                    
+                }
+
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException e) {;
+                }
+                result = null;
+            }
+            if (prestat != null) {
+                try {
+                    prestat.close();
+                } catch (SQLException e) {;
+                }
+                prestat = null;
+            }
+        }
+       
+
+    }
 
     public boolean login(String username, String pass) {
 
