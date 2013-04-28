@@ -1,24 +1,23 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ada.sme.view;
 
-/**
- *
- * @author PaDaWaN
- */
+import java.awt.Color;
+
 public class StoreLeftPanelView extends javax.swing.JPanel {
 
-    /**
-     * Creates new form StatusLeftPanelView
-     */
     MainFrame frame;
     public StoreLeftPanelView(MainFrame main) {
         initComponents();
         frame= main;
+        
+        clear_storeleftpanel_buttons();
+        SLPV_sat.setBackground(new Color(41, 66, 80));
     }
-
+    
+    public void clear_storeleftpanel_buttons(){
+        SLPV_ekle.setBackground(new Color(67, 149, 195));
+        SLPV_sat.setBackground(new Color(67, 149, 195));
+        SLPV_yonet.setBackground(new Color(67, 149, 195));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +32,7 @@ public class StoreLeftPanelView extends javax.swing.JPanel {
         SLPV_yonet = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
         jLabel1 = new javax.swing.JLabel();
+        SLPV_sat = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(227, 227, 227));
         setForeground(new java.awt.Color(254, 254, 254));
@@ -54,7 +54,7 @@ public class StoreLeftPanelView extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
@@ -73,14 +73,14 @@ public class StoreLeftPanelView extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
         add(SLPV_yonet, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridheight = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
@@ -96,12 +96,34 @@ public class StoreLeftPanelView extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         add(jLabel1, gridBagConstraints);
+
+        SLPV_sat.setBackground(new java.awt.Color(67, 149, 195));
+        SLPV_sat.setForeground(new java.awt.Color(254, 254, 254));
+        SLPV_sat.setText("Satış Yap");
+        SLPV_sat.setMaximumSize(new java.awt.Dimension(146, 80));
+        SLPV_sat.setMinimumSize(new java.awt.Dimension(146, 80));
+        SLPV_sat.setPreferredSize(new java.awt.Dimension(146, 80));
+        SLPV_sat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SLPV_satActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
+        add(SLPV_sat, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SLPV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SLPV_ekleActionPerformed
         frame.main_anapanel.removeAll();
         frame.main_anapanel.add(new AddEmployeeView());
         frame.main_anapanel.validate();
+        
+        clear_storeleftpanel_buttons();
+        SLPV_ekle.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_SLPV_ekleActionPerformed
 
     private void SLPV_yonetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SLPV_yonetActionPerformed
@@ -109,10 +131,23 @@ public class StoreLeftPanelView extends javax.swing.JPanel {
         frame.main_anapanel.add(new ManageEmployeeView());
         frame.main_anapanel.validate();
         
+        clear_storeleftpanel_buttons();
+        SLPV_yonet.setBackground(new Color(41, 66, 80));
+        
     }//GEN-LAST:event_SLPV_yonetActionPerformed
+
+    private void SLPV_satActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SLPV_satActionPerformed
+        frame.main_anapanel.removeAll();
+        frame.main_anapanel.add(new SaleProductPanelView() );
+        frame.main_anapanel.validate();
+        
+        clear_storeleftpanel_buttons();
+        SLPV_sat.setBackground(new Color(41, 66, 80));
+    }//GEN-LAST:event_SLPV_satActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SLPV_ekle;
+    private javax.swing.JButton SLPV_sat;
     private javax.swing.JButton SLPV_yonet;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;

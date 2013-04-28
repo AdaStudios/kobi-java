@@ -47,14 +47,17 @@ public class AddEmployeeView extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(646, 500));
         setMinimumSize(new java.awt.Dimension(646, 500));
         setPreferredSize(new java.awt.Dimension(646, 500));
-        setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0, 2, 0};
+        layout.rowHeights = new int[] {0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0};
+        setLayout(layout);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Yeni Çalışan Ekle");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(15, 80, 0, 0);
         add(jLabel1, gridBagConstraints);
@@ -63,7 +66,7 @@ public class AddEmployeeView extends javax.swing.JPanel {
         jLabel3.setText("Çalışan İsmi:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel3, gridBagConstraints);
@@ -72,7 +75,7 @@ public class AddEmployeeView extends javax.swing.JPanel {
         jLabel4.setText("Çalışan Soyadı:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel4, gridBagConstraints);
@@ -81,7 +84,7 @@ public class AddEmployeeView extends javax.swing.JPanel {
         jLabel5.setText("Kullanıcı Adı:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel5, gridBagConstraints);
@@ -90,7 +93,7 @@ public class AddEmployeeView extends javax.swing.JPanel {
         jLabel6.setText("Şifre:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel6, gridBagConstraints);
@@ -99,8 +102,8 @@ public class AddEmployeeView extends javax.swing.JPanel {
         AEV_isim.setMinimumSize(new java.awt.Dimension(170, 28));
         AEV_isim.setPreferredSize(new java.awt.Dimension(170, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         add(AEV_isim, gridBagConstraints);
@@ -109,8 +112,8 @@ public class AddEmployeeView extends javax.swing.JPanel {
         AEV_soyad.setMinimumSize(new java.awt.Dimension(170, 28));
         AEV_soyad.setPreferredSize(new java.awt.Dimension(170, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         add(AEV_soyad, gridBagConstraints);
@@ -119,8 +122,8 @@ public class AddEmployeeView extends javax.swing.JPanel {
         AEV_kullaniciadi.setMinimumSize(new java.awt.Dimension(170, 28));
         AEV_kullaniciadi.setPreferredSize(new java.awt.Dimension(170, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         add(AEV_kullaniciadi, gridBagConstraints);
@@ -130,8 +133,8 @@ public class AddEmployeeView extends javax.swing.JPanel {
         AEV_sifre.setPreferredSize(new java.awt.Dimension(170, 28));
         AEV_sifre.setRequestFocusEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         add(AEV_sifre, gridBagConstraints);
@@ -149,7 +152,7 @@ public class AddEmployeeView extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(AEV_ekle, gridBagConstraints);
@@ -161,14 +164,14 @@ public class AddEmployeeView extends javax.swing.JPanel {
         AEV_liste.setMinimumSize(new java.awt.Dimension(150, 35));
         AEV_liste.setPreferredSize(new java.awt.Dimension(150, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 15, 0, 0);
         add(AEV_liste, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.weighty = 1.0;
         add(filler1, gridBagConstraints);

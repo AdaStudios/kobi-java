@@ -5,6 +5,7 @@
 package com.ada.sme.view;
 
 import com.ada.sme.model.StatusModel;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.InputStream;
@@ -31,11 +32,25 @@ public class MainFrame extends javax.swing.JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         
+        
+        //which window will be opened settings
         main_solpanel.removeAll();
         main_solpanel.add(new StoreLeftPanelView(this));
         sm = new StatusModel(IPADDRESS);
+        
+        clear_buttons();
+        main_magaza.setBackground(new Color(41, 66, 80));
+        main_anapanel.add(new SaleProductPanelView() );
 
        // new Thread(new runCheck()).start();
+    }
+    
+    public void clear_buttons(){
+        main_anasayfa.setBackground(new Color(67, 149, 195));
+        main_magaza.setBackground(new Color(67, 149, 195));
+        main_online_market.setBackground(new Color(67, 149, 195));
+        main_stok.setBackground(new Color(67, 149, 195));
+        main_destek.setBackground(new Color(67, 149, 195));
     }
 
     /**
@@ -48,7 +63,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        main_durum = new javax.swing.JButton();
+        main_anasayfa = new javax.swing.JButton();
         main_magaza = new javax.swing.JButton();
         main_online_market = new javax.swing.JButton();
         main_stok = new javax.swing.JButton();
@@ -67,15 +82,15 @@ public class MainFrame extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        main_durum.setBackground(new java.awt.Color(67, 149, 195));
-        main_durum.setForeground(new java.awt.Color(254, 254, 254));
-        main_durum.setText("Anasayfa");
-        main_durum.setMaximumSize(new java.awt.Dimension(60, 70));
-        main_durum.setMinimumSize(new java.awt.Dimension(60, 70));
-        main_durum.setPreferredSize(new java.awt.Dimension(60, 70));
-        main_durum.addActionListener(new java.awt.event.ActionListener() {
+        main_anasayfa.setBackground(new java.awt.Color(67, 149, 195));
+        main_anasayfa.setForeground(new java.awt.Color(254, 254, 254));
+        main_anasayfa.setText("Anasayfa");
+        main_anasayfa.setMaximumSize(new java.awt.Dimension(60, 70));
+        main_anasayfa.setMinimumSize(new java.awt.Dimension(60, 70));
+        main_anasayfa.setPreferredSize(new java.awt.Dimension(60, 70));
+        main_anasayfa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                main_durumActionPerformed(evt);
+                main_anasayfaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -85,7 +100,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
-        getContentPane().add(main_durum, gridBagConstraints);
+        getContentPane().add(main_anasayfa, gridBagConstraints);
 
         main_magaza.setBackground(new java.awt.Color(67, 149, 195));
         main_magaza.setForeground(new java.awt.Color(254, 254, 254));
@@ -242,7 +257,7 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void main_durumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_durumActionPerformed
+    private void main_anasayfaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_anasayfaActionPerformed
         main_solpanel.removeAll();
         main_solpanel.add(new MainPageLeftPanelView());
         main_solpanel.validate();
@@ -250,7 +265,10 @@ public class MainFrame extends javax.swing.JFrame {
         main_anapanel.removeAll();
         main_anapanel.add(new MainPagePanelView() );
         main_anapanel.validate();
-    }//GEN-LAST:event_main_durumActionPerformed
+        
+        clear_buttons();
+        main_anasayfa.setBackground(new Color(41, 66, 80));
+    }//GEN-LAST:event_main_anasayfaActionPerformed
 
     private void main_magazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_magazaActionPerformed
         main_solpanel.removeAll();
@@ -258,8 +276,11 @@ public class MainFrame extends javax.swing.JFrame {
         main_solpanel.validate();
         
         main_anapanel.removeAll();
-        main_anapanel.add(new ManageEmployeeView());
+        main_anapanel.add(new SaleProductPanelView());
         main_anapanel.validate();
+                
+        clear_buttons();
+        main_magaza.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_main_magazaActionPerformed
 
     private void main_stokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_stokActionPerformed
@@ -270,6 +291,9 @@ public class MainFrame extends javax.swing.JFrame {
         main_anapanel.removeAll();
         main_anapanel.add(new ManageStockView());
         main_anapanel.validate();
+        
+        clear_buttons();
+        main_stok.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_main_stokActionPerformed
 
     private void main_online_marketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_online_marketActionPerformed
@@ -280,6 +304,9 @@ public class MainFrame extends javax.swing.JFrame {
         main_anapanel.removeAll();
         main_anapanel.add(new OnlineStoreView());
         main_anapanel.validate();
+        
+        clear_buttons();
+        main_online_market.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_main_online_marketActionPerformed
 
     private void main_destekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_destekActionPerformed
@@ -290,7 +317,9 @@ public class MainFrame extends javax.swing.JFrame {
         main_anapanel.removeAll();
         main_anapanel.add(new SupportPanelView() );
         main_anapanel.validate();
-
+        
+        clear_buttons();
+        main_destek.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_main_destekActionPerformed
 
     /**
@@ -335,8 +364,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public static javax.swing.JPanel main_anapanel;
+    private javax.swing.JButton main_anasayfa;
     private javax.swing.JButton main_destek;
-    private javax.swing.JButton main_durum;
     private javax.swing.JButton main_magaza;
     private javax.swing.JButton main_online_market;
     private javax.swing.JPanel main_solpanel;

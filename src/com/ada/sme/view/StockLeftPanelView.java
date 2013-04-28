@@ -1,28 +1,25 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ada.sme.view;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author PaDaWaN
- */
 public class StockLeftPanelView extends javax.swing.JPanel {
 
-    /**
-     * Creates new form StatusLeftPanelView
-     */
     MainFrame frame;
     public StockLeftPanelView(MainFrame main) {
         initComponents();
         frame= main;
+        
+        clear_stockleftpanel_buttons();
+        SLPV_yonet.setBackground(new Color(41, 66, 80));
     }
 
+    public void clear_stockleftpanel_buttons(){
+        SLPV_ekle.setBackground(new Color(67, 149, 195));
+        SLPV_yonet.setBackground(new Color(67, 149, 195));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,6 +108,9 @@ public class StockLeftPanelView extends javax.swing.JPanel {
             Logger.getLogger(StockLeftPanelView.class.getName()).log(Level.SEVERE, null, ex);
         }
         frame.main_anapanel.validate();
+        
+        clear_stockleftpanel_buttons();
+        SLPV_ekle.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_SLPV_ekleActionPerformed
 
     private void SLPV_yonetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SLPV_yonetActionPerformed
@@ -118,6 +118,8 @@ public class StockLeftPanelView extends javax.swing.JPanel {
         frame.main_anapanel.add(new ManageStockView());
         frame.main_anapanel.validate();
         
+        clear_stockleftpanel_buttons();
+        SLPV_yonet.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_SLPV_yonetActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
