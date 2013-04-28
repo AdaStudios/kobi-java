@@ -1,0 +1,8 @@
+INSERT INTO oc_product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES(1002, 'MTH122', 2, 6, 'data/metallica-master-of.jpg', 1, 16.0, 9, '2013-04-28' , 9.0, 2, 1, 1, 1, '2013-04-28'  , '2013-04-28' )
+INSERT INTO oc_product_description(product_id,language_id,name,description,tag) VALUES(1002, 1, 'Metallica CDli Tisort', 'Selam', 'e')
+INSERT INTO oc_product_option(product_option_id,product_id,option_id,required) VALUES(5002, 1002,  11, 1 )
+INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(2002, 5002, 1002, 11, 46, 0, 1)
+INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(3002, 5002, 1002, 11, 47, 2, 1)
+INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(4002, 5002, 1002, 11, 48, 0, 1)
+INSERT INTO oc_product_to_category(product_id, category_id) VALUES(1002,  61)
+INSERT INTO oc_product_to_store(product_id, store_id) VALUES(1002,  0)

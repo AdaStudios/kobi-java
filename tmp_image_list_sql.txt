@@ -1,0 +1,1 @@
+INSERT INTO oc_product_image(product_id,image,sort_order) VALUES(1002, 'data/metallica-master-of.jpg',0)

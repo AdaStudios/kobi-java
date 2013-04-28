@@ -237,11 +237,6 @@ public class TempAddStockView extends javax.swing.JPanel {
 
                     //copy file from one location to other
                     FileUtils.copyFile(sourceFile, targetFile);
-
-
-
-
-
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -260,10 +255,6 @@ public class TempAddStockView extends javax.swing.JPanel {
             while ((satir = reader_image_sql.readLine()) != null) {
 
                 db.insDelUpDB(satir);
-
-
-
-
             }
             reader_image_sql.close();
             oout_image_sql = new FileWriter(Main.file2);

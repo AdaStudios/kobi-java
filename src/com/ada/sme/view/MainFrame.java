@@ -20,6 +20,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     StatusModel sm;
     static int pingFlag = 0;
+    static int statusNormalizer = 0;
     final int SLEEPTIME = 5000;
     final String IPADDRESS = "139.179.139.112";
 
@@ -28,38 +29,38 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
-        
+
         //open frame at the center of the screen
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        
-        
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+
+
         //which window will be opened settings
         main_solpanel.removeAll();
         main_solpanel.add(new StoreLeftPanelView(this));
         sm = new StatusModel(IPADDRESS);
-        
+
         clear_buttons();
         main_magaza.setBackground(new Color(41, 66, 80));
-        main_anapanel.add(new SaleProductPanelView() );
-       
+        main_anapanel.add(new SaleProductPanelView());
+
         new Thread(new runCheck()).start();
     }
-    
-    public void clear_buttons(){
+
+    public void clear_buttons() {
         main_anasayfa.setBackground(new Color(67, 149, 195));
         main_magaza.setBackground(new Color(67, 149, 195));
         main_online_market.setBackground(new Color(67, 149, 195));
         main_stok.setBackground(new Color(67, 149, 195));
         main_destek.setBackground(new Color(67, 149, 195));
     }
-    public static void callOnlineAgain(){
-              
+
+    public static void callOnlineAgain() {
+
         main_anapanel.removeAll();
         main_anapanel.add(new OnlineStoreView());
-        main_anapanel.validate();        
+        main_anapanel.validate();
     }
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -297,11 +298,11 @@ public class MainFrame extends javax.swing.JFrame {
         main_solpanel.removeAll();
         main_solpanel.add(new MainPageLeftPanelView());
         main_solpanel.validate();
-        
+
         main_anapanel.removeAll();
-        main_anapanel.add(new MainPagePanelView() );
+        main_anapanel.add(new MainPagePanelView());
         main_anapanel.validate();
-        
+
         clear_buttons();
         main_anasayfa.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_main_anasayfaActionPerformed
@@ -310,11 +311,11 @@ public class MainFrame extends javax.swing.JFrame {
         main_solpanel.removeAll();
         main_solpanel.add(new StoreLeftPanelView(this));
         main_solpanel.validate();
-        
+
         main_anapanel.removeAll();
         main_anapanel.add(new SaleProductPanelView());
         main_anapanel.validate();
-                
+
         clear_buttons();
         main_magaza.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_main_magazaActionPerformed
@@ -323,79 +324,76 @@ public class MainFrame extends javax.swing.JFrame {
         main_solpanel.removeAll();
         main_solpanel.add(new StockLeftPanelView(this));
         main_solpanel.validate();
-        
+
         main_anapanel.removeAll();
         main_anapanel.add(new ManageStockView());
         main_anapanel.validate();
-        
+
         clear_buttons();
         main_stok.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_main_stokActionPerformed
 
     private void main_online_marketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_online_marketActionPerformed
         main_solpanel.removeAll();
-        main_solpanel.add(new OnlineStoreLeftPanelView() );
+        main_solpanel.add(new OnlineStoreLeftPanelView());
         main_solpanel.validate();
-        
+
         main_anapanel.removeAll();
         main_anapanel.add(new OnlineStoreView());
         main_anapanel.validate();
-        
+
         clear_buttons();
         main_online_market.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_main_online_marketActionPerformed
 
     private void main_destekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_destekActionPerformed
         main_solpanel.removeAll();
-        main_solpanel.add(new SupportPanelLeftView() );
+        main_solpanel.add(new SupportPanelLeftView());
         main_solpanel.validate();
-        
+
         main_anapanel.removeAll();
-        main_anapanel.add(new SupportPanelView() );
+        main_anapanel.add(new SupportPanelView());
         main_anapanel.validate();
-        
+
         clear_buttons();
         main_destek.setBackground(new Color(41, 66, 80));
     }//GEN-LAST:event_main_destekActionPerformed
-
     /**
      * @param args the command line arguments
      */
     /*public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+     /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-  /*      try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+     * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+     */
+    /*      try {
+     for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+     if ("Nimbus".equals(info.getName())) {
+     javax.swing.UIManager.setLookAndFeel(info.getClassName());
+     break;
+     }
+     }
+     } catch (ClassNotFoundException ex) {
+     java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+     } catch (InstantiationException ex) {
+     java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+     } catch (IllegalAccessException ex) {
+     java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+     java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+     }
+     //</editor-fold>
 
-        /* Create and display the form */
-     /*   java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-               /* MainFrame mf = new MainFrame();
+     /* Create and display the form */
+    /*   java.awt.EventQueue.invokeLater(new Runnable() {
+     public void run() {
+     /* MainFrame mf = new MainFrame();
 
-                mf.setVisible(true);*/
-
-
-     /*       }
-        });
-    }*/
+     mf.setVisible(true);*/
+    /*       }
+     });
+     }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -423,7 +421,7 @@ public class MainFrame extends javax.swing.JFrame {
             InputStream is;
             try {
                 url = new URL(urlString);
-                
+
             } catch (Exception ex) {
                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -431,37 +429,42 @@ public class MainFrame extends javax.swing.JFrame {
             while (true) {
                 try {
                     Thread.sleep(SLEEPTIME);
-                    
+
                     boolean ans = sm.check();
 
                     if (ans) {
+                        statusNormalizer = 0;
                         System.out.println("ulasiliyor");
-                       jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-green.png")));
-                         if(Main.temp_sql.length()>0){
-                             Main.read();
-                         }
+                        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-green.png")));
+                        if (Main.temp_sql.length() > 0) {
+                            Main.read();
+                        }
 
                     } else if (!ans) {
-                        System.out.println("ulasilmiyor");
-                         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png")));
+                        statusNormalizer++;
+                        if (statusNormalizer > 2) {
+                            System.out.println("ulasilmiyor");
+                            jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png")));
+                        }
                     }
-                    if(Main.temp_sql.length()>0)
-                    jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png")));
-                    else
-                    jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-green.png")));
+                    if (Main.temp_sql.length() > 0) {
+                        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png")));
+                    } else {
+                        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-green.png")));
+                    }
 
-                    if((pingFlag%4)==0){
-                    conn = url.openConnection();
-                    is = conn.getInputStream();
+                    if ((pingFlag % 4) == 0) {
+                        conn = url.openConnection();
+                        is = conn.getInputStream();
                     }
-                    
-                   
-                   
-                    
-                    
+
+
+
+
+
                     pingFlag++;
                 } catch (Exception e) {
-                   // e.printStackTrace();
+                    // e.printStackTrace();
                 }
             }
         }
