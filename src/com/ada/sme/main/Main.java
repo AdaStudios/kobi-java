@@ -27,7 +27,7 @@ public class Main
     {
         products = new ArrayList<Product>();
         //System.out.println("Arraylist size:"+products.size());
-        /*CreateDBController createDB =new CreateDBController();
+       /* CreateDBController createDB =new CreateDBController();
         createDB.createDB();*/
         
        DBController db = new DBController();

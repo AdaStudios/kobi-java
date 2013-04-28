@@ -114,6 +114,11 @@ public class MainFrame extends javax.swing.JFrame {
         main_online_market.setMaximumSize(new java.awt.Dimension(111, 70));
         main_online_market.setMinimumSize(new java.awt.Dimension(111, 70));
         main_online_market.setPreferredSize(new java.awt.Dimension(111, 70));
+        main_online_market.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                main_online_marketActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -252,6 +257,17 @@ public class MainFrame extends javax.swing.JFrame {
         main_anapanel.add(new ManageStockView());
         main_anapanel.validate();
     }//GEN-LAST:event_main_stokActionPerformed
+
+    private void main_online_marketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_main_online_marketActionPerformed
+        // TODO add your handling code here:
+        main_solpanel.removeAll();
+        main_solpanel.add(new JPanel());
+        main_solpanel.validate();
+        
+        main_anapanel.removeAll();
+        main_anapanel.add(new OnlineStoreView());
+        main_anapanel.validate();
+    }//GEN-LAST:event_main_online_marketActionPerformed
 
     /**
      * @param args the command line arguments

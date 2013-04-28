@@ -144,6 +144,111 @@ public class DBController {
         return null;
 
     }
+    
+    public DefaultTableModel selectDBFromOnline(String sql) {
+
+        PreparedStatement prestat = null;
+        try {
+           
+                prestat = conn_on.prepareStatement(sql);
+                result = prestat.executeQuery();
+
+                ResultSetMetaData meta = result.getMetaData();
+                int numberOfColumns = meta.getColumnCount();
+             
+                DefaultTableModel dtm = new DefaultTableModel();
+
+              
+                for (int j = 1; j <= meta.getColumnCount(); j++) {
+                    dtm.addColumn(meta.getColumnName(j));
+                }
+                
+                while (result.next()) {
+                    Object[] rowData = new Object[numberOfColumns];
+                    for (int i = 0; i < rowData.length; ++i) {
+                        rowData[i] = result.getObject(i + 1);
+                        //System.out.println(result.getObject(i + 1).toString());
+                    }
+                    String sql2 = "INSERT into order_t VALUES("+String.valueOf(rowData[0])+","+String.valueOf(rowData[1])+",'"+String.valueOf(rowData[2])+"','"+String.valueOf(rowData[3])+"','"+String.valueOf(rowData[4])+"','"+String.valueOf(rowData[5])+"','"+String.valueOf(rowData[6])+"','"+String.valueOf(rowData[7])+"','"+String.valueOf(rowData[8])+"','"+String.valueOf(rowData[9])+"','"+String.valueOf(rowData[10])+"','"+String.valueOf(rowData[11])+"','"+String.valueOf(rowData[12])+"','"+String.valueOf(rowData[13])+"','"+String.valueOf(rowData[14])+"','"+String.valueOf(rowData[15])+"','"+String.valueOf(rowData[16])+"','"+String.valueOf(rowData[17])+"','"+String.valueOf(rowData[18])+"','"+String.valueOf(rowData[19])+"','"+String.valueOf(rowData[20])+"','"+String.valueOf(rowData[21])+"','"+String.valueOf(rowData[22])+"','"+String.valueOf(rowData[23])+"','"+String.valueOf(rowData[24])+"','"+String.valueOf(rowData[25])+"','"+String.valueOf(rowData[26])+"',"+String.valueOf(rowData[27])+","+String.valueOf(rowData[28])+",'"+String.valueOf(rowData[29])+"','"+String.valueOf(rowData[30])+"','"+String.valueOf(rowData[31])+"')";
+                    System.out.print(sql2);
+                    empInsDelUpDB(sql2);                   
+                    
+                }
+
+                return selectDB("SELECT order_id, firstname, lastname, total, name, date_modified FROM order_t, order_status where order_t.order_status_id=order_status.order_status_id AND order_language=2");
+                // server.shutdown();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException e) {;
+                }
+                result = null;
+            }
+            if (prestat != null) {
+                try {
+                    prestat.close();
+                } catch (SQLException e) {;
+                }
+                prestat = null;
+            }
+        }
+        return null;
+
+    }
+    
+    public void updateOrderProductDBFromOnline(String sql) {
+
+        PreparedStatement prestat = null;
+        try {
+           
+                prestat = conn_on.prepareStatement(sql);
+                result = prestat.executeQuery();
+
+                ResultSetMetaData meta = result.getMetaData();
+                int numberOfColumns = meta.getColumnCount();
+             
+          
+                
+                while (result.next()) {
+                    Object[] rowData = new Object[numberOfColumns];
+                    for (int i = 0; i < rowData.length; ++i) {
+                        rowData[i] = result.getObject(i + 1);
+                        //System.out.println(result.getObject(i + 1).toString());
+                    }
+                    String sql2 = "INSERT into order_product VALUES("+String.valueOf(rowData[0])+","+String.valueOf(rowData[1])+","+String.valueOf(rowData[2])+",'"+String.valueOf(rowData[3])+"','"+String.valueOf(rowData[4])+"',"+String.valueOf(rowData[5])+","+String.valueOf(rowData[6])+","+String.valueOf(rowData[7])+","+String.valueOf(rowData[8])+","+String.valueOf(rowData[9])+")";
+                    System.out.print("updateOP"+sql2);
+                    empInsDelUpDB(sql2);                   
+                    
+                }
+
+               // return selectDB("SELECT * FROM order_t, order_status where order_t.order_status_id=order_status.order_status_id AND order_language=2");
+                // server.shutdown();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException e) {;
+                }
+                result = null;
+            }
+            if (prestat != null) {
+                try {
+                    prestat.close();
+                } catch (SQLException e) {;
+                }
+                prestat = null;
+            }
+        }
+       
+
+    }
 
     public boolean login(String username, String pass) {
 
