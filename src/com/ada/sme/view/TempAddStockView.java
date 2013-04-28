@@ -193,33 +193,28 @@ public class TempAddStockView extends javax.swing.JPanel {
                 } else {
                     Main.write(sql_list.get(i));
                 }
-
             }
             oout = new FileWriter(Main.file);
             BufferedWriter bw = new BufferedWriter(oout);
             System.out.print("Yazdım");
             bw.close();
-
-
             
-
+            
+            
             oin_image_sql = new FileReader(Main.file2);
             BufferedReader reader_image_sql = new BufferedReader(oin_image_sql);
             String satir;
             while ((satir = reader_image_sql.readLine()) != null) {
-
-                db.insDelUpDB(satir);
+                if (StatusModel.check())
+                    db.insDelUpDB(satir);
+                else
+                    Main.write(satir);
             }
             reader_image_sql.close();
             oout_image_sql = new FileWriter(Main.file2);
             BufferedWriter bw_image_sql = new BufferedWriter(oout_image_sql);
             System.out.print("Yazdım");
             bw_image_sql.close();
-
-
-
-
-
 
         } catch (IOException ex) {
             Logger.getLogger(TempAddStockView.class.getName()).log(Level.SEVERE, null, ex);

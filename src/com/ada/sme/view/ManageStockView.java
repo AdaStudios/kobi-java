@@ -39,7 +39,7 @@ public class ManageStockView extends javax.swing.JPanel {
         DBController dbController = new DBController();
         DefaultTableModel dtm;
         
-        dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description");
+        dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description WHERE product.product_id = product_description.product_id");
         System.out.println(dtm);
         
         MSV_list1.setModel(dtm);
@@ -141,8 +141,8 @@ public class ManageStockView extends javax.swing.JPanel {
     private void MSV_araActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSV_araActionPerformed
         DBController dbController = new DBController();
         DefaultTableModel dtm;
-        if(MSV_identifier.getSelectedItem().toString().equals("product_id"))
-            dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product WHERE "+MSV_identifier.getSelectedItem().toString()+"="+MEV_value.getText());
+        if(MSV_identifier.getSelectedItem().toString().equalsIgnoreCase("product_id"))
+            dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description WHERE "+" product."+MSV_identifier.getSelectedItem().toString()+"="+MEV_value.getText());
         else
             dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description WHERE "+MSV_identifier.getSelectedItem().toString()+" LIKE '%"+MEV_value.getText()+"%'");
         

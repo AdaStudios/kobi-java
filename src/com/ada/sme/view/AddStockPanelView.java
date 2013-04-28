@@ -471,8 +471,6 @@ public class AddStockPanelView extends javax.swing.JPanel {
         s = jfc.getSelectedFile().getAbsolutePath();
         imageList.add(s);
 
-
-
         File f = new File(s);
         String name = f.getName();
         if (first_image == null) {
@@ -480,7 +478,6 @@ public class AddStockPanelView extends javax.swing.JPanel {
         }
 
         try {
-
             if (is_product_empty) {
                 res = 1000;
             } else {
