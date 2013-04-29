@@ -4,6 +4,13 @@
  */
 package com.ada.sme.view;
 
+import com.ada.sme.controller.DBController;
+import static com.ada.sme.view.MainFrame.main_anapanel;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author tvostro
@@ -13,8 +20,23 @@ public class SaleProductPopupView extends javax.swing.JPanel {
     /**
      * Creates new form SaleProductPopupView
      */
-    public SaleProductPopupView() {
+    DBController dbc;
+    DefaultTableModel dtm;
+    String id="";
+    public SaleProductPopupView(String id) {
         initComponents();
+        this.id=id;
+        dbc = new DBController();
+        dtm = dbc.selectDB("Select quantity from product_option_value WHERE product_id="+id+" order by option_value_id");
+        jLabel8.setText(dtm.getValueAt(0, 0).toString());
+        jLabel9.setText(dtm.getValueAt(1, 0).toString());
+        jLabel10.setText(dtm.getValueAt(2, 0).toString());
+        dtm = dbc.selectDB("Select product_description.name, product.model FROM product_description, product WHERE product.product_id=product_description.product_id AND product.product_id="+id);
+        jLabel12.setText(dtm.getValueAt(0, 0).toString());
+        jLabel2.setText(dtm.getValueAt(0, 1).toString());
+        dtm = dbc.selectDB("Select image from product WHERE product_id="+id);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(dtm.getValueAt(0, 0).toString())));
+        
     }
 
     /**
@@ -25,7 +47,6 @@ public class SaleProductPopupView extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -33,8 +54,6 @@ public class SaleProductPopupView extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -42,160 +61,139 @@ public class SaleProductPopupView extends javax.swing.JPanel {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 10), new java.awt.Dimension(0, 10), new java.awt.Dimension(32767, 10));
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(227, 227, 227));
         setMaximumSize(new java.awt.Dimension(646, 500));
         setMinimumSize(new java.awt.Dimension(646, 500));
         setPreferredSize(new java.awt.Dimension(646, 500));
-        setLayout(new java.awt.GridBagLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(200, 200, 200));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/resim_bulunamadi.jpg"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 25;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-        add(jLabel1, gridBagConstraints);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, -1, -1));
 
-        jLabel2.setText("Ürün Adı:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(11, 0, 0, 0);
-        add(jLabel2, gridBagConstraints);
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(15, 89, 191));
+        jLabel2.setText("0");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setText("Model:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        add(jLabel3, gridBagConstraints);
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel4.setText("Beden:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        add(jLabel4, gridBagConstraints);
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
         jButton1.setText("Sat");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(40, 0, 0, 0);
-        add(jButton1, gridBagConstraints);
-
-        jButton2.setText("İptal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        add(jButton2, gridBagConstraints);
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(11, 0, 0, 0);
-        add(jTextField1, gridBagConstraints);
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 232, -1));
 
-        jTextField2.setMinimumSize(new java.awt.Dimension(160, 28));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        add(jTextField2, gridBagConstraints);
+        jButton2.setText("İptal");
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 232, -1));
 
         jLabel5.setText("Small");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        add(jLabel5, gridBagConstraints);
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
 
         jLabel6.setText("Medium");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        add(jLabel6, gridBagConstraints);
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 220, -1));
 
-        jLabel7.setText("Large");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        add(jLabel7, gridBagConstraints);
-
+        jTextField3.setText("0");
         jTextField3.setMaximumSize(new java.awt.Dimension(60, 28));
         jTextField3.setMinimumSize(new java.awt.Dimension(60, 28));
         jTextField3.setPreferredSize(new java.awt.Dimension(60, 28));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        add(jTextField3, gridBagConstraints);
+        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
 
+        jTextField4.setText("0");
         jTextField4.setMaximumSize(new java.awt.Dimension(60, 28));
         jTextField4.setMinimumSize(new java.awt.Dimension(60, 28));
         jTextField4.setPreferredSize(new java.awt.Dimension(60, 28));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        add(jTextField4, gridBagConstraints);
+        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1));
 
+        jTextField5.setText("0");
         jTextField5.setMaximumSize(new java.awt.Dimension(60, 28));
         jTextField5.setMinimumSize(new java.awt.Dimension(60, 28));
         jTextField5.setPreferredSize(new java.awt.Dimension(60, 28));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        add(jTextField5, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.weighty = 1.0;
-        add(filler1, gridBagConstraints);
+        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, -1));
+        add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 0));
+
+        jLabel8.setText("0");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
+
+        jLabel9.setText("0");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, -1, -1));
+
+        jLabel10.setText("0");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel11.setText("Ürün Adı:");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(15, 89, 191));
+        jLabel12.setText("0");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
+
+        jLabel13.setText("Large");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        int s1,s2,s3,g1,g2,g3;
+        s1 = Integer.valueOf(jLabel8.getText());
+        s2 = Integer.valueOf(jLabel9.getText());
+        s3 = Integer.valueOf(jLabel10.getText());
+        g1 = Integer.valueOf(jTextField3.getText());
+        g2 = Integer.valueOf(jTextField4.getText());
+        g3 = Integer.valueOf(jTextField5.getText());
+        
+        if(g1>s1 || g2>s2 || g3>s3)
+            jLabel7.setText("Yeterli Ürün Yok!");
+        else
+        {
+            dbc.insProductDB("UPDATE product_option_value SET quantity="+(s1-g1)+" WHERE product_id="+id+" AND option_value_id=46");
+            dbc.insProductDB("UPDATE product_option_value SET quantity="+(s2-g2)+" WHERE product_id="+id+" AND option_value_id=47");
+            dbc.insProductDB("UPDATE product_option_value SET quantity="+(s3-g3)+" WHERE product_id="+id+" AND option_value_id=48");
+            dbc.insProductDB("UPDATE product SET quantity="+(s1+s2+s3-g1-g2-g3)+" WHERE product_id="+id);
+            JOptionPane.showMessageDialog(SaleProductPopupView.this, "Satış Yapıldı!");
+            
+            main_anapanel.removeAll();
+            main_anapanel.add(new SaleProductPanelView());
+            main_anapanel.validate();
+            main_anapanel.updateUI();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
