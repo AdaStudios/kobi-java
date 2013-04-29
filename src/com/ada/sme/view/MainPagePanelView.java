@@ -25,14 +25,13 @@ public class MainPagePanelView extends javax.swing.JPanel {
         initComponents();
         DefaultTableModel dtm = new DefaultTableModel();
         dbc = new DBController();
-        dtm = dbc.selectDB("Select * from log_table");
+        dtm = dbc.selectDB("Select * from log_table order by date_f DESC");
         jTable1.setModel(dtm);
         Object[] cols = new Object[3];
-         cols[0]="Kullanıcı";
-         cols[1]="Kayıt";
-         cols[2]="Tarih";
-         dtm.setColumnIdentifiers(cols);
-
+        cols[0] = "Kullanıcı";
+        cols[1] = "Kayıt";
+        cols[2] = "Tarih";
+        dtm.setColumnIdentifiers(cols);
     }
 
     /**
@@ -113,7 +112,7 @@ public class MainPagePanelView extends javax.swing.JPanel {
             } else {
                 Main.write("UPDATE pingtable SET closed=1 WHERE clientid=22");
             }
-            
+
             jButton1.setText("AÇ");
             store_status = 0;
         }

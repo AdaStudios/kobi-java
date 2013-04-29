@@ -15,7 +15,10 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,121 +29,121 @@ import javax.swing.table.DefaultTableModel;
  * @author osman
  */
 public class OrderView extends javax.swing.JFrame {
- DefaultTableModel dtm;
- DBController dbController;
- DefaultTableModel meta;
-  ArrayList all;
+
+    DefaultTableModel dtm;
+    DBController dbController;
+    DefaultTableModel meta;
+    ArrayList all;
+
     /**
      * Creates new form OrderView
      */
     public OrderView(String id) {
-     
-         initComponents();
-         
-         //open frame at the center of the screen
-         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();    
-         
-         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
-         dbController = new DBController(); 
-         if(StatusModel.check()){
-         updateOrderProduct();
-         updateOrderOption();        
-         }
-         
-         all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_status WHERE order_language=1 AND order_t.order_status_id=order_status.order_status_id AND order_t.order_id="+id);
-         System.err.println(all.size()+": all list");
-         dtm = dbController.selectDB("Select name,model,quantity,price,total from order_product WHERE order_id="+all.get(0).toString());
-         Object[] cols = new Object[5];
-         cols[0]="Ürün Adı";
-         cols[1]="Model";
-         cols[2]="Adet";
-         cols[3]="Fiyat";
-         cols[4]="Toplam";
-         dtm.setColumnIdentifiers(cols);
-          
-          MEV_list1.setModel(dtm);    
-          
-          
-          
-          dtm=dbController.selectDB("SELECT model, value FROM order_product, order_option WHERE order_product.order_product_id=order_option.order_product_id AND order_product.order_id="+all.get(0).toString());
-          MEV_list.setModel(dtm);
-          
-          double total = 0;
-          for (int i = 0; i < MEV_list1.getRowCount(); i++) {
-              total+= Double.valueOf(MEV_list1.getValueAt(i,4).toString());
-          }
-            jLabel28.setText(total+"");
-            total+=7;
-            jLabel34.setText(total+"");
-            jLabel32.setText(all.get(34).toString());
-            
-         // MEV_list.getValueAt(WIDTH, WIDTH)
-          
-          jLabel12.setText(all.get(0).toString());
-          jLabel11.setText(all.get(31).toString());
-          jLabel17.setText(all.get(7).toString()+" "+all.get(8).toString() );
-          jLabel18.setText(all.get(9).toString());
-          jLabel19.setText(all.get(10).toString()+" "+all.get(11).toString());
-          jLabel20.setText(all.get(13).toString()+" "+all.get(12).toString()+" "+all.get(15).toString());
-          jLabel13.setText(all.get(16).toString());
-          jLabel21.setText(all.get(4).toString());
-          jLabel22.setText(all.get(5).toString());
-          jLabel10.setText(all.get(6).toString());
-          
-          jLabel23.setText(all.get(17).toString()+" "+all.get(18).toString() );
-          jLabel24.setText(all.get(19).toString());
-          jLabel25.setText(all.get(20).toString()+" "+all.get(21).toString());
-          jLabel26.setText(all.get(23).toString()+" "+all.get(22).toString()+" "+all.get(25).toString());
-          
-        
-         meta = dbController.selectDB("Select order_status_id, name from order_status");
-         
-         for (int i = 0; i < meta.getRowCount(); i++) {
-             jComboBox1.addItem(meta.getValueAt(i,1).toString());
-         }
-   /*   try {   
+        initComponents();
+
+        //open frame at the center of the screen
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+
+        dbController = new DBController();
+        if (StatusModel.check()) {
+            updateOrderProduct();
+            updateOrderOption();
+        }
+
+        all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_status WHERE order_language=1 AND order_t.order_status_id=order_status.order_status_id AND order_t.order_id=" + id);
+        System.err.println(all.size() + ": all list");
+        dtm = dbController.selectDB("Select name,model,quantity,price,total from order_product WHERE order_id=" + all.get(0).toString());
+        Object[] cols = new Object[5];
+        cols[0] = "Ürün Adı";
+        cols[1] = "Model";
+        cols[2] = "Adet";
+        cols[3] = "Fiyat";
+        cols[4] = "Toplam";
+        dtm.setColumnIdentifiers(cols);
+
+        MEV_list1.setModel(dtm);
+
+
+
+        dtm = dbController.selectDB("SELECT model, value FROM order_product, order_option WHERE order_product.order_product_id=order_option.order_product_id AND order_product.order_id=" + all.get(0).toString());
+        MEV_list.setModel(dtm);
+
+        double total = 0;
+        for (int i = 0; i < MEV_list1.getRowCount(); i++) {
+            total += Double.valueOf(MEV_list1.getValueAt(i, 4).toString());
+        }
+        jLabel28.setText(total + "");
+        total += 7;
+        jLabel34.setText(total + "");
+        jLabel32.setText(all.get(34).toString());
+
+        // MEV_list.getValueAt(WIDTH, WIDTH)
+
+        jLabel12.setText(all.get(0).toString());
+        jLabel11.setText(all.get(31).toString());
+        jLabel17.setText(all.get(7).toString() + " " + all.get(8).toString());
+        jLabel18.setText(all.get(9).toString());
+        jLabel19.setText(all.get(10).toString() + " " + all.get(11).toString());
+        jLabel20.setText(all.get(13).toString() + " " + all.get(12).toString() + " " + all.get(15).toString());
+        jLabel13.setText(all.get(16).toString());
+        jLabel21.setText(all.get(4).toString());
+        jLabel22.setText(all.get(5).toString());
+        jLabel10.setText(all.get(6).toString());
+
+        jLabel23.setText(all.get(17).toString() + " " + all.get(18).toString());
+        jLabel24.setText(all.get(19).toString());
+        jLabel25.setText(all.get(20).toString() + " " + all.get(21).toString());
+        jLabel26.setText(all.get(23).toString() + " " + all.get(22).toString() + " " + all.get(25).toString());
+
+
+        meta = dbController.selectDB("Select order_status_id, name from order_status");
+
+        for (int i = 0; i < meta.getRowCount(); i++) {
+            jComboBox1.addItem(meta.getValueAt(i, 1).toString());
+        }
+        /*   try {   
          write();
          read();       
   
-     } catch (IOException ex) {
+         } catch (IOException ex) {
          Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
-     }*/
-         
-    }
-    
-    public void updateOrderProduct(){        
-        
-        dtm=dbController.selectDB("SELECT * FROM order_product");
-       // System.out.println(dtm.getValueAt(12, 0));
-        System.out.println("firstSelect");
-        if(dtm.getRowCount()==0){
-       // dtm = dbController.selectDBFromOnline("Select * from oc_order_product");
-            System.out.println("BOŞ!!!\n\n");
-         dbController.updateOrderProductDBFromOnline("SELECT * FROM oc_order_product");
-        }else{
-             int id2 = DBController.getLastID("SELECT order_product_id from order_product order by order_product_id DESC");
-             System.out.println(id2+"Last id\n\n");
-            
-           dbController.updateOrderProductDBFromOnline("Select * from oc_order_product WHERE order_product_id>"+id2);          
-        }
-    }
-    
-   
-    
-    public void updateOrderOption(){        
-        
-        dtm=dbController.selectDB("SELECT * FROM order_option");
+         }*/
 
-        if(dtm.getRowCount()==0){
-         dbController.updateOrderOptionDBFromOnline("SELECT order_option_id, order_id, order_product_id,name,value FROM oc_order_option");
-        }else{
-             int id2 = DBController.getLastID("SELECT order_option_id from order_option order by order_option_id DESC");
-             System.out.println(id2+"Option Last Id\n\n");
-            
-           dbController.updateOrderOptionDBFromOnline("Select order_option_id, order_id, order_product_id, name, value FROM oc_order_option WHERE order_option_id>"+id2);          
+    }
+
+    public void updateOrderProduct() {
+
+        dtm = dbController.selectDB("SELECT * FROM order_product");
+        // System.out.println(dtm.getValueAt(12, 0));
+        System.out.println("firstSelect");
+        if (dtm.getRowCount() == 0) {
+            // dtm = dbController.selectDBFromOnline("Select * from oc_order_product");
+            System.out.println("BOŞ!!!\n\n");
+            dbController.updateOrderProductDBFromOnline("SELECT * FROM oc_order_product");
+        } else {
+            int id2 = DBController.getLastID("SELECT order_product_id from order_product order by order_product_id DESC");
+            System.out.println(id2 + "Last id\n\n");
+
+            dbController.updateOrderProductDBFromOnline("Select * from oc_order_product WHERE order_product_id>" + id2);
         }
-        
+    }
+
+    public void updateOrderOption() {
+
+        dtm = dbController.selectDB("SELECT * FROM order_option");
+
+        if (dtm.getRowCount() == 0) {
+            dbController.updateOrderOptionDBFromOnline("SELECT order_option_id, order_id, order_product_id,name,value FROM oc_order_option");
+        } else {
+            int id2 = DBController.getLastID("SELECT order_option_id from order_option order by order_option_id DESC");
+            System.out.println(id2 + "Option Last Id\n\n");
+
+            dbController.updateOrderOptionDBFromOnline("Select order_option_id, order_id, order_product_id, name, value FROM oc_order_option WHERE order_option_id>" + id2);
+        }
+
     }
 
     /**
@@ -349,11 +352,11 @@ public class OrderView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MEV_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MEV_listMouseClicked
-       /* String id = MEV_list.getValueAt(MEV_list.getSelectedRow(), 0).toString();
-        UpdateEmployeeView updateemployeeView=new UpdateEmployeeView(id);
-        MainFrame.main_anapanel.removeAll();
-        MainFrame.main_anapanel.add(updateemployeeView);
-        MainFrame.main_anapanel.validate();*/
+        /* String id = MEV_list.getValueAt(MEV_list.getSelectedRow(), 0).toString();
+         UpdateEmployeeView updateemployeeView=new UpdateEmployeeView(id);
+         MainFrame.main_anapanel.removeAll();
+         MainFrame.main_anapanel.add(updateemployeeView);
+         MainFrame.main_anapanel.validate();*/
     }//GEN-LAST:event_MEV_listMouseClicked
 
     private void MEV_list1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MEV_list1MouseClicked
@@ -363,23 +366,22 @@ public class OrderView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int a = jComboBox1.getSelectedIndex();
-        dbController.insProductDB("UPDATE order_t SET order_status_id="+meta.getValueAt(a, 0)+" WHERE order_id="+all.get(0).toString());
-        if(StatusModel.check())
-            dbController.insDelUpDB("UPDATE oc_order SET order_status_id="+meta.getValueAt(a, 0)+" WHERE order_id="+all.get(0).toString());
-        else
-            Main.write("UPDATE oc_order SET order_status_id="+meta.getValueAt(a, 0)+" WHERE order_id="+all.get(0).toString());
-       java.util.Date today = new java.util.Date();
-        java.sql.Date sqlToday = new java.sql.Date(today.getTime());
-        dbController.insProductDB("INSERT INTO log_table VALUES('"+LoginView.username+"','"+all.get(0)+" nolu kargo "+all.get(34).toString()+"','"+sqlToday+"')");
+        dbController.insProductDB("UPDATE order_t SET order_status_id=" + meta.getValueAt(a, 0) + " WHERE order_id=" + all.get(0).toString());
+        if (StatusModel.check()) {
+            dbController.insDelUpDB("UPDATE oc_order SET order_status_id=" + meta.getValueAt(a, 0) + " WHERE order_id=" + all.get(0).toString());
+        } else {
+            Main.write("UPDATE oc_order SET order_status_id=" + meta.getValueAt(a, 0) + " WHERE order_id=" + all.get(0).toString());
+        }
+
+        Main.logger(all.get(0) + " nolu kargo " + all.get(34).toString());
         jLabel32.setText(meta.getValueAt(a, 1).toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-                // TODO add your handling code here:
+        // TODO add your handling code here:
         MainFrame.callOnlineAgain();
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable MEV_list;
     private javax.swing.JTable MEV_list1;

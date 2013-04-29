@@ -5,6 +5,10 @@
 package com.ada.sme.view;
 
 import com.ada.sme.controller.DBController;
+import com.ada.sme.main.Main;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -17,7 +21,7 @@ public class AddEmployeeView extends javax.swing.JPanel {
      */
     public AddEmployeeView() {
         initComponents();
-        
+
     }
 
     /**
@@ -178,12 +182,13 @@ public class AddEmployeeView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AEV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AEV_ekleActionPerformed
-        DBController dbcontroller=new DBController();
+        DBController dbcontroller = new DBController();
         int emp_id = DBController.getLastID("SELECT * from employee order by id DESC");
-       System.out.print(emp_id+"");
-        dbcontroller.empInsDelUpDB("INSERT INTO employee VALUES("+(emp_id+1)+", '"+AEV_isim.getText()+"', '"+AEV_soyad.getText()+"', '"+AEV_kullaniciadi.getText()+"', '"+AEV_sifre.getText()+"')");
+        System.out.print(emp_id + "");
+        dbcontroller.empInsDelUpDB("INSERT INTO employee VALUES(" + (emp_id + 1) + ", '" + AEV_isim.getText() + "', '" + AEV_soyad.getText() + "', '" + AEV_kullaniciadi.getText() + "', '" + AEV_sifre.getText() + "')");
+        
+        Main.logger(AEV_isim.getText() + " " + AEV_soyad.getText() + " isimli kullanıcı oluşturuldu.");
     }//GEN-LAST:event_AEV_ekleActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AEV_ekle;
     private javax.swing.JTextField AEV_isim;

@@ -54,7 +54,7 @@ public class MainFrame extends javax.swing.JFrame {
         main_magaza.setBackground(new Color(67, 149, 195));
         main_online_market.setBackground(new Color(67, 149, 195));
         main_stok.setBackground(new Color(67, 149, 195));
-       
+
     }
 
     public static void callOnlineAgain() {
@@ -91,8 +91,8 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kobilere Özgürlük");
         setBackground(new java.awt.Color(227, 227, 227));
-        setMinimumSize(new java.awt.Dimension(1024, 768));
-        setPreferredSize(new java.awt.Dimension(1024, 768));
+        setMinimumSize(new java.awt.Dimension(1024, 668));
+        setPreferredSize(new java.awt.Dimension(1024, 668));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         main_anasayfa.setBackground(new java.awt.Color(67, 149, 195));
@@ -437,11 +437,6 @@ public class MainFrame extends javax.swing.JFrame {
                         conn = url.openConnection();
                         is = conn.getInputStream();
                     }
-
-
-
-
-
                     pingFlag++;
                 } catch (Exception e) {
                     // e.printStackTrace();

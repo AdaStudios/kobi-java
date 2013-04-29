@@ -428,8 +428,10 @@ public class AddStockPanelView extends javax.swing.JPanel {
         dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " + (res + 4000) + ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)");
         dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " + (res + 4000) + ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)");
         dbController.insProductDB("INSERT INTO product_to_category(product_id, category_id) VALUES(" + res + ",  61)");
+       
+        Main.logger(ASPV_kod.getText() + " model kodlu ürün eklendi.");
+        
         try {
-
             oout = new FileWriter(Main.file, true);
             BufferedWriter bw = new BufferedWriter(oout);
 
@@ -479,10 +481,10 @@ public class AddStockPanelView extends javax.swing.JPanel {
 
             res++;
 
-            
+
             Main.write("INSERT INTO oc_product_image(product_id,image,sort_order) VALUES(" + res + ", 'data/" + name + "',0)\n");
             dbController.insProductDB("INSERT INTO product_image(product_image_id,product_id,image,sort_order) VALUES(" + (res + 5000) + "," + res + ", 'data/" + name + "',0)\n");
-            
+
 
             oout_image = new FileWriter(Main.file1, true);
             BufferedWriter bw_image = new BufferedWriter(oout_image);

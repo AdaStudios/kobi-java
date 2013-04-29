@@ -9,6 +9,7 @@ package com.ada.sme.view;
  * @author PaDaWaN
  */
 import com.ada.sme.controller.*;
+import com.ada.sme.main.Main;
 import java.awt.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -257,6 +258,7 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
             //REGEX geçemedi
             System.out.println("REGEX:::çalışan ekle butonu");
         }
+        Main.logger(UEV_isim.getText() + " " + UEV_soyad.getText() + " kullanıcısı düzenlendi.");
     }//GEN-LAST:event_UEV_updateActionPerformed
 
     private void UEV_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UEV_deleteActionPerformed
@@ -270,6 +272,7 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
           //REGEX i geçemedi
           System.out.println("\nREGEX::: çalışan sil butonu");
       }
+      Main.logger(UEV_isim.getText() + " " + UEV_soyad.getText() + " kullanıcısı silindi.");
     }//GEN-LAST:event_UEV_deleteActionPerformed
 
     private void UEV_geriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UEV_geriActionPerformed

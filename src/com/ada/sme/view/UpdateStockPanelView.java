@@ -448,6 +448,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
             Main.write("UPDATE oc_product_option_value SET quantity=" + USPV_adet_m.getText() + " WHERE product_id=" + pro_id + " and option_value_id=47");
             Main.write("UPDATE oc_product_option_value SET quantity=" + USPV_adet_l.getText() + " WHERE product_id=" + pro_id + " and option_value_id=48");
         }
+        Main.logger(USPV_kod.getText() + " model kodlu ürün güncellendi.");
     }//GEN-LAST:event_USPV_guncelleActionPerformed
 
     private void USPV_sil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USPV_sil1ActionPerformed
@@ -480,6 +481,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
             Main.write("DELETE FROM oc_product_to_category WHERE product_id=" + pro_id);
             Main.write("DELETE FROM oc_product_image WHERE product_id=" + pro_id);
         }
+        Main.logger(USPV_kod.getText() + " model kodlu ürün silindi.");
 
         MainFrame.main_anapanel.removeAll();
         MainFrame.main_anapanel.add(new ManageStockView());
