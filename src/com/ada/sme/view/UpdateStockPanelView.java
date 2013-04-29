@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -449,6 +450,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
             Main.write("UPDATE oc_product_option_value SET quantity=" + USPV_adet_l.getText() + " WHERE product_id=" + pro_id + " and option_value_id=48");
         }
         Main.logger(USPV_kod.getText() + " model kodlu ürün güncellendi.");
+        JOptionPane.showMessageDialog(UpdateStockPanelView.this, "Ürün Güncellendi!");
     }//GEN-LAST:event_USPV_guncelleActionPerformed
 
     private void USPV_sil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USPV_sil1ActionPerformed

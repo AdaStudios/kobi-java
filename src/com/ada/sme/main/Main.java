@@ -169,7 +169,7 @@ public class Main {
 
 
                 String source = satir;
-                String target = "data/";
+                String target = "src/data/";
 
                 //name of source file
                 File sourceFile = new File(source);

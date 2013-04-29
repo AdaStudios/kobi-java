@@ -120,6 +120,11 @@ public class LoginView extends javax.swing.JFrame {
         login_cıkıs.setMaximumSize(new java.awt.Dimension(80, 35));
         login_cıkıs.setMinimumSize(new java.awt.Dimension(80, 35));
         login_cıkıs.setPreferredSize(new java.awt.Dimension(80, 35));
+        login_cıkıs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_cıkısActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -165,6 +170,11 @@ public class LoginView extends javax.swing.JFrame {
             login_mesaj.setText("KULLANICI ADI VEYA PAROLA HATALI!");
         }
     }//GEN-LAST:event_login_girisActionPerformed
+
+    private void login_cıkısActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_cıkısActionPerformed
+        // TODO add your handling code here:
+        LoginView.this.dispose();
+    }//GEN-LAST:event_login_cıkısActionPerformed
 
     /**
      * @param args the command line arguments

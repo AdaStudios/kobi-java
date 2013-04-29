@@ -7,6 +7,7 @@ package com.ada.sme.view;
 import com.ada.sme.main.*;
 import com.ada.sme.controller.DBController;
 import com.ada.sme.model.StatusModel;
+import static com.ada.sme.view.MainFrame.main_anapanel;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -219,6 +220,12 @@ public class TempAddStockView extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(TempAddStockView.class.getName()).log(Level.SEVERE, null, ex);
         }
+        main_anapanel.removeAll();
+        main_anapanel.add(new ManageStockView());
+        main_anapanel.validate();
+
+
+        main_anapanel.updateUI();
 
 
 

@@ -6,7 +6,13 @@ package com.ada.sme.view;
 
 import com.ada.sme.controller.DBController;
 import static com.ada.sme.view.MainFrame.main_anapanel;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,9 +41,30 @@ public class SaleProductPopupView extends javax.swing.JPanel {
         jLabel12.setText(dtm.getValueAt(0, 0).toString());
         jLabel2.setText(dtm.getValueAt(0, 1).toString());
         dtm = dbc.selectDB("Select image from product WHERE product_id="+id);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(dtm.getValueAt(0, 0).toString())));
+        System.err.println(dtm.getValueAt(0, 0).toString());
+        System.out.println("BUrası Popup"+getClass().getResource("/"+dtm.getValueAt(0, 0).toString()));
+       // jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/"+dtm.getValueAt(0, 0).toString())));
         
-    }
+        ImageIcon ic = new ImageIcon(  getClass().getResource("/"+dtm.getValueAt(0, 0).toString()) );
+        
+        
+Toolkit toolkit = Toolkit.getDefaultToolkit();
+
+//Image image = toolkit.createImage(getClass().getResource("/"+dtm.getValueAt(0, 0).toString()));
+Image im2 = getScaledImage(ic.getImage(), 250, 250);
+ImageIcon icon = new ImageIcon(im2);
+jLabel1.setIcon(icon);
+       // ImageIcon ic2 = getScaledImage( (Image)ic, 250, 250);
+     }
+    
+        private Image getScaledImage(Image srcImg, int w, int h){
+            BufferedImage resizedImg = new BufferedImage(250, 250, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2 = resizedImg.createGraphics();
+            g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            g2.drawImage(srcImg, 0, 0, w, h, null);
+            g2.dispose();
+            return resizedImg;
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -100,6 +127,11 @@ public class SaleProductPopupView extends javax.swing.JPanel {
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 232, -1));
 
         jButton2.setText("İptal");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 232, -1));
 
         jLabel5.setText("Small");
@@ -176,6 +208,14 @@ public class SaleProductPopupView extends javax.swing.JPanel {
             main_anapanel.updateUI();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         main_anapanel.removeAll();
+            main_anapanel.add(new SaleProductPanelView());
+            main_anapanel.validate();
+            main_anapanel.updateUI();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;

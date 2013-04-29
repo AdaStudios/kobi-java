@@ -173,6 +173,7 @@ public class CreateOwnerView extends javax.swing.JFrame {
 
     private void COV_cıkısActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_COV_cıkısActionPerformed
         // TODO add your handling code here:
+        CreateOwnerView.this.dispose();
     }//GEN-LAST:event_COV_cıkısActionPerformed
 
     private void COV_olusturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_COV_olusturActionPerformed
@@ -183,6 +184,7 @@ public class CreateOwnerView extends javax.swing.JFrame {
             LoginView loginScreen = new LoginView();           
 
             loginScreen.setVisible(true);
+            CreateOwnerView.this.setVisible(false);
         }        
         else
             COV_mesaj.setText("ŞİFRE HATALI GİRİLDİ!!!");
