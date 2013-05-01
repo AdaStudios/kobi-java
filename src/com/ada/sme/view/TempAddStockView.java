@@ -92,6 +92,7 @@ public class TempAddStockView extends javax.swing.JPanel {
             System.out.println(select_sql);
             dtm = dbController.selectDB(select_sql);
             TASV_list.setModel(dtm);
+            MainFrame.main_anapanel.updateUI();
         } catch (IOException ex) {
             Logger.getLogger(AddStockPanelView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -183,6 +184,7 @@ public class TempAddStockView extends javax.swing.JPanel {
             Logger.getLogger(StockLeftPanelView.class.getName()).log(Level.SEVERE, null, ex);
         }
         frame.main_anapanel.validate();
+        frame.main_anapanel.updateUI();
     }//GEN-LAST:event_TASV_yeniActionPerformed
 
     private void TASV_kaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TASV_kaydetActionPerformed

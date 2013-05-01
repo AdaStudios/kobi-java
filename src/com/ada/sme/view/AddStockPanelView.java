@@ -233,7 +233,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(AEV_liste, gridBagConstraints);
 
-        jLabel7.setText("Küçük");
+        jLabel7.setText("Small");
         jLabel7.setToolTipText("");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -242,14 +242,14 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel7, gridBagConstraints);
 
-        jLabel8.setText("Orta");
+        jLabel8.setText("Medium");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel8, gridBagConstraints);
 
-        jLabel9.setText("Büyük");
+        jLabel9.setText("Large");
         jLabel9.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
@@ -390,6 +390,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(ASPV_gozat, gridBagConstraints);
 
+        ASPV_resim_list.setEditable(false);
         ASPV_resim_list.setColumns(20);
         ASPV_resim_list.setRows(3);
         jScrollPane3.setViewportView(ASPV_resim_list);
@@ -460,6 +461,7 @@ public class AddStockPanelView extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(AddStockPanelView.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.updateUI();
     }//GEN-LAST:event_AEV_ekleActionPerformed
     private void ASPV_gozatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASPV_gozatActionPerformed
         String s;

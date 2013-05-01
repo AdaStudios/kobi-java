@@ -413,6 +413,7 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 6;
         add(USPV_gozat, gridBagConstraints);
 
+        USPV_resim_list.setEditable(false);
         USPV_resim_list.setColumns(20);
         USPV_resim_list.setRows(3);
         jScrollPane2.setViewportView(USPV_resim_list);

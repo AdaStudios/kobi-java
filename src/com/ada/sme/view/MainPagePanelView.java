@@ -90,6 +90,7 @@ public class MainPagePanelView extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane3.setViewportView(jTable1);
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 740, 370));
@@ -106,12 +107,15 @@ public class MainPagePanelView extends javax.swing.JPanel {
 
             store_status = 1;
             jButton1.setText("KAPAT");
+
+            MainFrame.jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-green.png")));
         } else {
             if (StatusModel.check()) {
                 dbc.insDelUpDB("UPDATE pingtable SET closed=1 WHERE clientid=22");
             } else {
                 Main.write("UPDATE pingtable SET closed=1 WHERE clientid=22");
             }
+            MainFrame.jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png")));
 
             jButton1.setText("AÇ");
             store_status = 0;

@@ -86,6 +86,8 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -226,12 +228,20 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png"))); // NOI18N
 
+        jLabel3.setText("Mağaza");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ada/sme/material/button-red.png"))); // NOI18N
+
         javax.swing.GroupLayout main_status_panelLayout = new javax.swing.GroupLayout(main_status_panel);
         main_status_panel.setLayout(main_status_panelLayout);
         main_status_panelLayout.setHorizontalGroup(
             main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(main_status_panelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel3)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
@@ -239,18 +249,20 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addContainerGap(824, Short.MAX_VALUE))
+                .addContainerGap(683, Short.MAX_VALUE))
         );
         main_status_panelLayout.setVerticalGroup(
             main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(main_status_panelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addGap(62, 62, 62))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addGroup(main_status_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel8)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -374,6 +386,8 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

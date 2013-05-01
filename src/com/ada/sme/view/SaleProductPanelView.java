@@ -142,9 +142,9 @@ public class SaleProductPanelView extends javax.swing.JPanel {
         DBController dbController = new DBController();
         DefaultTableModel dtm;
         if(MSV_identifier.getSelectedItem().toString().equalsIgnoreCase("product_id"))
-            dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description WHERE "+" product."+MSV_identifier.getSelectedItem().toString()+"="+MEV_value.getText());
+            dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description WHERE "+" product."+MSV_identifier.getSelectedItem().toString()+"=product_description."+MSV_identifier.getSelectedItem().toString()+" AND product."+MSV_identifier.getSelectedItem().toString()+"="+MEV_value.getText());
         else
-            dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description WHERE "+MSV_identifier.getSelectedItem().toString()+" LIKE '%"+MEV_value.getText()+"%'");
+            dtm=dbController.selectDB("SELECT product.product_id,name,model,quantity,price,status FROM product, product_description WHERE "+" product.product_id=product_description.product_id AND "+MSV_identifier.getSelectedItem().toString()+" LIKE '%"+MEV_value.getText()+"%'");
         
         System.out.println(dtm);
         MSV_list1.setModel(dtm);
