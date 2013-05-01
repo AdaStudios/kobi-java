@@ -34,6 +34,7 @@ public class OrderView extends javax.swing.JFrame {
     DBController dbController;
     DefaultTableModel meta;
     ArrayList all;
+    public static String o_last;
 
     /**
      * Creates new form OrderView
@@ -41,7 +42,7 @@ public class OrderView extends javax.swing.JFrame {
     public OrderView(String id) {
 
         initComponents();
-
+      
         //open frame at the center of the screen
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -49,8 +50,8 @@ public class OrderView extends javax.swing.JFrame {
 
         dbController = new DBController();
         if (StatusModel.check()) {
-            updateOrderProduct();
             updateOrderOption();
+            updateOrderProduct();           
         }
 
         all = dbController.selectSingleRowDB("SELECT * FROM order_t, order_status WHERE order_language=1 AND order_t.order_status_id=order_status.order_status_id AND order_t.order_id=" + id);
@@ -123,11 +124,22 @@ public class OrderView extends javax.swing.JFrame {
             // dtm = dbController.selectDBFromOnline("Select * from oc_order_product");
             System.out.println("BOŞ!!!\n\n");
             dbController.updateOrderProductDBFromOnline("SELECT * FROM oc_order_product");
+            //dbController.updateOrderStock("0");
         } else {
             int id2 = DBController.getLastID("SELECT order_product_id from order_product order by order_product_id DESC");
-            System.out.println(id2 + "Last id\n\n");
+            System.out.println(id2 + "Last id\n\n");           
 
             dbController.updateOrderProductDBFromOnline("Select * from oc_order_product WHERE order_product_id>" + id2);
+            //dbController.updateOrderStock(id2+"");
+        }
+    }
+    
+    public void updateStock(String opid){
+        
+        if(StatusModel.check()){
+            
+        }else{
+            
         }
     }
 
@@ -137,9 +149,10 @@ public class OrderView extends javax.swing.JFrame {
 
         if (dtm.getRowCount() == 0) {
             dbController.updateOrderOptionDBFromOnline("SELECT order_option_id, order_id, order_product_id,name,value FROM oc_order_option");
+            o_last="0";
         } else {
             int id2 = DBController.getLastID("SELECT order_option_id from order_option order by order_option_id DESC");
-            System.out.println(id2 + "Option Last Id\n\n");
+            o_last=id2+"";                   
 
             dbController.updateOrderOptionDBFromOnline("Select order_option_id, order_id, order_product_id, name, value FROM oc_order_option WHERE order_option_id>" + id2);
         }

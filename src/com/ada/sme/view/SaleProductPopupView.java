@@ -5,6 +5,8 @@
 package com.ada.sme.view;
 
 import com.ada.sme.controller.DBController;
+import com.ada.sme.main.Main;
+import com.ada.sme.model.StatusModel;
 import static com.ada.sme.view.MainFrame.main_anapanel;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -200,8 +202,23 @@ jLabel1.setIcon(icon);
             dbc.insProductDB("UPDATE product_option_value SET quantity="+(s2-g2)+" WHERE product_id="+id+" AND option_value_id=47");
             dbc.insProductDB("UPDATE product_option_value SET quantity="+(s3-g3)+" WHERE product_id="+id+" AND option_value_id=48");
             dbc.insProductDB("UPDATE product SET quantity="+(s1+s2+s3-g1-g2-g3)+" WHERE product_id="+id);
-            JOptionPane.showMessageDialog(SaleProductPopupView.this, "Satış Yapıldı!");
             
+            
+            if(StatusModel.check()){
+                System.err.println("Online Satış");
+            dbc.insDelUpDB("UPDATE oc_product_option_value SET quantity="+(s1-g1)+" WHERE product_id="+id+" AND option_value_id=46");
+            dbc.insDelUpDB("UPDATE oc_product_option_value SET quantity="+(s2-g2)+" WHERE product_id="+id+" AND option_value_id=47");
+            dbc.insDelUpDB("UPDATE oc_product_option_value SET quantity="+(s3-g3)+" WHERE product_id="+id+" AND option_value_id=48");
+            dbc.insDelUpDB("UPDATE oc_product SET quantity="+(s1+s2+s3-g1-g2-g3)+" WHERE product_id="+id);
+                System.err.println("UPDATE oc_product SET quantity="+(s1+s2+s3-g1-g2-g3)+" WHERE product_id="+id);
+            }else{
+                System.err.println("offline Satış");
+                Main.write("UPDATE oc_product_option_value SET quantity="+(s1-g1)+" WHERE product_id="+id+" AND option_value_id=46");
+                Main.write("UPDATE oc_product_option_value SET quantity="+(s2-g2)+" WHERE product_id="+id+" AND option_value_id=47");
+                Main.write("UPDATE oc_product_option_value SET quantity="+(s3-g3)+" WHERE product_id="+id+" AND option_value_id=48");
+                Main.write("UPDATE oc_product SET quantity="+(s1+s2+s3-g1-g2-g3)+" WHERE product_id="+id);
+            }
+            JOptionPane.showMessageDialog(SaleProductPopupView.this, "Satış Yapıldı!");
             main_anapanel.removeAll();
             main_anapanel.add(new SaleProductPanelView());
             main_anapanel.validate();

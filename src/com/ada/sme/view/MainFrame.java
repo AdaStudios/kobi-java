@@ -4,9 +4,11 @@
  */
 package com.ada.sme.view;
 
+import com.ada.sme.controller.DBController;
 import com.ada.sme.main.Main;
 import static com.ada.sme.main.Main.file1;
 import com.ada.sme.model.StatusModel;
+import static com.ada.sme.view.OnlineStoreView.dtm;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -15,6 +17,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MainFrame extends javax.swing.JFrame {
@@ -432,6 +435,13 @@ public class MainFrame extends javax.swing.JFrame {
                         if (!uploading && Main.file1.length() > 0) {
                             System.err.println("Uploading-Thread");
                             Main.imageUpload();
+                        }
+                        DBController dbc = new DBController();
+                        int id = DBController.getLastID("SELECT * from order_t order by order_id DESC"); 
+                        int id2 = dbc.getOnlineLastID("SELECT order_id from oc_order order by order_id DESC");
+                        
+                        if(id!=id2){
+                           JOptionPane.showMessageDialog(MainFrame.this,"Yeni Siparişiniz Var!"); 
                         }
 
                     } else if (!ans) {

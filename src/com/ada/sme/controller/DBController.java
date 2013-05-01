@@ -124,7 +124,7 @@ public class DBController {
                 Object[] rowData = new Object[numberOfColumns];
                 for (int i = 0; i < rowData.length; ++i) {
                     rowData[i] = result.getObject(i + 1);
-                    System.out.println(result.getObject(i + 1).toString());
+                    //System.out.println(result.getObject(i + 1).toString());
                 }
                 dtm.addRow(rowData);
             }
@@ -151,6 +151,93 @@ public class DBController {
             }
         }
         return null;
+
+    }
+
+    public void updateOrderStock(String opid) {
+
+        PreparedStatement prestat = null;
+        try {
+
+            prestat = conn_off.prepareStatement("SELECT product_id, quantity from order_product WHERE order_product_id>" + opid);
+            System.err.println("SELECT product_id, quantity from order_product WHERE order_product_id>" + opid);
+            result = prestat.executeQuery();
+
+            ResultSetMetaData meta = result.getMetaData();
+            int numberOfColumns = meta.getColumnCount();
+
+            while (result.next()) {
+                Object[] rowData = new Object[numberOfColumns];
+                for (int i = 0; i < rowData.length; ++i) {
+                    rowData[i] = result.getObject(i + 1);
+                }
+                System.out.println("UPDATE product SET quantity=quantity-" + rowData[1].toString() + " WHERE product_id=" + rowData[0].toString());
+                String usql = "UPDATE product SET quantity=quantity-" + rowData[1].toString() + " WHERE product_id=" + rowData[0].toString();
+                insProductDB(usql);
+            }
+            // server.shutdown();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException e) {;
+                }
+                result = null;
+            }
+            if (prestat != null) {
+                try {
+                    prestat.close();
+                } catch (SQLException e) {;
+                }
+                prestat = null;
+            }
+        }
+
+    }
+    
+    public void updateOrderStockOption(String ooid) {
+
+        PreparedStatement prestat = null;
+        try {
+
+            prestat = conn_off.prepareStatement("SELECT order_option_id, quantity from order_product WHERE order_product_id>" + ooid);
+            result = prestat.executeQuery();
+
+            ResultSetMetaData meta = result.getMetaData();
+            int numberOfColumns = meta.getColumnCount();
+
+            while (result.next()) {
+                Object[] rowData = new Object[numberOfColumns];
+                for (int i = 0; i < rowData.length; ++i) {
+                    rowData[i] = result.getObject(i + 1);
+                }
+
+                String usql = "UPDATE product SET quantity=quantity-" + rowData[1].toString() + " WHERE product_id=" + rowData[0].toString();
+                insProductDB(usql);
+            }
+            // server.shutdown();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException e) {;
+                }
+                result = null;
+            }
+            if (prestat != null) {
+                try {
+                    prestat.close();
+                } catch (SQLException e) {;
+                }
+                prestat = null;
+            }
+        }
 
     }
 
@@ -234,7 +321,12 @@ public class DBController {
                     //System.out.println(result.getObject(i + 1).toString());
                 }
                 String sql2 = "INSERT into order_product VALUES(" + String.valueOf(rowData[0]) + "," + String.valueOf(rowData[1]) + "," + String.valueOf(rowData[2]) + ",'" + String.valueOf(rowData[3]) + "','" + String.valueOf(rowData[4]) + "'," + String.valueOf(rowData[5]) + "," + String.valueOf(rowData[6]) + "," + String.valueOf(rowData[7]) + "," + String.valueOf(rowData[8]) + "," + String.valueOf(rowData[9]) + ")";
-                System.out.print("updateOP" + sql2);
+               // System.out.print("updateOP" + sql2);
+                
+                String usql = "UPDATE product SET quantity=quantity-" + rowData[5].toString() + " WHERE product_id=" + rowData[2].toString();
+                System.out.println(usql);
+                insProductDB(usql);
+                
                 empInsDelUpDB(sql2);
 
             }
@@ -260,13 +352,15 @@ public class DBController {
                 prestat = null;
             }
             try {
-                    conn_on.close();
-                } catch (SQLException e) {;
-                }
+                conn_on.close();
+            } catch (SQLException e) {;
+            }
         }
 
 
     }
+    
+    
 
     public void updateOrderOptionDBFromOnline(String sql) {
 
@@ -285,8 +379,22 @@ public class DBController {
                     rowData[i] = result.getObject(i + 1);
                     //System.out.println(result.getObject(i + 1).toString());
                 }
+                
+               /* String beden = "";
+                if(String.valueOf(rowData[4]).equalsIgnoreCase("Small")){
+                   beden="46"; 
+                }else if(String.valueOf(rowData[4]).equalsIgnoreCase("Medium")){
+                   beden="47";
+                }else{
+                   beden="48";
+                }
+                
+                String sqlu = "Update product_option_value SET quantity=quantity-1 WHERE option_value_id="+beden+" AND product_id="+pid;
+                System.err.println(sqlu);
+                insProductDB(sqlu);*/
+                
                 String sql2 = "INSERT into order_option VALUES(" + String.valueOf(rowData[0]) + "," + String.valueOf(rowData[1]) + "," + String.valueOf(rowData[2]) + ",'" + String.valueOf(rowData[3]) + "','" + String.valueOf(rowData[4]) + "')";
-                System.out.print("updateOP" + sql2);
+                //System.out.print("updateOP" + sql2);
                 empInsDelUpDB(sql2);
 
             }
@@ -310,9 +418,9 @@ public class DBController {
                 prestat = null;
             }
             try {
-                    conn_on.close();
-                } catch (SQLException e) {;
-                }
+                conn_on.close();
+            } catch (SQLException e) {;
+            }
         }
 
 
@@ -351,7 +459,7 @@ public class DBController {
             prestat = conn_off.prepareStatement(sql);
             result = prestat.executeQuery();
 
-            System.out.println(result.toString());
+           
             ResultSetMetaData meta = result.getMetaData();
 
             for (int j = 1; j <= meta.getColumnCount(); j++) {
@@ -382,6 +490,23 @@ public class DBController {
         }
         return 0;
     }
+    
+    public int getOnlineLastID(String sql) {
+     
+        PreparedStatement prestat = null;
+        try {
+            conn_on = DriverManager.getConnection(url2, "opendbu", "ozyaz.13");
+            prestat = conn_on.prepareStatement(sql);          
+            prestat.setMaxRows(1);
+            ResultSet rs = prestat.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
+        }
+        return 0;
+    }
 
     public ArrayList selectSingleRowDB(String sql) {
         ArrayList list = new ArrayList();
@@ -398,7 +523,7 @@ public class DBController {
                 }
 
             }
-            System.out.print(list.toString());
+           
             return list;
 
         } catch (SQLException e) {
