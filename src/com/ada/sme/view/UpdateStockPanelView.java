@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ada.sme.view;
 
 import com.ada.sme.controller.DBController;
@@ -58,6 +54,26 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         pro_id = id;
     }
 
+    
+    public boolean validateInputs(int a){
+
+        if(a==1){
+            if(USPV_kod.getText().matches("^[a-zA-Z0-9\\- _]{3,80}$") &&
+               USPV_isim.getText().matches("^^[a-zA-Z0-9\\- _]{3,200}$") &&
+               USPV_fiyat.getText().matches("^[0-9]{1,12}$") &&
+               USPV_adet_l.getText().matches("^[0-9]{1,12}$")  && 
+               USPV_adet_s.getText().matches("^[0-9]{1,12}$")&&
+               USPV_adet_m.getText().matches("^[0-9]{1,12}$") &&
+               USPV_agirlik.getText().matches("^[0-9]{1,12}$") &&
+               USPV_minimum.getText().matches("^[0-9]{1,12}$")   
+                    ){ 
+                return true;
+            }else {
+                return false;
+            }
+        } 
+        return false;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -429,6 +445,10 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
 
     private void USPV_guncelleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USPV_guncelleActionPerformed
 
+       if(validateInputs(1)){
+        
+        
+        
         DBController dbController = new DBController();
         int total = Integer.parseInt(USPV_adet_s.getText()) + Integer.parseInt(USPV_adet_m.getText()) + Integer.parseInt(USPV_adet_l.getText());
         dbController.insProductDB("UPDATE product SET model='" + USPV_kod.getText() + "', price=" + USPV_fiyat.getText() + ", quantity=" + String.valueOf(total) + ", image='" + first_image + "', weight=" + USPV_agirlik.getText() + ", minimum=" + USPV_minimum.getText() + ", status=" + USPV_listele.getSelectedIndex() + " WHERE product_id=" + pro_id);
@@ -452,6 +472,20 @@ public class UpdateStockPanelView extends javax.swing.JPanel {
         }
         Main.logger(USPV_kod.getText() + " model kodlu ürün güncellendi.");
         JOptionPane.showMessageDialog(UpdateStockPanelView.this, "Ürün Güncellendi!");
+        
+       } else {
+            //REGEX geçemedi
+            JOptionPane.showMessageDialog(null,"Lütfen girmiş olduğunuz alanları kontrol ediniz.\n"
+                  + "Kurallar:\n"
+                    + "Türkçe karakter kullanmayınız (ş,ç,ı,ü,ğ,ö,İ,Ş,Ç,Ö,Ğ,Ü)\n"
+                  + "Ürün ismi ve kodu için küçük büyük harfler boşluk,\n "
+                    + "alt çizgi ve tire işaretini kullanabilirsiniz.\n"
+                    + "ürün ismi 3-80 karakter arası, ürün adı 3-200 karakter arası olabilir."
+                    + "Ürün fiyatı, adeti, ağırlığı, minimum alanları için\n"
+                    + "sadece sayı girebilirsiniz. \n",
+                  "Hatalı Giriş Yaptınız!!!", JOptionPane.WARNING_MESSAGE);
+        } //regex end
+       
     }//GEN-LAST:event_USPV_guncelleActionPerformed
 
     private void USPV_sil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USPV_sil1ActionPerformed

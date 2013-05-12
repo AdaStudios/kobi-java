@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,6 +59,24 @@ public class AddStockPanelView extends javax.swing.JPanel {
 
     }
 
+    public boolean validateInputs(int a){
+        if(a==1){
+            if(ASPV_kod.getText().matches("^[a-zA-Z0-9\\- _]{3,80}$") &&
+               ASPV_isim.getText().matches("^^[a-zA-Z0-9\\- _]{3,200}$") &&
+               ASPV_fiyat.getText().matches("^[0-9]{1,12}$") &&
+               ASPV_adet_l.getText().matches("^[0-9]{1,12}$")  && 
+               ASPV_adet_s.getText().matches("^[0-9]{1,12}$")&&
+               ASPV_adet_m.getText().matches("^[0-9]{1,12}$") &&
+               ASPV_agirlik.getText().matches("^[0-9]{1,12}$") &&
+               ASPV_minimum.getText().matches("^[0-9]{1,12}$")   
+                    ){ 
+                return true;
+            }else {
+                return false;
+            }
+        } 
+        return false;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -408,60 +427,76 @@ public class AddStockPanelView extends javax.swing.JPanel {
 
     private void AEV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AEV_ekleActionPerformed
 
-        java.util.Date today = new java.util.Date();
-        java.sql.Date sqlToday = new java.sql.Date(today.getTime());
-
-        if (is_product_empty) {
-            res = 1000;
-        } else {
-            res = DBController.getLastID("SELECT * FROM product order by product_id DESC");
-        }
-
-        res++;
-
-        dbController.insProductDB("INSERT INTO product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES(" + res + ", '" + ASPV_kod.getText() + "', "
-                + "" + (Integer.parseInt(ASPV_adet_s.getText()) + Integer.parseInt(ASPV_adet_m.getText()) + Integer.parseInt(ASPV_adet_l.getText())) + ", 6, 'data/" + first_image + "', 1, "
-                + "" + Double.parseDouble(ASPV_fiyat.getText()) + ", 9, '" + sqlToday + "' , " + Double.parseDouble(ASPV_agirlik.getText()) + ", 2, " + Integer.parseInt(ASPV_minimum.getText()) + ", 1, "
-                + "" + ASPV_listele.getSelectedIndex() + ", '" + sqlToday + "'  , '" + sqlToday + "' )");
-        dbController.insProductDB("INSERT INTO product_description(product_id,language_id,name,description,tag) VALUES(" + res + ", 1, '" + ASPV_isim.getText() + "', '" + ASPV_aciklama.getText() + "', '" + ASPV_etiketler.getText() + "')");
-        dbController.insProductDB("INSERT INTO product_option(product_option_id,product_id,option_id,required) VALUES(" + (res + 4000) + ", " + res + ",  11, 1 )");
-        dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " + (res + 4000) + ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)");
-        dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " + (res + 4000) + ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)");
-        dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " + (res + 4000) + ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)");
-        dbController.insProductDB("INSERT INTO product_to_category(product_id, category_id) VALUES(" + res + ",  61)");
-       
-        Main.logger(ASPV_kod.getText() + " model kodlu ürün eklendi.");
         
-        try {
-            oout = new FileWriter(Main.file, true);
-            BufferedWriter bw = new BufferedWriter(oout);
+        if (validateInputs(1) ) {
+        
+            java.util.Date today = new java.util.Date();
+            java.sql.Date sqlToday = new java.sql.Date(today.getTime());
 
-            bw.write(res + "\n");
-            bw.write("INSERT INTO oc_product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES(" + res + ", '" + ASPV_kod.getText() + "', "
+            if (is_product_empty) {
+                res = 1000;
+            } else {
+                res = DBController.getLastID("SELECT * FROM product order by product_id DESC");
+            }
+
+            res++;
+
+            dbController.insProductDB("INSERT INTO product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES(" + res + ", '" + ASPV_kod.getText() + "', "
                     + "" + (Integer.parseInt(ASPV_adet_s.getText()) + Integer.parseInt(ASPV_adet_m.getText()) + Integer.parseInt(ASPV_adet_l.getText())) + ", 6, 'data/" + first_image + "', 1, "
                     + "" + Double.parseDouble(ASPV_fiyat.getText()) + ", 9, '" + sqlToday + "' , " + Double.parseDouble(ASPV_agirlik.getText()) + ", 2, " + Integer.parseInt(ASPV_minimum.getText()) + ", 1, "
-                    + "" + ASPV_listele.getSelectedIndex() + ", '" + sqlToday + "'  , '" + sqlToday + "' )\n");
+                    + "" + ASPV_listele.getSelectedIndex() + ", '" + sqlToday + "'  , '" + sqlToday + "' )");
+            dbController.insProductDB("INSERT INTO product_description(product_id,language_id,name,description,tag) VALUES(" + res + ", 1, '" + ASPV_isim.getText() + "', '" + ASPV_aciklama.getText() + "', '" + ASPV_etiketler.getText() + "')");
+            dbController.insProductDB("INSERT INTO product_option(product_option_id,product_id,option_id,required) VALUES(" + (res + 4000) + ", " + res + ",  11, 1 )");
+            dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " + (res + 4000) + ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)");
+            dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " + (res + 4000) + ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)");
+            dbController.insProductDB("INSERT INTO product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " + (res + 4000) + ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)");
+            dbController.insProductDB("INSERT INTO product_to_category(product_id, category_id) VALUES(" + res + ",  61)");
 
-            bw.write("INSERT INTO oc_product_description(product_id,language_id,name,description,tag) VALUES(" + res + ", 1, '" + ASPV_isim.getText() + "', '" + ASPV_aciklama.getText() + "', '" + ASPV_etiketler.getText() + "')\n");
-            bw.write("INSERT INTO oc_product_option(product_option_id,product_id,option_id,required) VALUES(" + (res + 4000) + ", " + res + ",  11, 1 )\n");
-            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " + (res + 4000) + ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)\n");
-            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " + (res + 4000) + ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)\n");
-            bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " + (res + 4000) + ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)\n");
-            bw.write("INSERT INTO oc_product_to_category(product_id, category_id) VALUES(" + res + ",  61)\n");
-            bw.write("INSERT INTO oc_product_to_store(product_id, store_id) VALUES(" + res + ",  0)\n");
+            Main.logger(ASPV_kod.getText() + " model kodlu ürün eklendi.");
 
-            System.out.print("Yazdım");
-            bw.close();
+            try {
+                oout = new FileWriter(Main.file, true);
+                BufferedWriter bw = new BufferedWriter(oout);
+
+                bw.write(res + "\n");
+                bw.write("INSERT INTO oc_product(product_id,model,quantity,stock_status_id,image,shipping,price,tax_class_id,date_available,weight,weight_class_id,subtract,minimum,status,date_added,date_modified) VALUES(" + res + ", '" + ASPV_kod.getText() + "', "
+                        + "" + (Integer.parseInt(ASPV_adet_s.getText()) + Integer.parseInt(ASPV_adet_m.getText()) + Integer.parseInt(ASPV_adet_l.getText())) + ", 6, 'data/" + first_image + "', 1, "
+                        + "" + Double.parseDouble(ASPV_fiyat.getText()) + ", 9, '" + sqlToday + "' , " + Double.parseDouble(ASPV_agirlik.getText()) + ", 2, " + Integer.parseInt(ASPV_minimum.getText()) + ", 1, "
+                        + "" + ASPV_listele.getSelectedIndex() + ", '" + sqlToday + "'  , '" + sqlToday + "' )\n");
+
+                bw.write("INSERT INTO oc_product_description(product_id,language_id,name,description,tag) VALUES(" + res + ", 1, '" + ASPV_isim.getText() + "', '" + ASPV_aciklama.getText() + "', '" + ASPV_etiketler.getText() + "')\n");
+                bw.write("INSERT INTO oc_product_option(product_option_id,product_id,option_id,required) VALUES(" + (res + 4000) + ", " + res + ",  11, 1 )\n");
+                bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 1000) + ", " + (res + 4000) + ", " + res + ", 11, 46, " + Integer.parseInt(ASPV_adet_s.getText()) + ", 1)\n");
+                bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 2000) + ", " + (res + 4000) + ", " + res + ", 11, 47, " + Integer.parseInt(ASPV_adet_m.getText()) + ", 1)\n");
+                bw.write("INSERT INTO oc_product_option_value(product_option_value_id,product_option_id,product_id,option_id,option_value_id,quantity,subtract) VALUES(" + (res + 3000) + ", " + (res + 4000) + ", " + res + ", 11, 48, " + Integer.parseInt(ASPV_adet_l.getText()) + ", 1)\n");
+                bw.write("INSERT INTO oc_product_to_category(product_id, category_id) VALUES(" + res + ",  61)\n");
+                bw.write("INSERT INTO oc_product_to_store(product_id, store_id) VALUES(" + res + ",  0)\n");
+
+                bw.close();
 
 
-            frame.main_anapanel.removeAll();
-            frame.main_anapanel.add(new TempAddStockView(frame));
-            frame.main_anapanel.validate();
+                frame.main_anapanel.removeAll();
+                frame.main_anapanel.add(new TempAddStockView(frame));
+                frame.main_anapanel.validate();
 
-        } catch (IOException ex) {
-            Logger.getLogger(AddStockPanelView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.updateUI();
+            } catch (IOException ex) {
+                Logger.getLogger(AddStockPanelView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.updateUI();
+        } else {
+            //REGEX geçemedi
+            JOptionPane.showMessageDialog(null,"Lütfen girmiş olduğunuz alanları kontrol ediniz.\n"
+                  + "Kurallar:\n"
+                    + "Türkçe karakter kullanmayınız (ş,ç,ı,ü,ğ,ö,İ,Ş,Ç,Ö,Ğ,Ü)\n"
+                  + "Ürün ismi ve kodu için küçük büyük harfler boşluk,\n "
+                    + "alt çizgi ve tire işaretini kullanabilirsiniz.\n"
+                    + "ürün ismi 3-80 karakter arası, ürün adı 3-200 karakter arası olabilir."
+                    + "Ürün fiyatı, adeti, ağırlığı, minimum alanları için\n"
+                    + "sadece sayı girebilirsiniz. \n",
+                  "Hatalı Giriş Yaptınız!!!", JOptionPane.WARNING_MESSAGE);
+        } //regex end
+        
+        
     }//GEN-LAST:event_AEV_ekleActionPerformed
     private void ASPV_gozatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASPV_gozatActionPerformed
         String s;

@@ -7,6 +7,7 @@ package com.ada.sme.view;
 import com.ada.sme.controller.DBController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,6 +25,27 @@ public class CreateOwnerView extends javax.swing.JFrame {
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
+    public boolean validateInputs(int a){
+        //ADD Owner ---> 1
+        
+        if(a==1){
+            //kurallar
+            //türkçe karakter yok
+            //isim soyad ve kullanıcı adı 4-12 karakter ve küçük büyük harfler
+            //parola 5-14 karakter özel karakterler, numeric alfa numerik karakterler
+            if(COV_ad.getText().matches("^[a-zA-Z]{4,12}$") &&
+               COV_soyad.getText().matches("^[a-zA-Z]{4,12}$") &&
+               COV_kullanici_adi.getText().matches("^[a-zA-Z]{4,12}$") &&
+               COV_sifre.getText().matches("^(?=.*\\d)(?=.*[a-zA-Z]).{4,12}$")   )
+            { 
+                return true;
+            }else{
+                return false;
+            }
+        } 
+        return false;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -178,16 +200,29 @@ public class CreateOwnerView extends javax.swing.JFrame {
 
     private void COV_olusturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_COV_olusturActionPerformed
         // TODO add your handling code here:
-        DBController db = new DBController();
-        if(COV_sifre.getText().equals(COV_sifre_t.getText())){
-            db.empInsDelUpDB("INSERT INTO employee VALUES(1, '"+COV_ad.getText()+"', '"+COV_soyad.getText()+"', '"+COV_kullanici_adi.getText()+"', '"+COV_sifre.getText()+"')");
-            LoginView loginScreen = new LoginView();           
+       if(validateInputs(1)){
+            DBController db = new DBController();
+            if(COV_sifre.getText().equals(COV_sifre_t.getText())){
+                db.empInsDelUpDB("INSERT INTO employee VALUES(1, '"+COV_ad.getText()+"', '"+COV_soyad.getText()+"', '"+COV_kullanici_adi.getText()+"', '"+COV_sifre.getText()+"')");
+                LoginView loginScreen = new LoginView();           
 
-            loginScreen.setVisible(true);
-            CreateOwnerView.this.setVisible(false);
-        }        
-        else
-            COV_mesaj.setText("ŞİFRE HATALI GİRİLDİ!!!");
+                loginScreen.setVisible(true);
+                CreateOwnerView.this.setVisible(false);
+            }        
+            else {
+                COV_mesaj.setText("ŞİFRE HATALI GİRİLDİ!!!");
+            }
+        
+        } else {
+            //REGEX geçemedi
+            JOptionPane.showMessageDialog(null,"Lütfen girmiş olduğunuz alanları kontrol ediniz.\n"
+                  + "Kurallar:\n"
+            + "Türkçe karakter kullanmayınız (ş,ç,ı,ü,ğ,ö,İ,Ş,Ç,Ö,Ğ,Ü)\n"
+            + "İsim , Soyad ve Kullanıcı adı 4-12 karakter ve sadece küçük büyük harfler olabilir,\n"
+            + "Şifre 4-12 karakter küçük büyük harfler, rakamlar ve özel karakterler  olabilir.\n"
+            + "en az 1 sayı içermesi gerekir.",
+          "Hatalı Giriş Yaptınız!!!",JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_COV_olusturActionPerformed
 
     /**

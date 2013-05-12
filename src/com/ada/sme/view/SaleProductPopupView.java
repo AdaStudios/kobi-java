@@ -13,16 +13,10 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
-/**
- *
- * @author tvostro
- */
 public class SaleProductPopupView extends javax.swing.JPanel {
 
     /**
@@ -44,15 +38,13 @@ public class SaleProductPopupView extends javax.swing.JPanel {
         jLabel2.setText(dtm.getValueAt(0, 1).toString());
         dtm = dbc.selectDB("Select image from product WHERE product_id="+id);
         System.err.println(dtm.getValueAt(0, 0).toString());
-        System.out.println("BUrası Popup"+getClass().getResource("/"+dtm.getValueAt(0, 0).toString()));
-       // jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/"+dtm.getValueAt(0, 0).toString())));
         
+        //Resize te product image on thte screen.
         ImageIcon ic = new ImageIcon(  getClass().getResource("/"+dtm.getValueAt(0, 0).toString()) );
         
         
 Toolkit toolkit = Toolkit.getDefaultToolkit();
 
-//Image image = toolkit.createImage(getClass().getResource("/"+dtm.getValueAt(0, 0).toString()));
 Image im2 = getScaledImage(ic.getImage(), 250, 250);
 ImageIcon icon = new ImageIcon(im2);
 jLabel1.setIcon(icon);
@@ -194,6 +186,7 @@ jLabel1.setIcon(icon);
         g2 = Integer.valueOf(jTextField4.getText());
         g3 = Integer.valueOf(jTextField5.getText());
         
+        //don't sell if there are not enough product
         if(g1>s1 || g2>s2 || g3>s3)
             jLabel7.setText("Yeterli Ürün Yok!");
         else
