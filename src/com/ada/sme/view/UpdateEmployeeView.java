@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class UpdateEmployeeView extends javax.swing.JPanel {
 
@@ -47,24 +48,26 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
             //türkçe karakter yok
             //isim soyad ve kullanıcı adı 4-12 karakter ve küçük büyük harfler
             //parola 5-14 karakter özel karakterler, numeric alfa numerik karakterler
-            if(UEV_isim.getText().length() <= 4 && 
-               UEV_isim.getText().matches("^[a-zA-Z]{1,12}$") &&
-               UEV_soyad.getText().length() <= 4 && 
-               UEV_soyad.getText().matches("^[a-zA-Z]{1,12}$") &&
-               UEV_kullaniciadi.getText().length() <= 4 && 
-               UEV_kullaniciadi.getText().matches("^[a-zA-Z]{1,12}$") &&
-               UEV_sifre.getText().length() <= 4 && 
-               UEV_sifre.getText().matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{5,14}$")
-                    ) return true;
+            if(UEV_isim.getText().matches("^[a-zA-Z]{4,12}$") &&
+               UEV_soyad.getText().matches("^[a-zA-Z]{4,12}$") &&
+               UEV_kullaniciadi.getText().matches("^[a-zA-Z]{4,12}$") &&
+               UEV_sifre.getText().matches("^(?=.*\\d)(?=.*[a-zA-Z]).{4,12}$")   ){ 
+                return true;
+            }else
+            {
+                return false;
+            }
         } else if (a==2){
             //rules
             //türkçe karakter yok
             // isim ve kullanıcı adı 4-12 karakter küçük büyük harflerden olmalı
-            if( UEV_isim.getText().length() <= 4 && 
-                UEV_isim.getText().matches("^[a-zA-Z]{1,12}$") &&
-                UEV_kullaniciadi.getText().length() <= 4 && 
-                UEV_kullaniciadi.getText().matches("^[a-zA-Z]{1,12}$")
-                    ) return true;
+            if( UEV_isim.getText().matches("^[a-zA-Z]{4,12}$") && 
+                UEV_kullaniciadi.getText().matches("^[a-zA-Z]{4,12}$") ){
+            return true;
+            }
+            else {
+                return false;
+            }
         }
         return false;
     }
@@ -252,27 +255,42 @@ public class UpdateEmployeeView extends javax.swing.JPanel {
     private void UEV_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UEV_updateActionPerformed
 
         if(validateInputs(1)){
-        DBController dbController = new DBController();
-        dbController.empInsDelUpDB("UPDATE employee SET name='" + UEV_isim.getText() + "', surname='" + UEV_soyad.getText() + "', username='" + UEV_kullaniciadi.getText() + "', password='" + UEV_sifre.getText() + "' WHERE id=" + String.valueOf(res.get(0)));
+            DBController dbController = new DBController();
+            dbController.empInsDelUpDB("UPDATE employee SET name='" + UEV_isim.getText() + "', surname='" + UEV_soyad.getText() + "', username='" + UEV_kullaniciadi.getText() + "', password='" + UEV_sifre.getText() + "' WHERE id=" + String.valueOf(res.get(0)));
+            Main.logger(UEV_isim.getText() + " " + UEV_soyad.getText() + " kullanıcısı düzenlendi.");
+        
+            MainFrame.main_anapanel.removeAll();
+            MainFrame.main_anapanel.add(new ManageEmployeeView());
+            MainFrame.main_anapanel.validate();
         } else {
             //REGEX geçemedi
-            System.out.println("REGEX:::çalışan ekle butonu");
+            JOptionPane.showMessageDialog(null,"Lütfen girmiş olduğunuz alanları kontrol ediniz.\n"
+                  + "Kurallar:\n"
+                    + "Türkçe karakter kullanmayınız (ş,ç,ı,ü,ğ,ö,İ,Ş,Ç,Ö,Ğ,Ü)\n"
+                  + "İsim , Soyad ve Kullanıcı adı 4-12 karakter ve sadece küçük büyük harfler olabilir,\n"
+                    + "Şifre 4-12 karakter küçük büyük harfler, rakamlar ve özel karakterler  olabilir.\n"
+                    + "en az 1 sayı içermesi gerekir.",
+                  "Hatalı Giriş Yaptınız!!!",JOptionPane.WARNING_MESSAGE);
         }
-        Main.logger(UEV_isim.getText() + " " + UEV_soyad.getText() + " kullanıcısı düzenlendi.");
     }//GEN-LAST:event_UEV_updateActionPerformed
 
     private void UEV_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UEV_deleteActionPerformed
       if(validateInputs(2)){
         DBController dbController = new DBController();
         dbController.empInsDelUpDB("DELETE FROM employee WHERE id=" + String.valueOf(res.get(0)));
+        Main.logger(UEV_isim.getText() + " " + UEV_soyad.getText() + " kullanıcısı silindi.");
+        
         MainFrame.main_anapanel.removeAll();
         MainFrame.main_anapanel.add(new ManageEmployeeView());
         MainFrame.main_anapanel.validate();
       } else {
           //REGEX i geçemedi
-          System.out.println("\nREGEX::: çalışan sil butonu");
+          JOptionPane.showMessageDialog(null,"Lütfen girmiş olduğunuz alanları kontrol ediniz.\n"
+                  + "Kurallar:\n"
+                  + "Türkçe karakter kullanmayınız (ş,ç,ı,ü,ğ,ö,İ,Ş,Ç,Ö,Ğ,Ü)\n"
+                  + "Lütfen girdiğiniz Kullannıcı Adını kontrol ediniz.",
+                  "Hatalı Giriş Yaptınız!!!",JOptionPane.WARNING_MESSAGE);
       }
-      Main.logger(UEV_isim.getText() + " " + UEV_soyad.getText() + " kullanıcısı silindi.");
     }//GEN-LAST:event_UEV_deleteActionPerformed
 
     private void UEV_geriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UEV_geriActionPerformed

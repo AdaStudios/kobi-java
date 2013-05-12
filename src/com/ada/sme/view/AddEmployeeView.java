@@ -9,6 +9,7 @@ import com.ada.sme.main.Main;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,9 +22,29 @@ public class AddEmployeeView extends javax.swing.JPanel {
      */
     public AddEmployeeView() {
         initComponents();
-
     }
 
+    public boolean validateInputs(int a){
+        //1 buttons çalışan ekle
+        //AEV_ekle ---> 1
+        
+        if(a==1){
+            //rules
+            //türkçe karakter yok
+            //isim soyad ve kullanıcı adı 4-12 karakter ve küçük büyük harfler
+            //parola 4-12 karakter özel karakterler, numeric alfa numerik karakterler
+            if(AEV_isim.getText().matches("^[a-zA-Z]{4,12}$") &&
+               AEV_soyad.getText().matches("^[a-zA-Z]{4,12}$") &&
+               AEV_kullaniciadi.getText().matches("^[a-zA-Z]{4,12}$") &&
+               AEV_sifre.getText().matches("^(?=.*\\d)(?=.*[a-zA-Z]).{4,12}$")){ 
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        return false;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -167,6 +188,11 @@ public class AddEmployeeView extends javax.swing.JPanel {
         AEV_liste.setMaximumSize(new java.awt.Dimension(150, 35));
         AEV_liste.setMinimumSize(new java.awt.Dimension(150, 35));
         AEV_liste.setPreferredSize(new java.awt.Dimension(150, 35));
+        AEV_liste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AEV_listeActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
@@ -182,13 +208,38 @@ public class AddEmployeeView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AEV_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AEV_ekleActionPerformed
+        if(validateInputs(1)){
+        
         DBController dbcontroller = new DBController();
         int emp_id = DBController.getLastID("SELECT * from employee order by id DESC");
         System.out.print(emp_id + "");
         dbcontroller.empInsDelUpDB("INSERT INTO employee VALUES(" + (emp_id + 1) + ", '" + AEV_isim.getText() + "', '" + AEV_soyad.getText() + "', '" + AEV_kullaniciadi.getText() + "', '" + AEV_sifre.getText() + "')");
         
-        Main.logger(AEV_isim.getText() + " " + AEV_soyad.getText() + " isimli kullanıcı oluşturuldu.");
+        MainFrame.main_anapanel.removeAll();
+        MainFrame.main_anapanel.add(new ManageEmployeeView());
+        MainFrame.main_anapanel.validate();
+        
+        Main.logger(AEV_isim.getText() + " " + AEV_soyad.getText() + " isimli satıcı oluşturuldu.");
+        
+         } else {
+            //REGEX geçemedi
+            JOptionPane.showMessageDialog(null,"Lütfen girmiş olduğunuz alanları kontrol ediniz.\n"
+                  + "Kurallar:\n"
+                    + "Türkçe karakter kullanmayınız (ş,ç,ı,ü,ğ,ö,İ,Ş,Ç,Ö,Ğ,Ü)\n"
+                  + "İsim , Soyad ve Kullanıcı adı 4-12 karakter ve sadece küçük büyük harfler olabilir,\n"
+                    + "Şifre 4-12 karakter küçük büyük harfler, rakamlar ve özel karakterler  olabilir.\n"
+                    + "en az 1 sayı içermesi gerekir.",
+                  "Hatalı Giriş Yaptınız!!!",JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_AEV_ekleActionPerformed
+
+    private void AEV_listeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AEV_listeActionPerformed
+        MainFrame.main_anapanel.removeAll();
+        MainFrame.main_anapanel.add(new ManageEmployeeView());
+        MainFrame.main_anapanel.validate();
+        
+    }//GEN-LAST:event_AEV_listeActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AEV_ekle;
     private javax.swing.JTextField AEV_isim;
